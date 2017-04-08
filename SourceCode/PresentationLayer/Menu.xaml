@@ -1,0 +1,27 @@
+﻿<Window x:Class="PresentationLayer.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PresentationLayer"
+        mc:Ignorable="d"
+        Title="Menu" Height="604.858" Width="1382.591"
+        WindowState="Maximized"
+        >
+    <Grid>
+        <Label Content="6869 Hotel Management" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" FontSize="36"/>
+        <Image x:Name="img_profile" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Width="100" Height="100"/>
+        <StackPanel x:Name="gri_staff" Orientation="Horizontal" 
+            HorizontalAlignment="Center" Height="109" Margin="0" VerticalAlignment="Center" Width="1181">
+            <Button Content="Phòng" FontSize="48" Width="260"/>
+            <Button Content="Dịch Vụ" Width="260" FontSize="48" Margin="200,0"/>
+            <Button Content="Khách Hàng" FontSize="48" Click="goToCustomerMa"/>
+        </StackPanel>
+        <StackPanel x:Name="gri_manager" Orientation="Horizontal" 
+            HorizontalAlignment="Center" Height="109" Margin="0" VerticalAlignment="Center">
+            <Button Content="Nhân Viên" FontSize="48" Width="260" Margin="0,0,300,0"/>
+            <Button Content="Doanh Thu" FontSize="48"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
