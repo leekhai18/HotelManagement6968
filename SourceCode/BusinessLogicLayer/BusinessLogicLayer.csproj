@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{39FA489E-9182-4A0E-B146-A157526F194B}</ProjectGuid>
+    <ProjectGuid>{2ED5853F-485E-4A3A-AE3E-7399F8824887}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>BusinessLogicLayer</RootNamespace>
     <AssemblyName>BusinessLogicLayer</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -95,12 +95,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
-      <Project>{1d47c647-536f-43f7-9ade-5b10c82621ef}</Project>
+      <Project>{2af0250a-7427-406f-a6c3-cb512209b53a}</Project>
       <Name>DataAccessLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataObjectTranslate\DataObjectTranslate.csproj">
-      <Project>{d9176581-40e0-416d-84c1-8181f573bab3}</Project>
-      <Name>DataObjectTranslate</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

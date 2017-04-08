@@ -34,7 +34,6 @@ namespace PresentationLayer
                 gri_manager.Visibility = Visibility.Hidden;
             else
                 gri_staff.Visibility = Visibility.Hidden;
-            img_profile.Source = new BitmapImage(new Uri("C:\\Users\\Diep Dang Khoa\\Downloads\\Compressed\\HotelManagement6968-master\\SourceCode\\PresentationLayer\\Assets\\ahihi.jpg"));
         }
 
         private void goToCustomerMa(object sender, RoutedEventArgs e)
