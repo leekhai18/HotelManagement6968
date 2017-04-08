@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PresentationLayer
+namespace DataAccessLayer
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,22 +23,6 @@ namespace PresentationLayer
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-      
-
-        private void goToFood(object sender, RoutedEventArgs e)
-        {
-            Food food = new Food();
-            this.Close();
-            food.Show();
-        }
-
-        private void GoTologin(object sender, RoutedEventArgs e)
-        {
-            Login login = new Login();
-            this.Close();
-            login.Show();
         }
     }
 }
