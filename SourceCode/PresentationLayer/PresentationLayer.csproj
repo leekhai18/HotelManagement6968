@@ -123,13 +123,53 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\" />
+    <Resource Include="Assets\Phong\Standar0.jpg" />
+    <Resource Include="Assets\Phong\Suite0.jpg" />
+    <Resource Include="Assets\Phong\Suite1.jpg" />
+    <Resource Include="Assets\Phong\Suite2.jpg" />
+    <Resource Include="Assets\Phong\Superior0.jpg" />
+    <Resource Include="Assets\Phong\Superior1.jpg" />
+    <Resource Include="Assets\Phong\Vip0.jpg" />
+    <Resource Include="Assets\Phong\Vip1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogicLayer\BusinessLogicLayer.csproj">
       <Project>{2ed5853f-485e-4a3a-ae3e-7399f8824887}</Project>
       <Name>BusinessLogicLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\NhanVien\NV001.jpg" />
+    <Resource Include="Assets\NhanVien\NV002.jpg" />
+    <Resource Include="Assets\NhanVien\NV003.jpg" />
+    <Resource Include="Assets\NhanVien\NV004.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\DichVu\Foods\BachTuocOM.PNG" />
+    <Resource Include="Assets\DichVu\Foods\BachTuocXaoCay.PNG" />
+    <Resource Include="Assets\DichVu\Foods\BoBitTet.PNG" />
+    <Resource Include="Assets\DichVu\Foods\BuffetSang.PNG" />
+    <Resource Include="Assets\DichVu\Foods\BuffetToi.PNG" />
+    <Resource Include="Assets\DichVu\Foods\BuffetTrua.PNG" />
+    <Resource Include="Assets\DichVu\Foods\BunLong.PNG" />
+    <Resource Include="Assets\DichVu\Foods\BunOcSuon.PNG" />
+    <Resource Include="Assets\DichVu\Foods\ChaoTrai.PNG" />
+    <Resource Include="Assets\DichVu\Foods\ChimQuay.PNG" />
+    <Resource Include="Assets\DichVu\Foods\ComboBuaAn.PNG" />
+    <Resource Include="Assets\DichVu\Foods\ComGa.PNG" />
+    <Resource Include="Assets\DichVu\Foods\ComTronThiBo.PNG" />
+    <Resource Include="Assets\DichVu\Foods\LauCua.PNG" />
+    <Resource Include="Assets\DichVu\Foods\LauOC.PNG" />
+    <Resource Include="Assets\DichVu\Foods\LauOt.PNG" />
+    <Resource Include="Assets\DichVu\Foods\NuocCombo3TraDao.PNG" />
+    <Resource Include="Assets\DichVu\Foods\NuocComboTraDaoDonut.PNG" />
+    <Resource Include="Assets\DichVu\Foods\NuocComboTraDaoNhaDam.PNG" />
+    <Resource Include="Assets\DichVu\Foods\NuocLac.PNG" />
+    <Resource Include="Assets\DichVu\Foods\NuocTraSuaThanTre.PNG" />
+    <Resource Include="Assets\DichVu\Foods\PhatKyMiGia.PNG" />
+    <Resource Include="Assets\DichVu\Foods\Pizza.PNG" />
+    <Resource Include="Assets\DichVu\Foods\SuiCao.PNG" />
+    <Resource Include="Assets\DichVu\Foods\SuongPhoMai.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
