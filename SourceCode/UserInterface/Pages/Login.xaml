@@ -28,10 +28,10 @@
                 </StackPanel>
 
                 <Grid Margin="61,30,61,0" HorizontalAlignment="Center" Width="263">
-                    <Button Name="btnLogin" Content="Login" Margin="0,0,172,0"/>
+                    <Button Name="btnLogin" Content="Login" Click="btnLogin_Click" Margin="0,0,172,0"/>
                     <Button Name="btnCancle" Content="Cancle" Margin="172,0,0,0"
-                            Command="mui:LinkCommands.NavigateLink"
-                            CommandParameter="/Pages/SelectAuthority.xaml"/>
+                            Command="NavigationCommands.BrowseBack" 
+                            CommandTarget="{Binding ElementName=ContentFrame}"/>
                 </Grid>
             </StackPanel>
         </ScrollViewer>

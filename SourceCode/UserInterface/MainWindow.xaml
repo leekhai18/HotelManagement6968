@@ -19,18 +19,5 @@
                 <mui:Link DisplayName="Introduction" Source="/Pages/SelectAuthority.xaml"/>
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
-
-        <mui:LinkGroup DisplayName="Rooms">
-        </mui:LinkGroup>
-
-        <mui:LinkGroup DisplayName="Services">
-        </mui:LinkGroup>
-
-        <mui:LinkGroup DisplayName="Staffs">
-        </mui:LinkGroup>
-
-        <mui:LinkGroup DisplayName="Customers">
-        </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>
-
 </mui:ModernWindow>

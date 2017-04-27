@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstFloor.ModernUI.App.Content;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,21 @@ namespace UserInterface.Pages
         public SelectAuthority()
         {
             InitializeComponent();
+        }
+
+        private void btnCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            var mainW = MainWindow.mainWindow;
+
+            if (mainW.MenuLinkGroups.Count > 2)
+            {
+                mainW.ContentSource = new Uri("Pages/Services.xaml", UriKind.Relative);
+            }
+            else
+            {
+                MenuGroup.Remove(mainW, 0, "Pages/Services.xaml");
+                MenuGroup.Add(mainW, "Services", "List", "Pages/Services.xaml");
+            }
         }
     }
 }

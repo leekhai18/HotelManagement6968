@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstFloor.ModernUI.App.Content;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,19 @@ namespace UserInterface.Pages
         public Login()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainWindow.mainWindow.MenuLinkGroups.Count < 2)
+            {
+                MenuGroup.Add(MainWindow.mainWindow, "Rooms", "List", "Pages/Rooms.xaml");
+                MenuGroup.Add(MainWindow.mainWindow, "Services", "List", "Pages/Services.xaml");
+                MenuGroup.Add(MainWindow.mainWindow, "Staffs", "List", "Pages/Staffs.xaml");
+                MenuGroup.Add(MainWindow.mainWindow, "Customers", "List", "Pages/Customers.xaml");
+
+                MenuGroup.Remove(MainWindow.mainWindow, 0, "Pages/Setting.xaml");
+            }
         }
     }
 }

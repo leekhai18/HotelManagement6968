@@ -1,5 +1,4 @@
-﻿using FirstFloor.ModernUI.Windows.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,19 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UserInterface
+namespace UserInterface.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Staffs.xaml
     /// </summary>
-    public partial class MainWindow : ModernWindow
+    public partial class Staffs : UserControl
     {
-        public static MainWindow mainWindow;
-
-        public MainWindow()
+        public Staffs()
         {
             InitializeComponent();
-            mainWindow = this;
         }
     }
 }
