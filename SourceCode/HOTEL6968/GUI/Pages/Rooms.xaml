@@ -6,7 +6,8 @@
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="500"
-             Style="{StaticResource ContentRoot}">
+             Style="{StaticResource ContentRoot}"
+             >
 
     <UserControl.Resources>
         <DataTemplate x:Key="RoomListDataTemplate">
@@ -55,7 +56,7 @@
                 <ComboBoxItem Content="Fixing"/>
             </ComboBox>
 
-            <TextBox Name="txtSearch" Margin="0,10" TextChanged="txtSearch_TextChanged"/>
+            <TextBox Style="{StaticResource ResourceKey=placeHolder}" Tag=" Search..." Name="txtSearch" Margin="0,10" TextChanged="txtSearch_TextChanged"/>
         </StackPanel>
         
         <ListView Name="lvRoom" ItemsSource="{Binding ListPhong}"

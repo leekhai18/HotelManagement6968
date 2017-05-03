@@ -28,6 +28,7 @@ namespace GUI.Pages
             InitializeComponent();
             this.DataContext = roomBUS;
 
+            // Bug fix late
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvRoom.Items);
             view.Filter = SearchFilter;
         }

@@ -130,9 +130,6 @@
     <Compile Include="DAL\TINH_TRANG.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Content\Status.xaml.cs">
-      <DependentUpon>Status.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -141,10 +138,6 @@
     <Page Include="GUI\Content\SettingsAppearance.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GUI\Content\Status.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\Pages\About.xaml">
       <Generator>MSBuild:Compile</Generator>
