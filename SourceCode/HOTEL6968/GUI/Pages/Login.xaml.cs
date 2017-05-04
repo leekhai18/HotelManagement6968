@@ -1,5 +1,6 @@
 ﻿using FirstFloor.ModernUI.App.Content;
 using HOTEL6968;
+using HOTEL6968.BUS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace GUI.Pages
     /// </summary>
     public partial class Login : UserControl
     {
+        LoginBUS loginBUS = new LoginBUS();
+
         public Login()
         {
             InitializeComponent();
@@ -29,39 +32,7 @@ namespace GUI.Pages
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWd = MainWindow.mainWindow;
-
-            if (mainWd.MenuLinkGroups.Count < 2)
-            {
-                // Add Rooms Group
-                List<string> listLinkName = new List<string>();
-                listLinkName.Add("Manage");
-                MenuGroup.Add(mainWd, "Rooms", listLinkName.Count, listLinkName, "GUI/Pages/Rooms.xaml");
-
-                // Add Services Group
-                listLinkName.Clear();
-                listLinkName.Add("Foods");
-                listLinkName.Add("Games");
-                listLinkName.Add("Rests");
-                MenuGroup.Add(mainWd, "Services", listLinkName.Count, listLinkName, "GUI/Pages/Services.xaml");
-
-                // Add Staffs Group
-                listLinkName.Clear();
-                listLinkName.Add("Foods");
-                listLinkName.Add("Games");
-                listLinkName.Add("Rests");
-                MenuGroup.Add(mainWd, "Staffs", listLinkName.Count, listLinkName, "GUI/Pages/Staffs.xaml");
-
-                // Add Customers Group
-                listLinkName.Clear();
-                listLinkName.Add("Foods");
-                listLinkName.Add("Games");
-                listLinkName.Add("Rests");
-                MenuGroup.Add(mainWd, "Customers", listLinkName.Count, listLinkName, "GUI/Pages/Customers.xaml");
-
-
-                MenuGroup.Remove(mainWd, 0, "GUI/Pages/Rooms.xaml");
-            }
+            loginBUS.btnLogin_Click();
         }
     }
 }

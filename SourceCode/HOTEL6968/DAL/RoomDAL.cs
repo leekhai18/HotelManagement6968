@@ -56,9 +56,7 @@ namespace HOTEL6968.DAL
     }
 
     public class RoomDAL
-    {
-        public bool isAvailable;
-
+    {   
         public List<RoomViewModel> GetListPhong()
         {
             List<RoomViewModel> listPhong = new List<RoomViewModel>();

@@ -41,8 +41,12 @@
 
     <StackPanel Orientation="Horizontal">
         <StackPanel Width="200">
+            <TextBox Style="{StaticResource ResourceKey=placeHolder}" Tag=" Search..." Name="txtSearch"
+                     TextChanged="txtSearch_TextChanged"/>
 
-            <ComboBox Name="cmbKindOfRoom" Text="Kind of room..." SelectionChanged="cmbKindOfRoom_SelectionChanged" IsEditable="True" IsReadOnly="True" Margin="0,10">
+            <ComboBox Name="cmbKindOfRoom" Text="Kind of room..." 
+                      SelectionChanged="cmbKindOfRoom_SelectionChanged" 
+                      IsEditable="True" IsReadOnly="True" Margin="0,10">
                 <ComboBoxItem Content="Standar"/>
                 <ComboBoxItem Content="Suite"/>
                 <ComboBoxItem Content="Superior"/>
@@ -50,13 +54,13 @@
                 <ComboBoxItem Content="All..."/>
             </ComboBox>
 
-            <ComboBox Name="cmbStatus" Text="Status..." SelectionChanged="cmbStatus_SelectionChanged" IsEditable="True" IsReadOnly="True">
+            <ComboBox Name="cmbStatus" Text="Status..." 
+                      SelectionChanged="cmbStatus_SelectionChanged" 
+                      IsEditable="True" IsReadOnly="True">
                 <ComboBoxItem Content="Hired"/>
                 <ComboBoxItem Content="Empty"/>
                 <ComboBoxItem Content="Fixing"/>
             </ComboBox>
-
-            <TextBox Style="{StaticResource ResourceKey=placeHolder}" Tag=" Search..." Name="txtSearch" Margin="0,10" TextChanged="txtSearch_TextChanged"/>
         </StackPanel>
         
         <ListView Name="lvRoom" ItemsSource="{Binding ListPhong}"

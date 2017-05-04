@@ -67,6 +67,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BUS\LoginBUS.cs" />
     <Compile Include="DAL\BAO_CAO.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
