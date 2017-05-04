@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HOTEL6968.BUS;
+using HOTEL6968.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,18 +14,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using HOTEL6968.BUS;
-using HOTEL6968.DAL;
 
-namespace GUI.Pages
+namespace HOTEL6968.GUI.Pages
 {
     /// <summary>
-    /// Interaction logic for Rooms.xaml
+    /// Interaction logic for RoomsManage.xaml
     /// </summary>
-    public partial class Rooms : UserControl
+    public partial class RoomsManage : UserControl
     {
         RoomBUS roomBUS = new RoomBUS();
-        public Rooms()
+        public RoomsManage()
         {
             InitializeComponent();
             this.DataContext = roomBUS;

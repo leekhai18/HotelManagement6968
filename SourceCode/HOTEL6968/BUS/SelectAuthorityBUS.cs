@@ -1,4 +1,5 @@
 ﻿using FirstFloor.ModernUI.App.Content;
+using FirstFloor.ModernUI.Presentation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace HOTEL6968.BUS
 {
     public class SelectAuthorityBUS
     {
+        MenuGroup menuGroup = new MenuGroup();
+
         public void btnCustomer_Click()
         {
             var mainWd = MainWindow.mainWindow;
@@ -19,14 +22,16 @@ namespace HOTEL6968.BUS
             }
             else
             {
-                MenuGroup.Remove(mainWd, 0, "GUI/Pages/Services.xaml");
+                menuGroup.Remove(mainWd, 0, "GUI/Pages/Services.xaml");
 
                 // Add Services Group
-                List<string> listLinkName = new List<string>();
-                listLinkName.Add("Foods");
-                listLinkName.Add("Games");
-                listLinkName.Add("Rests");
-                MenuGroup.Add(mainWd, "Services", listLinkName.Count, listLinkName, "GUI/Pages/Services.xaml");
+                List<Link> listLink = new List<Link>();
+                listLink.Add(new Link() { DisplayName = "Foods", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Games", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Rests", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Add", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
+                menuGroup.Add(mainWd, "Services", listLink.Count, listLink);
             }
         }
+    }
 }

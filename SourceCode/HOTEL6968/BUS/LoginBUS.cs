@@ -1,4 +1,5 @@
 ﻿using FirstFloor.ModernUI.App.Content;
+using FirstFloor.ModernUI.Presentation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace HOTEL6968.BUS
 {
     public class LoginBUS
     {
+        MenuGroup menuGroup = new MenuGroup();
+
         public void btnLogin_Click()
         {
             MainWindow mainWd = MainWindow.mainWindow;
@@ -16,31 +19,31 @@ namespace HOTEL6968.BUS
             if (mainWd.MenuLinkGroups.Count < 2)
             {
                 // Add Rooms Group
-                List<string> listLinkName = new List<string>();
-                listLinkName.Add("Manage");
-                listLinkName.Add("Add");
-                MenuGroup.Add(mainWd, "Rooms", listLinkName.Count, listLinkName, "GUI/Pages/Rooms.xaml");
+                List<Link> listLink = new List<Link>();
+                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/RoomsManage.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Add", Source = new Uri("GUI/Pages/Rooms.xaml", UriKind.Relative) });
+                menuGroup.Add(mainWd, "Rooms", listLink.Count, listLink);
 
                 // Add Services Group
-                listLinkName.Clear();
-                listLinkName.Add("Foods");
-                listLinkName.Add("Games");
-                listLinkName.Add("Rests");
-                listLinkName.Add("Add");
-                MenuGroup.Add(mainWd, "Services", listLinkName.Count, listLinkName, "GUI/Pages/Services.xaml");
+                listLink.Clear();
+                listLink.Add(new Link() { DisplayName = "Foods", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Games", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Rests", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Add", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
+                menuGroup.Add(mainWd, "Services", listLink.Count, listLink);
 
                 // Add Staffs Group
-                listLinkName.Clear();
-                listLinkName.Add("Manage");
-                listLinkName.Add("Add");
-                MenuGroup.Add(mainWd, "Staffs", listLinkName.Count, listLinkName, "GUI/Pages/Staffs.xaml");
+                listLink.Clear();
+                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/Staffs.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Add", Source = new Uri("GUI/Pages/Staffs.xaml", UriKind.Relative) });
+                menuGroup.Add(mainWd, "Staffs", listLink.Count, listLink);
 
                 // Add Customers Group
-                listLinkName.Clear();
-                listLinkName.Add("Manage");
-                MenuGroup.Add(mainWd, "Customers", listLinkName.Count, listLinkName, "GUI/Pages/Customers.xaml");
+                listLink.Clear();
+                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/Customers.xaml", UriKind.Relative) });
+                menuGroup.Add(mainWd, "Customers", listLink.Count, listLink);
 
-                MenuGroup.Remove(mainWd, 0, "GUI/Pages/Rooms.xaml");
+                menuGroup.Remove(mainWd, 0, "GUI/Pages/RoomsManage.xaml");
             }
         }
     }

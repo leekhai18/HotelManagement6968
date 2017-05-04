@@ -1,4 +1,5 @@
-﻿using FirstFloor.ModernUI.Windows.Controls;
+﻿using FirstFloor.ModernUI.Presentation;
+using FirstFloor.ModernUI.Windows.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,20 +10,20 @@ namespace FirstFloor.ModernUI.App.Content
 {
     public class MenuGroup
     {
-        public static void Add(ModernWindow modernWindow, string groupName, int numOfLink, List<string> listLinkName, String source)
+        public void Add(ModernWindow modernWindow, string nameLinkGroup, int numOfLink, List<Link> listLink)
         {
-            Presentation.LinkGroup linkGroup = new Presentation.LinkGroup();
-            linkGroup.DisplayName = groupName;
+            LinkGroup linkGroup = new LinkGroup();
+            linkGroup.DisplayName = nameLinkGroup;
 
             for (int i = 0; i < numOfLink; i++)
             {
-                linkGroup.Links.Add(new Presentation.Link() { DisplayName = listLinkName[i], Source = new Uri(source, UriKind.Relative) });
+                linkGroup.Links.Add(listLink[i]);
             }
 
             modernWindow.MenuLinkGroups.Add(linkGroup);
         }
 
-        public static void Remove(ModernWindow modernWindow, int index, String contentSource)
+        public void Remove(ModernWindow modernWindow, int index, String contentSource)
         {
             modernWindow.MenuLinkGroups.RemoveAt(index);
             modernWindow.ContentSource = new Uri(contentSource, UriKind.Relative);

@@ -68,6 +68,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BUS\LoginBUS.cs" />
+    <Compile Include="BUS\SelectAuthorityBUS.cs" />
     <Compile Include="DAL\BAO_CAO.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -131,6 +132,9 @@
     <Compile Include="DAL\TINH_TRANG.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Pages\RoomsManage.xaml.cs">
+      <DependentUpon>RoomsManage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -152,15 +156,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI\Pages\Rooms.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="GUI\Pages\RoomsManage.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\Pages\SelectAuthority.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GUI\Pages\Services.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -188,14 +188,8 @@
     <Compile Include="GUI\Pages\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Pages\Rooms.xaml.cs">
-      <DependentUpon>Rooms.xaml</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Pages\SelectAuthority.xaml.cs">
       <DependentUpon>SelectAuthority.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Pages\Services.xaml.cs">
-      <DependentUpon>Services.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\Pages\Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
