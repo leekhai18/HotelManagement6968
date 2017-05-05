@@ -38,7 +38,7 @@ namespace HOTEL6968.BUS
 
                 // Add Customers Group
                 listLink.Clear();
-                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/Customers.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/CustomersManage.xaml", UriKind.Relative) });
                 menuGroup.Add(mainWd, "Customers", listLink.Count, listLink);
 
                 menuGroup.Remove(mainWd, 0, "GUI/Pages/RoomsManage.xaml");

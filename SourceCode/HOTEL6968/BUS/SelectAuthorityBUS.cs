@@ -18,17 +18,15 @@ namespace HOTEL6968.BUS
 
             if (mainWd.MenuLinkGroups.Count > 2)
             {
-                mainWd.ContentSource = new Uri("GUI/Pages/Services.xaml", UriKind.Relative);
+                mainWd.ContentSource = new Uri("GUI/Pages/ServicesManage.xaml", UriKind.Relative);
             }
             else
             {
-                menuGroup.Remove(mainWd, 0, "GUI/Pages/Services.xaml");
+                menuGroup.Remove(mainWd, 0, "GUI/Pages/ServicesManage.xaml");
 
                 // Add Services Group
                 List<Link> listLink = new List<Link>();
-                listLink.Add(new Link() { DisplayName = "Foods", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
-                listLink.Add(new Link() { DisplayName = "Games", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
-                listLink.Add(new Link() { DisplayName = "Rests", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/ServicesManage.xaml", UriKind.Relative) });
                 listLink.Add(new Link() { DisplayName = "Add", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
                 menuGroup.Add(mainWd, "Services", listLink.Count, listLink);
             }

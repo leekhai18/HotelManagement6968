@@ -67,6 +67,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BUS\CustomerBUS.cs" />
     <Compile Include="BUS\LoginBUS.cs" />
     <Compile Include="BUS\SelectAuthorityBUS.cs" />
     <Compile Include="BUS\ServiceBUS.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="DAL\CTHD.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\CustomerDAL.cs" />
     <Compile Include="DAL\DAT_PHONG.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -136,6 +138,9 @@
     <Compile Include="DAL\TINH_TRANG.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Pages\CustomersManage.xaml.cs">
+      <DependentUpon>CustomersManage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Pages\RoomsManage.xaml.cs">
       <DependentUpon>RoomsManage.xaml</DependentUpon>
     </Compile>
@@ -161,9 +166,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI\Pages\Customers.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="GUI\Pages\CustomersManage.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\Pages\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -206,9 +211,6 @@
     <Compile Include="GUI\Content\SettingsAppearanceViewModel.cs" />
     <Compile Include="GUI\Pages\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Pages\Customers.xaml.cs">
-      <DependentUpon>Customers.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\Pages\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
