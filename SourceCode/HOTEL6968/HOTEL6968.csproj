@@ -69,6 +69,8 @@
     </Compile>
     <Compile Include="BUS\LoginBUS.cs" />
     <Compile Include="BUS\SelectAuthorityBUS.cs" />
+    <Compile Include="BUS\ServiceBUS.cs" />
+    <Compile Include="BUS\StaffBUS.cs" />
     <Compile Include="DAL\BAO_CAO.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -123,6 +125,8 @@
     <Compile Include="DAL\PHONG.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\ServiceDAL.cs" />
+    <Compile Include="DAL\StaffDAL.cs" />
     <Compile Include="DAL\TAI_KHOAN.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -134,6 +138,15 @@
     </Compile>
     <Compile Include="GUI\Pages\RoomsManage.xaml.cs">
       <DependentUpon>RoomsManage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pages\ServicesManage.xaml.cs">
+      <DependentUpon>ServicesManage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pages\ServicesManageCommon.xaml.cs">
+      <DependentUpon>ServicesManageCommon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pages\StaffsManage.xaml.cs">
+      <DependentUpon>StaffsManage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -164,9 +177,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="GUI\Pages\ServicesManage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Pages\ServicesManageCommon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\Pages\Setting.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Pages\StaffsManage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

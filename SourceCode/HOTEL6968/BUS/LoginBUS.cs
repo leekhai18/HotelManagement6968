@@ -26,15 +26,13 @@ namespace HOTEL6968.BUS
 
                 // Add Services Group
                 listLink.Clear();
-                listLink.Add(new Link() { DisplayName = "Foods", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
-                listLink.Add(new Link() { DisplayName = "Games", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
-                listLink.Add(new Link() { DisplayName = "Rests", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/ServicesManage.xaml", UriKind.Relative) });
                 listLink.Add(new Link() { DisplayName = "Add", Source = new Uri("GUI/Pages/Services.xaml", UriKind.Relative) });
                 menuGroup.Add(mainWd, "Services", listLink.Count, listLink);
 
                 // Add Staffs Group
                 listLink.Clear();
-                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/Staffs.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/StaffsManage.xaml", UriKind.Relative) });
                 listLink.Add(new Link() { DisplayName = "Add", Source = new Uri("GUI/Pages/Staffs.xaml", UriKind.Relative) });
                 menuGroup.Add(mainWd, "Staffs", listLink.Count, listLink);
 

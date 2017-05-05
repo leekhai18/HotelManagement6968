@@ -14,7 +14,6 @@ namespace HOTEL6968.BUS
         int statusOfRoom = -1;
 
         RoomDAL roomDAL = new RoomDAL();
-
         public List<RoomViewModel> ListPhong
         {
             get
