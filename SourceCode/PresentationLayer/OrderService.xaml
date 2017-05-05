@@ -1,0 +1,193 @@
+﻿<Window x:Class="PresentationLayer.OrderService"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PresentationLayer"
+        mc:Ignorable="d"
+        Title="OrderService" Height="204.717" Width="754.43"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None">
+    <Window.Resources>
+        <SolidColorBrush x:Key="ReadOnlyTextBrush" Color="#747474" />
+        <SolidColorBrush x:Key="BlackSoft" Color="#1A1A1A" />
+        <SolidColorBrush x:Key="Blue" Color="#00AFF0" />
+        <SolidColorBrush x:Key="White" Color="#CCCCCC" />
+        <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
+            <Border Background="{TemplateBinding Background}" 
+                x:Name="Bd" BorderBrush="Black"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="Width" Value="Auto">
+                    <Setter Property="MinWidth" Value="100"/>
+                </Trigger>
+                <Trigger Property="Height" Value="Auto">
+                    <Setter Property="MinHeight" Value="20"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <Style x:Key="Submit1" TargetType="{x:Type Button}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="grid">
+                            <Border x:Name="border" CornerRadius="10" BorderBrush="{StaticResource Blue}" BorderThickness="2">
+                                <Border.Background>
+                                    <VisualBrush  AlignmentX="Left" AlignmentY="Center" >
+                                        <VisualBrush.Visual>
+                                            <StackPanel Orientation="Horizontal" Background="{StaticResource Blue}" >
+                                                <Label Content="Xác Nhận" Foreground="{StaticResource BlackSoft}" FontSize="36"/>
+                                            </StackPanel>
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         TextElement.FontWeight="Bold"></ContentPresenter>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="Submit2" TargetType="{x:Type Button}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="grid">
+                            <Border x:Name="border" CornerRadius="10" BorderBrush="{StaticResource Blue}" BorderThickness="2">
+                                <Border.Background>
+                                    <VisualBrush  AlignmentX="Left" AlignmentY="Center" >
+                                        <VisualBrush.Visual>
+                                            <StackPanel Orientation="Horizontal" Background="{StaticResource Blue}" >
+                                                <Label Content="Xác Nhận" Foreground="White" FontSize="36"/>
+                                            </StackPanel>
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         TextElement.FontWeight="Bold"></ContentPresenter>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="Cancel1" TargetType="{x:Type Button}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="grid">
+                            <Border x:Name="border" CornerRadius="10" BorderBrush="{StaticResource Blue}" BorderThickness="2">
+                                <Border.Background>
+                                    <VisualBrush  AlignmentX="Left" AlignmentY="Center" >
+                                        <VisualBrush.Visual>
+                                            <StackPanel Orientation="Horizontal" Background="{StaticResource Blue}" >
+                                                <Label Content="   Hủy   " Foreground="{StaticResource BlackSoft}" FontSize="36"/>
+                                            </StackPanel>
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         TextElement.FontWeight="Bold"></ContentPresenter>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="Cancel2" TargetType="{x:Type Button}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="grid">
+                            <Border x:Name="border" CornerRadius="10" BorderBrush="{StaticResource Blue}" BorderThickness="2">
+                                <Border.Background>
+                                    <VisualBrush  AlignmentX="Left" AlignmentY="Center" >
+                                        <VisualBrush.Visual>
+                                            <StackPanel Orientation="Horizontal" Background="{StaticResource Blue}" >
+                                                <Label Content="   Hủy   " Foreground="White" FontSize="36"/>
+                                            </StackPanel>
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         TextElement.FontWeight="Bold"></ContentPresenter>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="Black">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border CornerRadius="6" BorderBrush="{StaticResource Blue}" Background="Black" BorderThickness="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
+                <StackPanel Orientation="Horizontal" Height="64" Width="500">
+                    <Image Source="Assets/Double Bed_64(3)px.png" Width="64" Height="64" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="None" />
+                    <TextBox Template="{StaticResource TextBoxBaseControlTemplate}"
+                x:Name="txt_name" 
+                HorizontalAlignment="Center" 
+                TextWrapping="Wrap" 
+                VerticalAlignment="Top" 
+                Width="350" 
+                RenderTransformOrigin="0.503,-0.232" FontSize="50"
+                     Foreground="{StaticResource White}" VerticalContentAlignment="Center" Height="64">
+                        <TextBox.Style>
+                            <Style xmlns:sys="clr-namespace:System;assembly=mscorlib" TargetType="{x:Type TextBox}">
+                                <Style.Resources>
+                                    <VisualBrush Stretch="Uniform" x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" >
+                                        <VisualBrush.Visual>
+                                            <StackPanel Orientation="Horizontal" Background="Black" Width="400">
+                                                <Label Content="Nhập số phòng" Foreground="{StaticResource ReadOnlyTextBrush}" FontSize="50"/>
+                                            </StackPanel>
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Style.Resources>
+                                <Setter Property="Background" Value="Black"/>
+                                <Style.Triggers>
+                                    <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                        <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                    </Trigger>
+                                    <Trigger Property="Text" Value="{x:Null}">
+                                        <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                    </Trigger>
+                                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter Property="Background" Value="Black" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </StackPanel>
+            </Border>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,120,0,0">
+                <Button x:Name="btn_submit"
+                    Style="{StaticResource Submit1}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="0,0,50,0" Height="40" PreviewMouseLeftButtonDown="TouchDownSubmit" PreviewMouseLeftButtonUp="TouchUpSubmit"/>
+                <Button x:Name="btn_cancel"
+                    Style="{StaticResource Cancel1}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="40" PreviewMouseLeftButtonDown="TouchDownCancel" PreviewMouseLeftButtonUp="TouchUpCancel"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

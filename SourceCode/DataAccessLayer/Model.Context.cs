@@ -13,10 +13,10 @@ namespace DataAccessLayer
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QuanLyKhachSanEntities : DbContext
+    public partial class HotelEntities : DbContext
     {
-        public QuanLyKhachSanEntities()
-            : base("name=QuanLyKhachSanEntities")
+        public HotelEntities()
+            : base("name=HotelEntities")
         {
         }
     
@@ -38,7 +38,8 @@ namespace DataAccessLayer
         public virtual DbSet<LOAI_PHONG> LOAI_PHONG { get; set; }
         public virtual DbSet<NHAN_VIEN> NHAN_VIEN { get; set; }
         public virtual DbSet<PHONG> PHONGs { get; set; }
-        public virtual DbSet<TAI_KHOAN> TAI_KHOAN { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THAM_SO> THAM_SO { get; set; }
+        public virtual DbSet<TAI_KHOAN> TAI_KHOAN { get; set; }
     }
 }

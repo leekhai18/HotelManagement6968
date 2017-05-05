@@ -23,6 +23,7 @@ namespace DataAccessLayer
         public string MaLoaiPhong { get; set; }
         public string TenLoaiPhong { get; set; }
         public Nullable<decimal> GiaPhong { get; set; }
+        public string NguonAnh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHONG> PHONGs { get; set; }
