@@ -2,9 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace HOTEL6968.BUS
 {
@@ -103,5 +106,44 @@ namespace HOTEL6968.BUS
                 lvRoom.Items.Filter = (obj) => (((RoomViewModel)obj).MaTinhTrang == statusOfRoom && ((RoomViewModel)obj).MaLoaiPhong == kindOfRoom);
             }
         }
+
+
+        // In RoomsAdd
+        private string imageSource;
+
+        public void cmbKindOfRoomInRoomAdd_SelectionChanged(ComboBox cmbKindOfRoom, Image imageKindOfRoom)
+        {
+            switch (cmbKindOfRoom.SelectedIndex.ToString())
+            {
+                case "0": //Standard
+                    {
+                        imageSource = roomDAL.FindImageSource("STD");
+                        imageKindOfRoom.Source = new BitmapImage(new Uri ("pack://application:,,,/HOTEL6968;component" + imageSource));
+                        break;
+                    }
+                case "1": //Suite
+                    {
+                        imageSource = roomDAL.FindImageSource("SUI");
+                        imageKindOfRoom.Source = new BitmapImage(new Uri("pack://application:,,,/HOTEL6968;component" + imageSource));
+                        break;
+                    }
+                case "2": //Superior
+                    {
+                        imageSource = roomDAL.FindImageSource("SUP");
+                        imageKindOfRoom.Source = new BitmapImage(new Uri("pack://application:,,,/HOTEL6968;component" + imageSource));
+                        break;
+                    }
+                case "3": //VIP
+                    {
+                        imageSource = roomDAL.FindImageSource("VIP");
+                        imageKindOfRoom.Source = new BitmapImage(new Uri("pack://application:,,,/HOTEL6968;component" + imageSource));
+                        break;
+                    }
+                default:
+                    break;
+            }
+
+        }
+
     }
 }

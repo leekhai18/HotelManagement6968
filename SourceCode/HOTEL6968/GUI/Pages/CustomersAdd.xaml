@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="HOTEL6968.GUI.Pages.CustomersAdd"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:local="clr-namespace:FirstFloor.ModernUI.App.Content"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <ScrollViewer>
+        <StackPanel MinWidth="200">
+
+            <TextBlock Text="NEW CUSTOMER" Style="{StaticResource Heading2}" Margin="0,0,0,20" />
+
+            <StackPanel x:Name="Form" Orientation="Vertical">
+
+                <!-- create viewmodel -->
+                <StackPanel.DataContext>
+                    <local:FormsViewModel/>
+                </StackPanel.DataContext>
+
+                <StackPanel.Resources>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Orientation" Value="Horizontal" />
+                        <Setter Property="Margin" Value="0,0,0,4" />
+                    </Style>
+                    <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                        <Setter Property="Width" Value="100" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                    </Style>
+                    <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                        <Setter Property="Padding" Value="0,3" />
+                    </Style>
+                    <Style TargetType="RadioButton" BasedOn="{StaticResource {x:Type RadioButton}}">
+                        <Setter Property="Padding" Value="0,3" />
+                    </Style>
+                </StackPanel.Resources>
+
+                <StackPanel>
+                    <Label Content="Id customer" Target="{Binding ElementName=txtIdCustomer}"/>
+                    <TextBox x:Name="txtIdCustomer" Width="150" Text="{Binding IdCustomer, Mode=OneWay}"
+                             IsEnabled="False"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Full name" Target="{Binding ElementName=txtFullName}"/>
+                    <TextBox x:Name="txtFullName" Width="150" Text="{Binding FullName, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Identity card" Target="{Binding ElementName=txtIdentityCard}"/>
+                    <TextBox x:Name="txtIdentityCard" Width="150" Text="{Binding IdentityCard, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Birth date" Target="{Binding ElementName=datepickDateBirth}" />
+                    <DatePicker x:Name="datepickDateBirth" />
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Phone number" Target="{Binding ElementName=txtPhoneNumber}"/>
+                    <TextBox x:Name="txtPhoneNumber" Width="150" />
+                </StackPanel>
+                <StackPanel >
+                    <Label />
+                    <CheckBox Name="checkboxAgree">
+                        <TextBlock FontWeight="Bold" Text="I agree to the license terms and conditions of hotel"  />
+                    </CheckBox>
+                </StackPanel>
+
+                <Button Name="btnSubmit" Content="Submit" Margin="100,16,0,0" HorizontalAlignment="Left"
+                        Click="btnSubmit_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

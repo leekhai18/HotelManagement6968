@@ -71,5 +71,14 @@ namespace HOTEL6968.DAL
 
             return listPhong;
         }
+
+        public string FindImageSource(string idKindOfRoom)
+        {
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                var imageSource = db.LOAI_PHONG.Find(idKindOfRoom).NguonAnh;
+                return imageSource;
+            }
+        }
     }
 }
