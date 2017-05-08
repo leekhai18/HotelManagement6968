@@ -6,7 +6,8 @@
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="500"
-             Style="{StaticResource ContentRoot}">
+             Style="{StaticResource ContentRoot}"
+             Loaded="CustomersManage_Loaded">
     
     <StackPanel Orientation="Horizontal">
         

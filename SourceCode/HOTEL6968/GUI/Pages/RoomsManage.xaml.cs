@@ -27,18 +27,25 @@ namespace HOTEL6968.GUI.Pages
         {
             InitializeComponent();
             this.DataContext = roomBUS;
-
-            // Bug fix late
+   
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvRoom.Items);
             view.Filter = SearchFilter;
         }
 
+        private void RoomsManage_Loaded(object sender, RoutedEventArgs e)
+        {
+            RefreshDataContext();
+        }
+
+        private void RefreshDataContext()
+        {
+            this.DataContext = null;
+            this.DataContext = roomBUS;
+        }
+
         private bool SearchFilter(object obj)
         {
-            if (String.IsNullOrEmpty(txtSearch.Text))
-                return true;
-            else
-                return ((obj as RoomViewModel).TenPhong.IndexOf(txtSearch.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            return roomBUS.SearchFilter(obj, txtSearch.Text);
         }
 
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)

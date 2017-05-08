@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="HOTEL6968.GUI.Pages.ServicesManageCommon"
+﻿<UserControl x:Class="HOTEL6968.GUI.Pages.ServicesManageFoods"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="500"
              Style="{StaticResource ContentRoot}"
+             Loaded="ServicesManageFoods_Loaded"
              >
 
     <UserControl.Resources>
@@ -44,26 +45,9 @@
             <TextBox Style="{StaticResource ResourceKey=placeHolder}" Tag=" Search..." Name="txtSearch"
                      TextChanged="txtSearch_TextChanged"/>
 
-            <!--<ComboBox Name="cmbKindOfRoom" Text="Kind of room..." 
-                      SelectionChanged="cmbKindOfRoom_SelectionChanged" 
-                      IsEditable="True" IsReadOnly="True" Margin="0,10">
-                <ComboBoxItem Content="Standar"/>
-                <ComboBoxItem Content="Suite"/>
-                <ComboBoxItem Content="Superior"/>
-                <ComboBoxItem Content="VIP"/>
-                <ComboBoxItem Content="All..."/>
-            </ComboBox>
-
-            <ComboBox Name="cmbStatus" Text="Status..." 
-                      SelectionChanged="cmbStatus_SelectionChanged" 
-                      IsEditable="True" IsReadOnly="True">
-                <ComboBoxItem Content="Hired"/>
-                <ComboBoxItem Content="Empty"/>
-                <ComboBoxItem Content="Fixing"/>
-            </ComboBox>-->
         </StackPanel>
 
-        <ListView Name="lvServices" ItemsSource="{Binding ListDichVu}"
+        <ListView Name="lvFoods" ItemsSource="{Binding ListFoods}"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ItemTemplate="{StaticResource ServiceListDataTemplate}"                
                   Margin="10,0,0,0">

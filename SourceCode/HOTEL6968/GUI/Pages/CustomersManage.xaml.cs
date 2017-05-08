@@ -32,6 +32,17 @@ namespace HOTEL6968.GUI.Pages
             view.Filter = SearchFilter;
         }
 
+        private void CustomersManage_Loaded(object sender, RoutedEventArgs e)
+        {
+            RefreshDataContext();
+        }
+
+        private void RefreshDataContext()
+        {
+            dataGridListCustomer.DataContext = null;
+            dataGridListCustomer.DataContext = customerBUS;
+        }
+
         private bool SearchFilter(object obj)
         {
             if (String.IsNullOrEmpty(txtSearch.Text))

@@ -22,44 +22,9 @@ namespace HOTEL6968.GUI.Pages
     /// </summary>
     public partial class ServicesManage : UserControl
     {
-        ServiceBUS serviceBUS = new ServiceBUS();
-
         public ServicesManage()
         {
             InitializeComponent();
-        }
-
-        private void ServicesManageTab_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            FrameworkElement link = e.OriginalSource as FrameworkElement;
-
-            if (link != null && link.ToString() == "System.Windows.Controls.TextBlock")
-            {
-                string text = (link as TextBlock).Text;
-
-                switch (text)
-                {
-                    case "FOODS":
-                        {
-                            serviceBUS.maLoaiDichVu = "LDV01";
-                            break;
-                        }
-                    case "GAMES":
-                        {
-                            serviceBUS.maLoaiDichVu = "LDV02";
-                            Console.Write(serviceBUS.maLoaiDichVu);
-                            break;
-                        }
-                    case "RESTS":
-                        {
-                            serviceBUS.maLoaiDichVu = "LDV03";
-                            break;
-                        }
-
-                    default:
-                        break;
-                }
-            }
         }
     }
 }

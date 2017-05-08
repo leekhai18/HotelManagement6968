@@ -154,8 +154,14 @@
     <Compile Include="GUI\Pages\ServicesManage.xaml.cs">
       <DependentUpon>ServicesManage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Pages\ServicesManageCommon.xaml.cs">
-      <DependentUpon>ServicesManageCommon.xaml</DependentUpon>
+    <Compile Include="GUI\Pages\ServicesManageFoods.xaml.cs">
+      <DependentUpon>ServicesManageFoods.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pages\ServicesManageGames.xaml.cs">
+      <DependentUpon>ServicesManageGames.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pages\ServicesManageRests.xaml.cs">
+      <DependentUpon>ServicesManageRests.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\Pages\StaffsManage.xaml.cs">
       <DependentUpon>StaffsManage.xaml</DependentUpon>
@@ -201,7 +207,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI\Pages\ServicesManageCommon.xaml">
+    <Page Include="GUI\Pages\ServicesManageFoods.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Pages\ServicesManageGames.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Pages\ServicesManageRests.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

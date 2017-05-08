@@ -11,12 +11,21 @@ namespace HOTEL6968.BUS
     {
         StaffDAL staffDAL = new StaffDAL();
 
-        public List<StaffViewModel> ListNhanVien
+        public List<StaffViewModel> ListStaffs
         {
             get
             {
-                return staffDAL.GetListNhanVien();
+                return staffDAL.GetListStaffs();
             }
+        }
+
+        public bool SearchFilter(object obj, string textChange)
+        {
+            if (String.IsNullOrEmpty(textChange))
+                return true;
+            else
+                return ((obj as StaffViewModel).TenNhanVien.IndexOf(textChange, StringComparison.OrdinalIgnoreCase) >= 0
+                    || (obj as StaffViewModel).MaNhanVien.IndexOf(textChange, StringComparison.OrdinalIgnoreCase) >= 0);
         }
     }
 }

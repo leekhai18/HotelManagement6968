@@ -57,19 +57,53 @@ namespace HOTEL6968.DAL
 
     public class ServiceDAL
     {
-        public List<ServiceViewModel> GetListDichVu()
+        public List<ServiceViewModel> GetListFoods()
         {
-            List<ServiceViewModel> listDichVu = new List<ServiceViewModel>();
+            List<ServiceViewModel> listFoods = new List<ServiceViewModel>();
 
             using (var db = new QuanLyKhachSanEntities())
             {
                 foreach (var dichVu in db.DICH_VU)
                 {
-                    listDichVu.Add(new ServiceViewModel(dichVu));
+                    if (dichVu.MaLoaiDichVu == "LDV01")
+                        listFoods.Add(new ServiceViewModel(dichVu));
                 }
             }
 
-            return listDichVu;
+            return listFoods;
         }
+
+        public List<ServiceViewModel> GetListGames()
+        {
+            List<ServiceViewModel> listGames = new List<ServiceViewModel>();
+
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                foreach (var dichVu in db.DICH_VU)
+                {
+                    if (dichVu.MaLoaiDichVu == "LDV03")
+                        listGames.Add(new ServiceViewModel(dichVu));
+                }
+            }
+
+            return listGames;
+        }
+
+        public List<ServiceViewModel> GetListRests()
+        {
+            List<ServiceViewModel> listRests = new List<ServiceViewModel>();
+
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                foreach (var dichVu in db.DICH_VU)
+                {
+                    if (dichVu.MaLoaiDichVu == "LDV02")
+                        listRests.Add(new ServiceViewModel(dichVu));
+                }
+            }
+
+            return listRests;
+        }
+
     }
 }

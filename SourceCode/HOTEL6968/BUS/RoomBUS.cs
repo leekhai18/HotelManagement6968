@@ -17,12 +17,20 @@ namespace HOTEL6968.BUS
         int statusOfRoom = -1;
 
         RoomDAL roomDAL = new RoomDAL();
-        public List<RoomViewModel> ListPhong
+        public List<RoomViewModel> ListRooms
         {
             get
             {
-                return roomDAL.GetListPhong();
+                return roomDAL.GetListRooms();
             }
+        }
+
+        public bool SearchFilter(object obj, string textChange)
+        {
+            if (String.IsNullOrEmpty(textChange))
+                return true;
+            else
+                return ((obj as RoomViewModel).TenPhong.IndexOf(textChange, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         public void cmbKindOfRoom_SelectionChanged(ListView lvRoom, ComboBox cmbKindOfRoom)
@@ -142,7 +150,16 @@ namespace HOTEL6968.BUS
                 default:
                     break;
             }
+        }
 
+        public void AddNewRoom(string id, string name, string idKind, string information)
+        {
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                db.PHONGs.Add(new PHONG() { MaPhong = id, TenPhong = name, MaLoaiPhong = idKind, GhiChu = information, MaTinhTrang = 1 });
+
+                db.SaveChanges();
+            }
         }
 
     }

@@ -7,11 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="500"
              Style="{StaticResource ContentRoot}"
+             Loaded="RoomsManage_Loaded"
              >
 
     <UserControl.Resources>
         <DataTemplate x:Key="RoomListDataTemplate">
-            <Border >
+            <Border>
                 <Border.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="{Binding Path=CurrentWindowColor, UpdateSourceTrigger=PropertyChanged}" Offset="0"/>
@@ -63,7 +64,7 @@
             </ComboBox>
         </StackPanel>
 
-        <ListView Name="lvRoom" ItemsSource="{Binding ListPhong}"
+        <ListView Name="lvRoom" ItemsSource="{Binding ListRooms}"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ItemTemplate="{StaticResource RoomListDataTemplate}"                
                   Margin="10,0,0,0">

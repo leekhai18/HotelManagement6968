@@ -1,5 +1,4 @@
 ﻿using HOTEL6968.BUS;
-using HOTEL6968.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,36 +19,39 @@ namespace HOTEL6968.GUI.Pages
     /// <summary>
     /// Interaction logic for ServicesManageFoods.xaml
     /// </summary>
-    public partial class ServicesManageCommon : UserControl
+    public partial class ServicesManageFoods : UserControl
     {
         ServiceBUS serviceBUS = new ServiceBUS();
 
-        public ServicesManageCommon()
+        public ServicesManageFoods()
         {
             InitializeComponent();
             this.DataContext = serviceBUS;
 
             // Bug fix late
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvServices.Items);
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvFoods.Items);
             view.Filter = SearchFilter;
+        }
+
+        private void ServicesManageFoods_Loaded(object sender, RoutedEventArgs e)
+        {
+            RefreshDataContext();
+        }
+
+        private void RefreshDataContext()
+        {
+            this.DataContext = null;
+            this.DataContext = serviceBUS;
         }
 
         private bool SearchFilter(object obj)
         {
-            if ((obj as ServiceViewModel).MaLoaiDichVu == serviceBUS.maLoaiDichVu)
-            {
-                if (String.IsNullOrEmpty(txtSearch.Text))
-                    return true;
-                else
-                    return ((obj as ServiceViewModel).TenDichVu.IndexOf(txtSearch.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-            }
-
-            return false;
+            return serviceBUS.SearchFilter(obj, txtSearch.Text);
         }
 
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            CollectionViewSource.GetDefaultView(lvServices.ItemsSource).Refresh();
+            CollectionViewSource.GetDefaultView(lvFoods.ItemsSource).Refresh();
         }
     }
 }

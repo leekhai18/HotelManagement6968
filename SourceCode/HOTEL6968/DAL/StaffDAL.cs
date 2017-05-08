@@ -68,19 +68,19 @@ namespace HOTEL6968.DAL
 
     public class StaffDAL
     {
-        public List<StaffViewModel> GetListNhanVien()
+        public List<StaffViewModel> GetListStaffs()
         {
-            List<StaffViewModel> listNhanVien = new List<StaffViewModel>();
+            List<StaffViewModel> listStaffs = new List<StaffViewModel>();
 
             using (var db = new QuanLyKhachSanEntities())
             {
                 foreach (var nv in db.NHAN_VIEN)
                 {
-                    listNhanVien.Add(new StaffViewModel(nv));
+                    listStaffs.Add(new StaffViewModel(nv));
                 }
             }
 
-            return listNhanVien;
+            return listStaffs;
         }
     }
 }

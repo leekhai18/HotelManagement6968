@@ -1,4 +1,5 @@
 ﻿using FirstFloor.ModernUI.Presentation;
+using FirstFloor.ModernUI.Windows.Controls;
 using HOTEL6968.BUS;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,50 @@ namespace HOTEL6968.GUI.Pages
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
+            if (txtFullName.Text != "" && txtId.Text != "" && cmbKindOfRoom.Text != "")
+            {
+                var resultDialog = ModernDialog.ShowMessage("Are you sure that you want to add " + txtFullName.Text, "Verify", MessageBoxButton.YesNo);
 
+                if (resultDialog == MessageBoxResult.Yes)
+                {
+                    //Transform name ----> id
+                    string idKind = "";
+                    switch (cmbKindOfRoom.Text)
+                    {
+                        case "Standard":
+                            {
+                                idKind = "STD";
+                                break;
+                            }
+                        case "Suite":
+                            {
+                                idKind = "SUI";
+                                break;
+                            }
+                        case "Superior":
+                            {
+                                idKind = "SUP";
+                                break;
+                            }
+                        case "VIP":
+                            {
+                                idKind = "VIP";
+                                break;
+                            }
+
+                        default:
+                            break;
+                    }
+
+                    roomBUS.AddNewRoom(txtId.Text, txtFullName.Text, idKind , txtInfomation.Text);
+
+                    ModernDialog.ShowMessage("You have successfully added", "Success", MessageBoxButton.OK);
+                }
+            }
+            else
+            {
+                ModernDialog.ShowMessage("Please fill in all required fields", "Notify", MessageBoxButton.OK);
+            }
         }
     }
 }

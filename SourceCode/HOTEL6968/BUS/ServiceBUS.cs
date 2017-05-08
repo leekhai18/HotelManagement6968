@@ -16,14 +16,37 @@ namespace HOTEL6968.BUS
     public class ServiceBUS : NotifyPropertyChanged
     {
         ServiceDAL serviceDAL = new ServiceDAL();
-        public string maLoaiDichVu = "LDV01";
 
-        public List<ServiceViewModel> ListDichVu
+        public List<ServiceViewModel> ListFoods
         {
             get
             {
-                return serviceDAL.GetListDichVu();
+                return serviceDAL.GetListFoods();
             }
+        }
+
+        public List<ServiceViewModel> ListGames
+        {
+            get
+            {
+                return serviceDAL.GetListGames();
+            }
+        }
+
+        public List<ServiceViewModel> ListRests
+        {
+            get
+            {
+                return serviceDAL.GetListRests();
+            }
+        }
+
+        public bool SearchFilter(object obj, string textChange)
+        {
+            if (String.IsNullOrEmpty(textChange))
+                return true;
+            else
+                return ((obj as ServiceViewModel).TenDichVu.IndexOf(textChange, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
     }

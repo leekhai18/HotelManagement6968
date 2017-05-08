@@ -57,19 +57,19 @@ namespace HOTEL6968.DAL
 
     public class RoomDAL
     {   
-        public List<RoomViewModel> GetListPhong()
+        public List<RoomViewModel> GetListRooms()
         {
-            List<RoomViewModel> listPhong = new List<RoomViewModel>();
+            List<RoomViewModel> listRooms = new List<RoomViewModel>();
 
             using (var db = new QuanLyKhachSanEntities())
             {
                 foreach (var phong in db.PHONGs)
                 {
-                    listPhong.Add(new RoomViewModel(phong));
+                    listRooms.Add(new RoomViewModel(phong));
                 }
             }
 
-            return listPhong;
+            return listRooms;
         }
 
         public string FindImageSource(string idKindOfRoom)

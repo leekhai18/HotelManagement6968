@@ -1,5 +1,4 @@
 ﻿using HOTEL6968.BUS;
-using HOTEL6968.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,23 +17,23 @@ using System.Windows.Shapes;
 namespace HOTEL6968.GUI.Pages
 {
     /// <summary>
-    /// Interaction logic for StaffsManage.xaml
+    /// Interaction logic for ServicesManageRests.xaml
     /// </summary>
-    public partial class StaffsManage : UserControl
+    public partial class ServicesManageRests : UserControl
     {
-        StaffBUS staffBUS = new StaffBUS();
+        ServiceBUS serviceBUS = new ServiceBUS();
 
-        public StaffsManage()
+        public ServicesManageRests()
         {
             InitializeComponent();
-            this.DataContext = staffBUS;
+            this.DataContext = serviceBUS;
 
             // Bug fix late
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvStaffs.Items);
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvRests.Items);
             view.Filter = SearchFilter;
         }
 
-        private void StaffsManage_Loaded(object sender, RoutedEventArgs e)
+        private void ServicesManageRests_Loaded(object sender, RoutedEventArgs e)
         {
             RefreshDataContext();
         }
@@ -42,17 +41,17 @@ namespace HOTEL6968.GUI.Pages
         private void RefreshDataContext()
         {
             this.DataContext = null;
-            this.DataContext = staffBUS;
+            this.DataContext = serviceBUS;
         }
 
         private bool SearchFilter(object obj)
         {
-            return staffBUS.SearchFilter(obj, txtSearch.Text);
+            return serviceBUS.SearchFilter(obj, txtSearch.Text);
         }
 
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            CollectionViewSource.GetDefaultView(lvStaffs.ItemsSource).Refresh();
+            CollectionViewSource.GetDefaultView(lvRests.ItemsSource).Refresh();
         }
     }
 }
