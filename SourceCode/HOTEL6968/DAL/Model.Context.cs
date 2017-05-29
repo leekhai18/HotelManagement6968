@@ -38,6 +38,7 @@ namespace HOTEL6968.DAL
         public virtual DbSet<LOAI_PHONG> LOAI_PHONG { get; set; }
         public virtual DbSet<NHAN_VIEN> NHAN_VIEN { get; set; }
         public virtual DbSet<PHONG> PHONGs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TAI_KHOAN> TAI_KHOAN { get; set; }
         public virtual DbSet<THAM_SO> THAM_SO { get; set; }
         public virtual DbSet<TINH_TRANG> TINH_TRANG { get; set; }

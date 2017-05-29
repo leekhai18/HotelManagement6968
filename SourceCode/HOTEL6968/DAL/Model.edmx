@@ -52,8 +52,8 @@
           <Property Name="MaLoaiDichVu" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="GiaDichVu" Type="money" Nullable="false" />
           <Property Name="GhiChu" Type="ntext" />
-          <Property Name="NguonAnh" Type="nvarchar" MaxLength="50" />
           <Property Name="MaTinhTrang" Type="smallint" />
+          <Property Name="NguonAnh" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="DOI_PHONG">
           <Key>
@@ -108,7 +108,7 @@
           <Property Name="MaLoaiPhong" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="TenLoaiPhong" Type="nvarchar" MaxLength="50" />
           <Property Name="GiaPhong" Type="money" />
-          <Property Name="NguonAnh" Type="nvarchar" MaxLength="50" />
+          <Property Name="NguonAnh" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="NHAN_VIEN">
           <Key>
@@ -124,7 +124,7 @@
           <Property Name="MaChucVu" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="Luong" Type="money" />
-          <Property Name="NguonAnh" Type="nvarchar" MaxLength="50" />
+          <Property Name="NguonAnh" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="PHONG">
           <Key>
@@ -135,6 +135,16 @@
           <Property Name="GhiChu" Type="nvarchar(max)" />
           <Property Name="TenPhong" Type="nvarchar" MaxLength="50" />
           <Property Name="MaTinhTrang" Type="smallint" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="TAI_KHOAN">
           <Key>
@@ -388,6 +398,7 @@
           <EntitySet Name="LOAI_PHONG" EntityType="Self.LOAI_PHONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHAN_VIEN" EntityType="Self.NHAN_VIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHONG" EntityType="Self.PHONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAI_KHOAN" EntityType="Self.TAI_KHOAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THAM_SO" EntityType="Self.THAM_SO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TINH_TRANG" EntityType="Self.TINH_TRANG" Schema="dbo" store:Type="Tables" />
@@ -524,8 +535,8 @@
           <Property Name="MaLoaiDichVu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GiaDichVu" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NguonAnh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MaTinhTrang" Type="Int16" />
+          <Property Name="NguonAnh" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CTHDs" Relationship="Self.FK__CTHD__MaDichVu__3864608B" FromRole="DICH_VU" ToRole="CTHD" />
           <NavigationProperty Name="LOAI_DICH_VU" Relationship="Self.FK__DICH_VU__MaLoaiD__2EDAF651" FromRole="DICH_VU" ToRole="LOAI_DICH_VU" />
           <NavigationProperty Name="TINH_TRANG" Relationship="Self.FK__DICH_VU__MaTinhT__18EBB532" FromRole="DICH_VU" ToRole="TINH_TRANG" />
@@ -594,7 +605,7 @@
           <Property Name="MaLoaiPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TenLoaiPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GiaPhong" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="NguonAnh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NguonAnh" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PHONGs" Relationship="Self.FK__PHONG__MaLoaiPho__2CF2ADDF" FromRole="LOAI_PHONG" ToRole="PHONG" />
         </EntityType>
         <EntityType Name="NHAN_VIEN">
@@ -611,7 +622,7 @@
           <Property Name="MaChucVu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Luong" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="NguonAnh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NguonAnh" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BAO_CAO" Relationship="Self.FK__BAO_CAO__MaNhanV__395884C4" FromRole="NHAN_VIEN" ToRole="BAO_CAO" />
           <NavigationProperty Name="CHUC_VU" Relationship="Self.FK__NHAN_VIEN__MaChu__2BFE89A6" FromRole="NHAN_VIEN" ToRole="CHUC_VU" />
           <NavigationProperty Name="DAT_PHONG" Relationship="Self.FK__DAT_PHONG__MaNha__3587F3E0" FromRole="NHAN_VIEN" ToRole="DAT_PHONG" />
@@ -632,6 +643,16 @@
           <NavigationProperty Name="DOI_PHONG" Relationship="Self.FK__DOI_PHONG__MaPho__32AB8735" FromRole="PHONG" ToRole="DOI_PHONG" />
           <NavigationProperty Name="LOAI_PHONG" Relationship="Self.FK__PHONG__MaLoaiPho__2CF2ADDF" FromRole="PHONG" ToRole="LOAI_PHONG" />
           <NavigationProperty Name="TINH_TRANG" Relationship="Self.FK__PHONG__MaTinhTra__17F790F9" FromRole="PHONG" ToRole="TINH_TRANG" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="TAI_KHOAN">
           <Key>
@@ -888,6 +909,7 @@
           <EntitySet Name="LOAI_PHONG" EntityType="Self.LOAI_PHONG" />
           <EntitySet Name="NHAN_VIEN" EntityType="Self.NHAN_VIEN" />
           <EntitySet Name="PHONGs" EntityType="Self.PHONG" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TAI_KHOAN" EntityType="Self.TAI_KHOAN" />
           <EntitySet Name="THAM_SO" EntityType="Self.THAM_SO" />
           <EntitySet Name="TINH_TRANG" EntityType="Self.TINH_TRANG" />
@@ -1018,8 +1040,8 @@
                 <ScalarProperty Name="MaLoaiDichVu" ColumnName="MaLoaiDichVu" />
                 <ScalarProperty Name="GiaDichVu" ColumnName="GiaDichVu" />
                 <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
-                <ScalarProperty Name="NguonAnh" ColumnName="NguonAnh" />
                 <ScalarProperty Name="MaTinhTrang" ColumnName="MaTinhTrang" />
+                <ScalarProperty Name="NguonAnh" ColumnName="NguonAnh" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1107,6 +1129,17 @@
                 <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
                 <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
                 <ScalarProperty Name="MaTinhTrang" ColumnName="MaTinhTrang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="QuanLyKhachSanModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

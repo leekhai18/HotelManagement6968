@@ -25,8 +25,8 @@ namespace HOTEL6968.DAL
         public string MaLoaiDichVu { get; set; }
         public decimal GiaDichVu { get; set; }
         public string GhiChu { get; set; }
-        public string NguonAnh { get; set; }
         public Nullable<short> MaTinhTrang { get; set; }
+        public string NguonAnh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHD> CTHDs { get; set; }

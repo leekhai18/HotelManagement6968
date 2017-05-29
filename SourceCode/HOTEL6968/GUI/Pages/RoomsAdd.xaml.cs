@@ -30,9 +30,10 @@ namespace HOTEL6968.GUI.Pages
             InitializeComponent();
         }
 
-        private void cmbKindOfRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void RoomsAdd_Loaded(object sender, RoutedEventArgs e)
         {
-            roomBUS.cmbKindOfRoomInRoomAdd_SelectionChanged(cmbKindOfRoom, imageKindOfRoom);
+            Keyboard.Focus(txtId);
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
@@ -81,6 +82,11 @@ namespace HOTEL6968.GUI.Pages
             {
                 ModernDialog.ShowMessage("Please fill in all required fields", "Notify", MessageBoxButton.OK);
             }
+        }
+
+        private void cmbKindOfRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            roomBUS.cmbKindOfRoomInRoomAdd_SelectionChanged(cmbKindOfRoom, imageKindOfRoom);
         }
     }
 }

@@ -55,12 +55,64 @@ namespace HOTEL6968.GUI.Pages
 
         private void cmbKindOfRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            roomBUS.cmbKindOfRoom_SelectionChanged(lvRoom, cmbKindOfRoom);
+            switch (cmbKindOfRoom.SelectedIndex.ToString())
+            {
+                case "0": //Standard
+                    {
+                        roomBUS.kindOfRoom = "STD";
+                        break;
+                    }
+                case "1": //Suite
+                    {
+                        roomBUS.kindOfRoom = "SUI";
+                        break;
+                    }
+                case "2": //Superior
+                    {
+                        roomBUS.kindOfRoom = "SUP";
+                        break;
+                    }
+                case "3": //VIP
+                    {
+                        roomBUS.kindOfRoom = "VIP";
+                        break;
+                    }
+                case "4": //All...
+                    {
+                        roomBUS.kindOfRoom = "";
+                        break;
+                    }
+                default:
+                    break;
+            }
+
+            roomBUS.Filter(lvRoom, roomBUS.kindOfRoom, roomBUS.statusOfRoom);
         }
 
         private void cmbStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            roomBUS.cmbStatus_SelectionChanged(lvRoom, cmbStatus);
+            switch (cmbStatus.SelectedIndex.ToString())
+            {
+                case "0": //Hired = 2
+                    {
+                        roomBUS.statusOfRoom = 2;
+                        break;
+                    }
+                case "1": //Empty = 1
+                    {
+                        roomBUS.statusOfRoom = 1;
+                        break;
+                    }
+                case "2": //Fixing = 3
+                    {
+                        roomBUS.statusOfRoom = 3;
+                        break;
+                    }
+                default:
+                    break;
+            }
+
+            roomBUS.Filter(lvRoom, roomBUS.kindOfRoom, roomBUS.statusOfRoom);
         }
     }
 }

@@ -15,6 +15,9 @@ namespace FirstFloor.ModernUI.App.Content
         private string fullName;
         private string identityCard;
         private string idCustomer;
+        private string charges;
+        private string comboboxText;
+        private string idService;
 
         public string IdCustomer
         {
@@ -27,6 +30,21 @@ namespace FirstFloor.ModernUI.App.Content
                     this.idCustomer = "KH" + idNumCus.ToString().PadLeft(4, '0');
 
                     return this.idCustomer;
+                }
+            }
+        }
+
+        public string IdService
+        {
+            get
+            {
+                using (var db = new QuanLyKhachSanEntities())
+                {
+                    int idNumSer = db.DICH_VU.Count() + 1;
+
+                    this.idService = "DV" + idNumSer.ToString().PadLeft(3, '0');
+
+                    return this.idService;
                 }
             }
         }
@@ -57,6 +75,32 @@ namespace FirstFloor.ModernUI.App.Content
             }
         }
 
+        public string Charges
+        {
+            get { return this.charges; }
+            set
+            {
+                if (this.charges != value)
+                {
+                    this.charges = value;
+                    OnPropertyChanged("Charges");
+                }
+            }
+        }
+
+        public string ComboboxText
+        {
+            get { return this.comboboxText; }
+            set
+            {
+                if (this.comboboxText != value)
+                {
+                    this.comboboxText = value;
+                    OnPropertyChanged("ComboboxText");
+                }
+            }
+        }
+
         public string Error
         {
             get { return null; }
@@ -73,6 +117,14 @@ namespace FirstFloor.ModernUI.App.Content
                 if (columnName == "IdentityCard")
                 {
                     return string.IsNullOrEmpty(this.identityCard) ? "Required value" : null;
+                }
+                if (columnName == "Charges")
+                {
+                    return string.IsNullOrEmpty(this.charges) ? "Required value" : null;
+                }
+                if (columnName == "ComboboxText")
+                {
+                    return string.IsNullOrEmpty(this.comboboxText) ? "Required value" : null;
                 }
 
                 return null;

@@ -1,4 +1,5 @@
 ﻿using FirstFloor.ModernUI.App.Content;
+using FirstFloor.ModernUI.Presentation;
 using HOTEL6968;
 using HOTEL6968.BUS;
 using System;
@@ -23,8 +24,6 @@ namespace GUI.Pages
     /// </summary>
     public partial class SelectAuthority : UserControl
     {
-        SelectAuthorityBUS selectAuthorityBUS = new SelectAuthorityBUS();
-
         public SelectAuthority()
         {
             InitializeComponent();
@@ -32,7 +31,23 @@ namespace GUI.Pages
 
         private void btnCustomer_Click(object sender, RoutedEventArgs e)
         {
-            selectAuthorityBUS.btnCustomer_Click();
+            MenuGroup menuGroup = new MenuGroup();
+
+            var mainWd = MainWindow.mainWindow;
+
+            if (mainWd.MenuLinkGroups.Count > 2)
+            {
+                mainWd.ContentSource = new Uri("GUI/Pages/ServicesManage.xaml", UriKind.Relative);
+            }
+            else
+            {
+                menuGroup.Remove(mainWd, 0, "GUI/Pages/ServicesManage.xaml");
+
+                // Add Services Group
+                List<Link> listLink = new List<Link>();
+                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/ServicesManage.xaml", UriKind.Relative) });
+                menuGroup.Add(mainWd, "Services", listLink.Count, listLink);
+            }
         }
     }
 }

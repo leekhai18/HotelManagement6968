@@ -26,12 +26,10 @@ namespace HOTEL6968.GUI.Pages
 
         public CustomersAdd()
         {
-            InitializeComponent();
-
-            this.Loaded += Onloaded;
+            InitializeComponent();     
         }
 
-        private void Onloaded(object sender, RoutedEventArgs e)
+        private void CustomersAdd_loaded(object sender, RoutedEventArgs e)
         {
             Keyboard.Focus(this.txtFullName);
         }

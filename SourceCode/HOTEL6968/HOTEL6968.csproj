@@ -69,7 +69,6 @@
     </Compile>
     <Compile Include="BUS\CustomerBUS.cs" />
     <Compile Include="BUS\LoginBUS.cs" />
-    <Compile Include="BUS\SelectAuthorityBUS.cs" />
     <Compile Include="BUS\ServiceBUS.cs" />
     <Compile Include="BUS\StaffBUS.cs" />
     <Compile Include="DAL\BAO_CAO.cs">
@@ -129,6 +128,9 @@
     </Compile>
     <Compile Include="DAL\ServiceDAL.cs" />
     <Compile Include="DAL\StaffDAL.cs" />
+    <Compile Include="DAL\sysdiagram.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAL\TAI_KHOAN.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -150,6 +152,9 @@
     </Compile>
     <Compile Include="GUI\Pages\RoomsManage.xaml.cs">
       <DependentUpon>RoomsManage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pages\ServicesAdd.xaml.cs">
+      <DependentUpon>ServicesAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\Pages\ServicesManage.xaml.cs">
       <DependentUpon>ServicesManage.xaml</DependentUpon>
@@ -202,6 +207,10 @@
     <Page Include="GUI\Pages\SelectAuthority.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Pages\ServicesAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\Pages\ServicesManage.xaml">
       <SubType>Designer</SubType>
@@ -276,8 +285,8 @@
   <ItemGroup>
     <Content Include="DAL\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.Context.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
     </Content>
     <Content Include="DAL\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="HOTEL6968.GUI.Pages.RoomsAdd"
+﻿<UserControl x:Class="HOTEL6968.GUI.Pages.ServicesAdd"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,21 +7,21 @@
              xmlns:local="clr-namespace:FirstFloor.ModernUI.App.Content"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="600"
-             Loaded="RoomsAdd_Loaded">
-    
+             Loaded="ServicesAdd_Loaded">
+
     <Grid MinWidth="400">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
             <ColumnDefinition Width="2*"/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Column="1" Margin="10,0,0,0" Name="imageKindOfRoom" 
+        <Image Grid.Column="1" Margin="10,0,0,0" Name="imageService" 
                HorizontalAlignment="Left" VerticalAlignment="Top" />
 
         <ScrollViewer Grid.Column="0">
             <StackPanel MinWidth="200">
 
-                <TextBlock Text="NEW ROOM" Style="{StaticResource Heading2}" Margin="0,0,0,20" />
+                <TextBlock Text="NEW SERVICE" Style="{StaticResource Heading2}" Margin="0,0,0,20" />
 
                 <StackPanel x:Name="Form" Orientation="Vertical">
 
@@ -48,22 +48,31 @@
                     </StackPanel.Resources>
 
                     <StackPanel>
-                        <Label Content="Id Room" Target="{Binding ElementName=txtId}"/>
-                        <TextBox x:Name="txtId" Width="200" Text="{Binding IdentityCard, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
+                        <Label Content="Id service" Target="{Binding ElementName=txtId}"/>
+                        <TextBox x:Name="txtId" Width="200" Text="{Binding IdService, Mode=OneWay}" IsEnabled="False"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Full name" Target="{Binding ElementName=txtFullName}"/>
                         <TextBox x:Name="txtFullName" Width="200" Text="{Binding FullName, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Kind of room" Target="{Binding ElementName=ComboState}"/>
-                        <ComboBox x:Name="cmbKindOfRoom" Text="{Binding ComboboxText, Mode=TwoWay, ValidatesOnDataErrors=True}"
-                                  Width="200" SelectionChanged="cmbKindOfRoom_SelectionChanged">
-                            <ComboBoxItem>Standard</ComboBoxItem>
-                            <ComboBoxItem>Suite</ComboBoxItem>
-                            <ComboBoxItem>Superior</ComboBoxItem>
-                            <ComboBoxItem>VIP</ComboBoxItem>
+                        <Label Content="Kind of service" Target="{Binding ElementName=ComboState}"/>
+                        <ComboBox x:Name="cmbKindOfService" Text="{Binding ComboboxText, Mode=TwoWay, ValidatesOnDataErrors=True}" Width="200">
+                            <ComboBoxItem>Food</ComboBoxItem>
+                            <ComboBoxItem>Game</ComboBoxItem>
+                            <ComboBoxItem>Rest</ComboBoxItem>
                         </ComboBox>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Charges" Target="{Binding ElementName=txtCharges}"/>
+                        <TextBox x:Name="txtCharges" Width="200" Text="{Binding Charges, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Image source" Target="{Binding ElementName=txtImageSource}"/>
+                        <DockPanel>
+                            <TextBox x:Name="txtImageSource" Width="120" Text="{Binding IdentityCard, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                            <Button Name="btnBrowser" Margin="1,0,0,0" Width="79" Content="Browser" Click="btnBrowser_Click"/>
+                        </DockPanel>
                     </StackPanel>
 
                     <StackPanel Height="150">

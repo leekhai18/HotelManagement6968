@@ -6,7 +6,9 @@
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              xmlns:local="clr-namespace:FirstFloor.ModernUI.App.Content"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             Loaded="CustomersAdd_loaded">
+    
     <ScrollViewer>
         <StackPanel MinWidth="200">
 
@@ -51,7 +53,7 @@
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Birth date" Target="{Binding ElementName=datepickDateBirth}" />
-                    <DatePicker x:Name="datepickDateBirth" />
+                    <DatePicker x:Name="datepickDateBirth"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Phone number" Target="{Binding ElementName=txtPhoneNumber}"/>

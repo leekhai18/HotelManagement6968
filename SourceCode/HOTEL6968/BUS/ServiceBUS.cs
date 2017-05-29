@@ -10,6 +10,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
 
 namespace HOTEL6968.BUS
 {
@@ -49,5 +51,27 @@ namespace HOTEL6968.BUS
                 return ((obj as ServiceViewModel).TenDichVu.IndexOf(textChange, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
+        private static String GetDestinationPath(string filename, string foldername)
+        {
+            String appStartPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+            appStartPath = String.Format(appStartPath + "\\{0}\\" + filename, foldername);
+
+            return appStartPath;
+        }
+
+        //public void AddNewService(string id, string name, string idKind, string charges, string information, string imageSource)
+        //{
+        //    string imageName = System.IO.Path.GetFileName(filepath);
+        //    string destinationPath = GetDestinationPath(imageName, "YourFolderName");
+
+        //    File.Copy(filepath, destinationPath, true);
+
+        //    using (var db = new QuanLyKhachSanEntities())
+        //    {
+        //        db.DICH_VU.Add(new DICH_VU() { MaDichVu = id, TenDichVu = name, MaLoaiDichVu = idKind, GiaDichVu = charges, GhiChu = information, NguonAnh = imageSource, MaTinhTrang = 4 });
+
+        //        db.SaveChanges();
+        //    }
+        //}
     }
 }
