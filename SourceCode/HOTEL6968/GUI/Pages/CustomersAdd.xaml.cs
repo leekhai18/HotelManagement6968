@@ -1,4 +1,5 @@
-﻿using FirstFloor.ModernUI.Windows.Controls;
+﻿using FirstFloor.ModernUI.App.Content;
+using FirstFloor.ModernUI.Windows.Controls;
 using HOTEL6968.BUS;
 using System;
 using System.Collections.Generic;
@@ -42,15 +43,32 @@ namespace HOTEL6968.GUI.Pages
 
                 if (resultDialog == MessageBoxResult.Yes)
                 {
-                    customerBUS.AddNewCustomer(txtIdCustomer.Text, txtFullName.Text, txtIdentityCard.Text, txtPhoneNumber.Text, (DateTime.Parse(datepickDateBirth.Text)));
+                    string kindCus = (RadioKindCus.IsChecked == false) ? "LKH02" : "LKH01";
+                    customerBUS.AddNewCustomer(txtIdCustomer.Text, txtFullName.Text, txtIdentityCard.Text, txtPhoneNumber.Text, (DateTime.Parse(datepickDateBirth.Text)), kindCus);
 
                     ModernDialog.ShowMessage("You have successfully added", "Success", MessageBoxButton.OK);
+
+                    RefreshForm();
                 }
             }
             else
             {
                 ModernDialog.ShowMessage("Please fill in all required fields", "Notify", MessageBoxButton.OK);
             }
+        }
+
+        void RefreshForm()
+        {
+            //txtIdCustomer.Text = "";
+            Form.DataContext = null;
+            Form.DataContext = new FormsViewModel();
+
+            txtFullName.Text = "";
+            txtIdentityCard.Text = "";
+            txtPhoneNumber.Text = "";
+            datepickDateBirth.Text = "";
+            RadioKindCus.IsChecked = true;
+            checkboxAgree.IsChecked = false;
         }
     }
 }

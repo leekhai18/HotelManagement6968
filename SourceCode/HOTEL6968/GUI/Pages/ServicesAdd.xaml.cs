@@ -1,4 +1,6 @@
-﻿using FirstFloor.ModernUI.Windows.Controls;
+﻿using FirstFloor.ModernUI.App.Content;
+using FirstFloor.ModernUI.Windows.Controls;
+using HOTEL6968.BUS;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -24,6 +26,8 @@ namespace HOTEL6968.GUI.Pages
     /// </summary>
     public partial class ServicesAdd : UserControl
     {
+        ServiceBUS serviceBUS = new ServiceBUS();
+
         public ServicesAdd()
         {
             InitializeComponent();
@@ -33,6 +37,10 @@ namespace HOTEL6968.GUI.Pages
         {
             Keyboard.Focus(txtFullName);
         }
+
+
+        //
+        string imageSourceAdded = "";
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
@@ -65,14 +73,31 @@ namespace HOTEL6968.GUI.Pages
                             break;
                     }
 
+                    serviceBUS.AddNewService(txtId.Text, txtFullName.Text, idKind, txtCharges.Text, txtInfomation.Text, imageSourceAdded);
 
                     ModernDialog.ShowMessage("You have successfully added", "Success", MessageBoxButton.OK);
+
+                    RefreshForm();
                 }
             }
             else
             {
                 ModernDialog.ShowMessage("Please fill in all required fields", "Notify", MessageBoxButton.OK);
             }
+        }
+
+        void RefreshForm()
+        {
+            //txtId.Text = "";
+            Form.DataContext = null;
+            Form.DataContext = new FormsViewModel();
+
+            txtFullName.Text = "";
+            cmbKindOfService.Text = "";
+            txtCharges.Text = "";
+            txtInfomation.Text = "";
+            txtImageSource.Text = "";
+
         }
 
         private void btnBrowser_Click(object sender, RoutedEventArgs e)
@@ -90,7 +115,7 @@ namespace HOTEL6968.GUI.Pages
 
                 string name = System.IO.Path.GetFileName(op.FileName);
                 string destinationPath = GetDestinationPath(name, "GUI\\Assets\\Services");
-
+                imageSourceAdded = destinationPath;
 
                 File.Copy(op.FileName, destinationPath, true);
             }

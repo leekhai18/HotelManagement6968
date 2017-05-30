@@ -19,6 +19,7 @@ namespace HOTEL6968.BUS
     {
         ServiceDAL serviceDAL = new ServiceDAL();
 
+#region ServiceManager
         public List<ServiceViewModel> ListFoods
         {
             get
@@ -50,28 +51,18 @@ namespace HOTEL6968.BUS
             else
                 return ((obj as ServiceViewModel).TenDichVu.IndexOf(textChange, StringComparison.OrdinalIgnoreCase) >= 0);
         }
+        #endregion
 
-        private static String GetDestinationPath(string filename, string foldername)
+        #region ServiceAdd
+        public void AddNewService(string id, string name, string idKind, string charges, string information, string imageSource)
         {
-            String appStartPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
-            appStartPath = String.Format(appStartPath + "\\{0}\\" + filename, foldername);
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                db.DICH_VU.Add(new DICH_VU() { MaDichVu = id, TenDichVu = name, MaLoaiDichVu = idKind, GiaDichVu = Convert.ToDecimal(charges), GhiChu = information, NguonAnh = imageSource, MaTinhTrang = 4 });
 
-            return appStartPath;
+                db.SaveChanges();
+            }
         }
-
-        //public void AddNewService(string id, string name, string idKind, string charges, string information, string imageSource)
-        //{
-        //    string imageName = System.IO.Path.GetFileName(filepath);
-        //    string destinationPath = GetDestinationPath(imageName, "YourFolderName");
-
-        //    File.Copy(filepath, destinationPath, true);
-
-        //    using (var db = new QuanLyKhachSanEntities())
-        //    {
-        //        db.DICH_VU.Add(new DICH_VU() { MaDichVu = id, TenDichVu = name, MaLoaiDichVu = idKind, GiaDichVu = charges, GhiChu = information, NguonAnh = imageSource, MaTinhTrang = 4 });
-
-        //        db.SaveChanges();
-        //    }
-        //}
+#endregion
     }
 }

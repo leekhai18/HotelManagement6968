@@ -168,6 +168,9 @@
     <Compile Include="GUI\Pages\ServicesManageRests.xaml.cs">
       <DependentUpon>ServicesManageRests.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Pages\StaffsAdd.xaml.cs">
+      <DependentUpon>StaffsAdd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Pages\StaffsManage.xaml.cs">
       <DependentUpon>StaffsManage.xaml</DependentUpon>
     </Compile>
@@ -231,6 +234,10 @@
     <Page Include="GUI\Pages\Setting.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Pages\StaffsAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\Pages\StaffsManage.xaml">
       <SubType>Designer</SubType>

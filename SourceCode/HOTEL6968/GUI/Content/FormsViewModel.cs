@@ -18,6 +18,7 @@ namespace FirstFloor.ModernUI.App.Content
         private string charges;
         private string comboboxText;
         private string idService;
+        private string idStaff;
 
         public string IdCustomer
         {
@@ -30,6 +31,21 @@ namespace FirstFloor.ModernUI.App.Content
                     this.idCustomer = "KH" + idNumCus.ToString().PadLeft(4, '0');
 
                     return this.idCustomer;
+                }
+            }
+        }
+
+        public string IdStaff
+        {
+            get
+            {
+                using (var db = new QuanLyKhachSanEntities())
+                {
+                    int id = db.NHAN_VIEN.Count() + 1;
+
+                    this.idStaff = "NV" + id.ToString().PadLeft(3, '0');
+
+                    return this.idStaff;
                 }
             }
         }

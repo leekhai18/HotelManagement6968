@@ -19,11 +19,11 @@ namespace HOTEL6968.BUS
             }
         }
 
-        public void AddNewCustomer(string id, string name, string identityCard, string phoneNum, DateTime birthday)
+        public void AddNewCustomer(string id, string name, string identityCard, string phoneNum, DateTime birthday, string kindofCus)
         {
             using (var db = new QuanLyKhachSanEntities())
             {
-                db.KHACH_HANG.Add(new KHACH_HANG() { MaKhachHang = id, TenKhachHang = name, CMND = identityCard, SDT = phoneNum, NgaySinh = birthday, MaLoaiKhachHang = "LKH01" });
+                db.KHACH_HANG.Add(new KHACH_HANG() { MaKhachHang = id, TenKhachHang = name, CMND = identityCard, SDT = phoneNum, NgaySinh = birthday, MaLoaiKhachHang = kindofCus });
 
                 db.SaveChanges();
             }

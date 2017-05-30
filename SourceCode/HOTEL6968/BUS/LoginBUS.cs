@@ -33,7 +33,7 @@ namespace HOTEL6968.BUS
                 // Add Staffs Group
                 listLink.Clear();
                 listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/StaffsManage.xaml", UriKind.Relative) });
-                listLink.Add(new Link() { DisplayName = "Add", Source = new Uri("GUI/Pages/Staffs.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Add", Source = new Uri("GUI/Pages/StaffsAdd.xaml", UriKind.Relative) });
                 menuGroup.Add(mainWd, "Staffs", listLink.Count, listLink);
 
                 // Add Customers Group

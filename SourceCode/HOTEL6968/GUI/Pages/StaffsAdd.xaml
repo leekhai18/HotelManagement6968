@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="HOTEL6968.GUI.Pages.ServicesAdd"
+﻿<UserControl x:Class="HOTEL6968.GUI.Pages.StaffsAdd"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              xmlns:local="clr-namespace:FirstFloor.ModernUI.App.Content"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="600"
+             d:DesignHeight="400" d:DesignWidth="600"
              Loaded="ServicesAdd_Loaded">
 
     <Grid MinWidth="400">
@@ -15,13 +15,13 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Column="1" Margin="10,0,0,0" Name="imageService" 
+        <Image Grid.Column="1" Margin="10,0,0,0" Name="imageStaff" 
                HorizontalAlignment="Left" VerticalAlignment="Top" />
 
         <ScrollViewer Grid.Column="0">
             <StackPanel MinWidth="200">
 
-                <TextBlock Text="NEW SERVICE" Style="{StaticResource Heading2}" Margin="0,0,0,20" />
+                <TextBlock Text="NEW STAFF" Style="{StaticResource Heading2}" Margin="0,0,0,20" />
 
                 <StackPanel x:Name="Form" Orientation="Vertical">
 
@@ -48,36 +48,61 @@
                     </StackPanel.Resources>
 
                     <StackPanel>
-                        <Label Content="Id service" Target="{Binding ElementName=txtId}"/>
-                        <TextBox x:Name="txtId" Width="200" Text="{Binding IdService, Mode=OneWay}" IsEnabled="False"/>
+                        <Label Content="Id staff" Target="{Binding ElementName=txtId}"/>
+                        <TextBox x:Name="txtId" Width="200" Text="{Binding IdStaff, Mode=OneWay}" IsEnabled="False"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Full name" Target="{Binding ElementName=txtFullName}"/>
                         <TextBox x:Name="txtFullName" Width="200" Text="{Binding FullName, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Kind of service" Target="{Binding ElementName=cmbKindOfService}"/>
-                        <ComboBox x:Name="cmbKindOfService" Text="{Binding ComboboxText, Mode=TwoWay, ValidatesOnDataErrors=True}" Width="200">
-                            <ComboBoxItem>Food</ComboBoxItem>
-                            <ComboBoxItem>Game</ComboBoxItem>
-                            <ComboBoxItem>Rest</ComboBoxItem>
+                        <Label Content="Identity card" Target="{Binding ElementName=txtIdentityCard}"/>
+                        <TextBox x:Name="txtIdentityCard" Width="200" Text="{Binding IdentityCard, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Gender" Target="{Binding ElementName=RadioGendeMale}"/>
+                        <RadioButton x:Name="RadioGendeMale">
+                            <TextBlock>Male</TextBlock>
+                        </RadioButton>
+                        <RadioButton Content="Female" Margin="8,0,0,0" />
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,5">
+                        <Label Content="Birth date" Target="{Binding ElementName=datepickDateBirth}" />
+                        <DatePicker x:Name="datepickDateBirth"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <Label Content="Position" Target="{Binding ElementName=cmbPosition}"/>
+                        <ComboBox x:Name="cmbPosition" Width="200">
+                            <ComboBoxItem>Receptionists</ComboBoxItem>
+                            <ComboBoxItem>Manager</ComboBoxItem>
+                            <ComboBoxItem>Other</ComboBoxItem>
                         </ComboBox>
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Charges" Target="{Binding ElementName=txtCharges}"/>
-                        <TextBox x:Name="txtCharges" Width="200" Text="{Binding Charges, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                        <Label Content="Phone Number" Target="{Binding ElementName=txtPhoneNum}"/>
+                        <TextBox x:Name="txtPhoneNum" Width="200"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Email" Target="{Binding ElementName=txtEmail}"/>
+                        <TextBox x:Name="txtEmail" Width="200"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Address" Target="{Binding ElementName=txtAddress}"/>
+                        <TextBox x:Name="txtAddress" Width="200"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Image source" Target="{Binding ElementName=txtImageSource}"/>
                         <DockPanel>
-                            <TextBox x:Name="txtImageSource" Width="120" Text="{Binding IdentityCard, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                            <TextBox x:Name="txtImageSource" Width="120"/>
                             <Button Name="btnBrowser" Margin="1,0,0,0" Width="79" Content="Browser" Click="btnBrowser_Click"/>
                         </DockPanel>
                     </StackPanel>
-
-                    <StackPanel Height="150">
-                        <Label Content="Information" Target="{Binding ElementName=txtInfomation}" VerticalAlignment="Top"/>
-                        <TextBox x:Name="txtInfomation" Width="200" TextWrapping="Wrap"/>
+                    <StackPanel >
+                        <Label/>
+                        <CheckBox Name="checkboxAgree">
+                            <TextBlock FontWeight="Bold" Text="I agree to the license terms and conditions of hotel"  />
+                        </CheckBox>
                     </StackPanel>
 
                     <Button Name="btnSubmit" Content="Submit" Margin="100,16,0,0" HorizontalAlignment="Left" Click="btnSubmit_Click"/>
