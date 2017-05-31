@@ -57,7 +57,7 @@
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Birth date" Target="{Binding ElementName=datepickDateBirth}" />
-                    <DatePicker x:Name="datepickDateBirth" Text="{Binding ComboboxText, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
+                    <DatePicker x:Name="datepickDateBirth"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Kind of Cus" Target="{Binding ElementName=RadioKindCus}"/>

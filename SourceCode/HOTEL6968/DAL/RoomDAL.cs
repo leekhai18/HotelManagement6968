@@ -80,5 +80,15 @@ namespace HOTEL6968.DAL
                 return imageSource;
             }
         }
+
+        public void AddNewRoom(string id, string name, string idKind, string information)
+        {
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                db.PHONGs.Add(new PHONG() { MaPhong = id, TenPhong = name, MaLoaiPhong = idKind, GhiChu = information, MaTinhTrang = 1 });
+
+                db.SaveChanges();
+            }
+        }
     }
 }

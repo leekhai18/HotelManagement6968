@@ -105,5 +105,14 @@ namespace HOTEL6968.DAL
             return listRests;
         }
 
+        public void AddNewService(string id, string name, string idKind, string charges, string information, string imageSource)
+        {
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                db.DICH_VU.Add(new DICH_VU() { MaDichVu = id, TenDichVu = name, MaLoaiDichVu = idKind, GiaDichVu = Convert.ToDecimal(charges), GhiChu = information, NguonAnh = imageSource, MaTinhTrang = 4 });
+
+                db.SaveChanges();
+            }
+        }
     }
 }

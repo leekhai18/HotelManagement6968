@@ -102,7 +102,7 @@ namespace HOTEL6968.GUI.Pages
                             break;
                     }
 
-                    string gen = (RadioGendeMale.IsChecked == true) ? "Male" : "Female";
+                    string gen = (RadioGendeMale.IsChecked == true) ? "Nam" : "Nữ";
 
                     staffBUS.AddNewStaff(txtId.Text, txtFullName.Text, txtIdentityCard.Text, txtAddress.Text, txtEmail.Text, gen, idPos, DateTime.Parse(datepickDateBirth.Text), txtPhoneNum.Text, imageSourceAdded);
 

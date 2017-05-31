@@ -1,0 +1,159 @@
+﻿<UserControl x:Class="HOTEL6968.GUI.Pages.RoomsBook"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:local="clr-namespace:FirstFloor.ModernUI.App.Content"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="900"
+             Loaded="RoomsBook_Loaded">
+
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackPanel Grid.Column="0" MinWidth="200" Name="mainLayout">
+
+                <TextBlock Text="CUSTOMER INFORMATION" Style="{StaticResource Heading2}"
+                           FontSize="25" Margin="0,0,0,20" />
+
+                <StackPanel x:Name="Form" Orientation="Vertical">
+
+                    <!-- create viewmodel -->
+                    <StackPanel.DataContext>
+                        <local:FormsViewModel/>
+                    </StackPanel.DataContext>
+
+                    <StackPanel.Resources>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Orientation" Value="Horizontal" />
+                            <Setter Property="Margin" Value="0,0,0,4" />
+                        </Style>
+                        <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                            <Setter Property="Width" Value="100" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                        <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                            <Setter Property="Padding" Value="0,3" />
+                        </Style>
+                        <Style TargetType="RadioButton" BasedOn="{StaticResource {x:Type RadioButton}}">
+                            <Setter Property="Padding" Value="0,3" />
+                        </Style>
+                    </StackPanel.Resources>
+
+                    <StackPanel>
+                        <Label Content="Id customer" Target="{Binding ElementName=txtIdCustomer}"/>
+                        <TextBox x:Name="txtIdCustomer" Width="200" Text="{Binding IdCustomer, Mode=TwoWay}"
+                             IsEnabled="False"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Identity card" Target="{Binding ElementName=txtIdentityCard}"/>
+                        <TextBox x:Name="txtIdentityCard" Width="200"  Text="{Binding IdentityCard, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 TextChanged="txtIdentityCard_TextChanged"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Full name" Target="{Binding ElementName=txtFullName}"/>
+                        <TextBox x:Name="txtFullName" Width="200" Text="{Binding FullName, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Phone number" Target="{Binding ElementName=txtPhoneNumber}"/>
+                        <TextBox x:Name="txtPhoneNumber" Width="200" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Birth date" Target="{Binding ElementName=datepickDateBirth}" />
+                        <DatePicker x:Name="datepickDateBirth"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Kind of Cus" Target="{Binding ElementName=RadioKindCus}"/>
+                        <RadioButton x:Name="RadioKindCus" Content="Member" IsChecked="True"/>
+                        <RadioButton Name="radioKindVIP" Content="VIP" Margin="8,0,0,0" />
+                    </StackPanel>
+                    <StackPanel >
+                        <Label/>
+                        <CheckBox Name="checkboxAgree">
+                            <TextBlock FontWeight="Bold" Text="I agree to the license terms and conditions of hotel" 
+                                       Width="200" TextWrapping="Wrap"/>
+                        </CheckBox>
+                    </StackPanel>
+
+
+                    <Button Name="btnBook" Content="Book" FontWeight="Bold" Margin="100,16,0,0" HorizontalAlignment="Left"
+                        Click="btnBook_Click"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Vertical">
+                <StackPanel.Resources>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Orientation" Value="Horizontal" />
+                        <Setter Property="Margin" Value="0,0,0,4" />
+                    </Style>
+                    <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                        <Setter Property="Width" Value="120" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                    </Style>
+                    <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                        <Setter Property="Padding" Value="0,3" />
+                    </Style>
+                    <Style TargetType="RadioButton" BasedOn="{StaticResource {x:Type RadioButton}}">
+                        <Setter Property="Padding" Value="0,3" />
+                    </Style>
+                </StackPanel.Resources>
+
+                <TextBlock Text="ROOM INFORMATION" Style="{StaticResource Heading2}"
+                           FontSize="25" Margin="0,0,0,20"/>
+
+                <StackPanel>
+                    <Label Content="Id room" Target="{Binding ElementName=txtIdRoom}"/>
+                    <TextBox x:Name="txtIdRoom" Width="200" IsEnabled="False"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Name" Target="{Binding ElementName=txtRoomName}"/>
+                    <TextBox x:Name="txtRoomName" Width="200"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Kind of room" Target="{Binding ElementName=txtKind}"/>
+                    <TextBox x:Name="txtKind" Width="200"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Base rates" Target="{Binding ElementName=txtRoomRate}"/>
+                    <TextBox Name="txtBaseRate" Width="130" IsEnabled="True" TextChanged="txtBaseRate_TextChanged"/>
+                    <Label Content="(per day)"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Number of people" Target="{Binding ElementName=cmbNumOfPeo}"/>
+                    <ComboBox Name="cmbNumOfPeo" SelectionChanged="cmbNumOfPeo_SelectionChanged">
+                        <ComboBoxItem Content="1"/>
+                        <ComboBoxItem Content="2"/>
+                        <ComboBoxItem Content="3"/>
+                        <ComboBoxItem Content="4"/>
+                    </ComboBox>
+                    <CheckBox Name="checkboxHasForeigner" Margin="30,0,0,0" Click="checkboxHasForeigner_Click">
+                        <TextBlock Text="Foreigner"/>
+                    </CheckBox>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Surcharge" Target="{Binding ElementName=txtSurcharge}"/>
+                    <TextBox Name="txtSurcharge" Width="130" Text="0" IsEnabled="False"/>
+                    <Label Content="(per day)"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Total room rates" Target="{Binding ElementName=txtTotalRoomRate}"/>
+                    <TextBox Name="txtTotalRoomRate" Width="130" IsEnabled="False"/>
+                    <Label Content="(per day)"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Booking date" Target="{Binding ElementName=datePickerBook}"/>
+                    <DatePicker Name="datePickerBook" Width="130"/>
+                </StackPanel>
+
+                <Image Margin="0,10,0,0" Source="D:\Documents\SchoolCourses\SE104\Project\HotelManagement6968\SourceCode\HOTEL6968\GUI\Assets\Rooms\Vip0.jpg"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

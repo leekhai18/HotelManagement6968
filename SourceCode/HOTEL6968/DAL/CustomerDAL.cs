@@ -54,5 +54,24 @@ namespace HOTEL6968.DAL
 
             return listKhachHang;
         }
+
+        public void AddNewCustomer(string id, string name, string identityCard, string phoneNum, DateTime birthday, string kindofCus)
+        {
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                db.KHACH_HANG.Add(new KHACH_HANG() { MaKhachHang = id, TenKhachHang = name, CMND = identityCard, SDT = phoneNum, NgaySinh = birthday, MaLoaiKhachHang = kindofCus });
+
+                db.SaveChanges();
+            }
+        }
+
+        public CustomerViewModel GetCustomerWithIdentityCard(string identityCard)
+        {
+            List<CustomerViewModel> listCus = GetListKhachHang();
+
+            var cus = listCus.Where(p => p.CMND == identityCard).FirstOrDefault();           
+
+            return cus;
+        }
     }
 }

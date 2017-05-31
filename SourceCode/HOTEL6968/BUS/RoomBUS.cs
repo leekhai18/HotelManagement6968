@@ -91,13 +91,17 @@ namespace HOTEL6968.BUS
 
         public void AddNewRoom(string id, string name, string idKind, string information)
         {
-            using (var db = new QuanLyKhachSanEntities())
-            {
-                db.PHONGs.Add(new PHONG() { MaPhong = id, TenPhong = name, MaLoaiPhong = idKind, GhiChu = information, MaTinhTrang = 1 });
-
-                db.SaveChanges();
-            }
+            roomDAL.AddNewRoom(id, name, idKind, information);
         }
+
+        #region Booking room
+        CustomerDAL cusDAL = new CustomerDAL();
+
+        public CustomerViewModel GetCustomerWithIdentityCard(string identityCard)
+        {
+            return cusDAL.GetCustomerWithIdentityCard(identityCard);
+        }
+#endregion
 
     }
 }

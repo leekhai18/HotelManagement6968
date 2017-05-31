@@ -150,6 +150,9 @@
     <Compile Include="GUI\Pages\RoomsAdd.xaml.cs">
       <DependentUpon>RoomsAdd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Pages\RoomsBook.xaml.cs">
+      <DependentUpon>RoomsBook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Pages\RoomsManage.xaml.cs">
       <DependentUpon>RoomsManage.xaml</DependentUpon>
     </Compile>
@@ -200,6 +203,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="GUI\Pages\RoomsAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Pages\RoomsBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

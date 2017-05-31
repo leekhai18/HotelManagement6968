@@ -33,6 +33,10 @@ namespace FirstFloor.ModernUI.App.Content
                     return this.idCustomer;
                 }
             }
+            set
+            {
+
+            }
         }
 
         public string IdStaff
@@ -48,6 +52,10 @@ namespace FirstFloor.ModernUI.App.Content
                     return this.idStaff;
                 }
             }
+            set
+            {
+
+            }
         }
 
         public string IdService
@@ -62,6 +70,10 @@ namespace FirstFloor.ModernUI.App.Content
 
                     return this.idService;
                 }
+            }
+            set
+            {
+
             }
         }
 

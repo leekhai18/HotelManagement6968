@@ -82,5 +82,27 @@ namespace HOTEL6968.DAL
 
             return listStaffs;
         }
+
+        public void AddNewStaff(string id, string name, string identityCard, string address, string email, string gender, string idPos, DateTime birthday, string phoneNumber, string imageSource)
+        {
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                db.NHAN_VIEN.Add(new NHAN_VIEN()
+                {
+                    MaNhanVien = id,
+                    TenNhanVien = name,
+                    CMND = identityCard,
+                    DiaChi = address,
+                    Email = email,
+                    GioiTinh = gender,
+                    MaChucVu = idPos,
+                    NgaySinh = birthday,
+                    SDT = phoneNumber,
+                    NguonAnh = imageSource
+                });
+
+                db.SaveChanges();
+            }
+        }
     }
 }

@@ -11,8 +11,8 @@
     
     <Grid MinWidth="400">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
             <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
         <Image Grid.Column="1" Margin="10,0,0,0" Name="imageKindOfRoom" 
