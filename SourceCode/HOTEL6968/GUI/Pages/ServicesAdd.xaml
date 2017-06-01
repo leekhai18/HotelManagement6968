@@ -48,7 +48,7 @@
                     </StackPanel.Resources>
 
                     <StackPanel>
-                        <Label Content="Id service" Target="{Binding ElementName=txtId}"/>
+                        <Label Content="Service's id" Target="{Binding ElementName=txtId}"/>
                         <TextBox x:Name="txtId" Width="200" Text="{Binding IdService, Mode=OneWay}" IsEnabled="False"/>
                     </StackPanel>
                     <StackPanel>

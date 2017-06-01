@@ -156,6 +156,9 @@
     <Compile Include="GUI\Pages\RoomsManage.xaml.cs">
       <DependentUpon>RoomsManage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Pages\RoomsPay.xaml.cs">
+      <DependentUpon>RoomsPay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Pages\ServicesAdd.xaml.cs">
       <DependentUpon>ServicesAdd.xaml</DependentUpon>
     </Compile>
@@ -211,6 +214,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\Pages\RoomsManage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Pages\RoomsPay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

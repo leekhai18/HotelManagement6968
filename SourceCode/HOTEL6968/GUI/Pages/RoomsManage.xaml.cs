@@ -23,6 +23,7 @@ namespace HOTEL6968.GUI.Pages
     public partial class RoomsManage : UserControl
     {
         RoomBUS roomBUS = new RoomBUS();
+
         public RoomsManage()
         {
             InitializeComponent();
@@ -113,6 +114,19 @@ namespace HOTEL6968.GUI.Pages
             }
 
             roomBUS.Filter(lvRoom, roomBUS.kindOfRoom, roomBUS.statusOfRoom);
+        }
+
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationCommands.GoToPage.Execute("/GUI/Pages/RoomsBook.xaml#" + roomBUS.idRoomSelected, this);
+        }
+
+        private void lvRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count != 0)
+            {
+                roomBUS.idRoomSelected = (e.AddedItems[0] as RoomViewModel).MaPhong;            
+            }
         }
     }
 }

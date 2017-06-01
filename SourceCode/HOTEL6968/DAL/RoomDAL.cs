@@ -19,9 +19,10 @@ namespace HOTEL6968.DAL
             this.TenPhong = phong.TenPhong;
             this.MaPhong = phong.MaPhong;
             this.MaLoaiPhong = phong.MaLoaiPhong;
+            this.TenLoaiPhong = phong.LOAI_PHONG.TenLoaiPhong;
             this.MaTinhTrang = phong.MaTinhTrang;
             this.GhiChu = phong.GhiChu;
-            this.GiaPhongString = ((Decimal)phong.LOAI_PHONG.GiaPhong).ToString("0,0") + " VND";
+            this.GiaPhongString = ((Decimal)phong.LOAI_PHONG.GiaPhong).ToString("0,0");
             this.GiaPhong = phong.LOAI_PHONG.GiaPhong;
 
             AppearanceManager.Current.PropertyChanged += OnAppearanceManagerPropertyChanged;
@@ -39,6 +40,7 @@ namespace HOTEL6968.DAL
         public string TenPhong { get; set; }
         public string MaPhong { get; set; }
         public string MaLoaiPhong { get; set; }
+        public string TenLoaiPhong { get; set; }
         public Nullable<short> MaTinhTrang { get; set; }
         public string GhiChu { get; set; }
         public string GiaPhongString { get; set; }
@@ -89,6 +91,31 @@ namespace HOTEL6968.DAL
 
                 db.SaveChanges();
             }
+        }
+
+        public RoomViewModel GetRoomWithId(string id)
+        {
+            List<RoomViewModel> listRoom = GetListRooms();
+
+            RoomViewModel room = listRoom.Where(p => p.MaPhong == id).FirstOrDefault();
+
+            return room;
+        }
+
+        public List<string> GetListIdRoomAvailable()
+        {
+            List<RoomViewModel> listRoom = GetListRooms();
+
+            List<RoomViewModel> listRoomAvailable = listRoom.Where(p => p.MaTinhTrang == 1).ToList();
+
+            List<string> listIdRoomAvailable = new List<string>();
+
+            for (int i = 0; i < listRoomAvailable.Count; i++)
+            {
+                listIdRoomAvailable.Add(listRoomAvailable[i].MaPhong);
+            }
+
+            return listIdRoomAvailable;
         }
     }
 }

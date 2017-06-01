@@ -16,8 +16,10 @@ namespace HOTEL6968.BUS
     {
         public string kindOfRoom = "";
         public int statusOfRoom = -1;
+        public string idRoomSelected;
 
         RoomDAL roomDAL = new RoomDAL();
+
         public List<RoomViewModel> ListRooms
         {
             get
@@ -100,6 +102,19 @@ namespace HOTEL6968.BUS
         public CustomerViewModel GetCustomerWithIdentityCard(string identityCard)
         {
             return cusDAL.GetCustomerWithIdentityCard(identityCard);
+        }
+
+        public RoomViewModel GetRoomWithId(string id)
+        {
+            return roomDAL.GetRoomWithId(id);
+        }
+
+        public List<string> GetListIdRoomAvailable
+        {
+            get
+            {
+                return roomDAL.GetListIdRoomAvailable();
+            }
         }
 #endregion
 

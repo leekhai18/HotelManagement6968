@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
-             d:DesignHeight="150" d:DesignWidth="500"
+             d:DesignHeight="150" d:DesignWidth="1000"
              Style="{StaticResource ContentRoot}"
              Loaded="CustomersManage_Loaded">
     
@@ -20,8 +20,8 @@
             <TextBlock DockPanel.Dock="Top" Text="CUSTOMER LIST" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
             <DataGrid Name="dataGridListCustomer" ItemsSource="{Binding ListKhachHang}" AutoGenerateColumns="False" >
                 <DataGrid.Columns>
-                    <mui:DataGridTextColumn Header="Id Cus"  Binding="{Binding Path=MaKhachHang}" IsReadOnly="True"/>
-                    <mui:DataGridTextColumn Header="Name Cus" Binding="{Binding Path=TenKhachHang}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Customer's id"  Binding="{Binding Path=MaKhachHang}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Name" Binding="{Binding Path=TenKhachHang}" IsReadOnly="True"/>
                     <mui:DataGridTextColumn Header="Identity Card" Binding="{Binding Path=CMND}" IsReadOnly="True"/>
                     <mui:DataGridTextColumn Header="Birthday" Binding="{Binding Path=NgaySinhString}" IsReadOnly="True"/>
                     <mui:DataGridTextColumn Header="Phone Number" Binding="{Binding Path=SDT}" IsReadOnly="True"/>

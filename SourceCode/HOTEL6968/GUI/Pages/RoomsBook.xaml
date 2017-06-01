@@ -8,6 +8,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="900"
              Loaded="RoomsBook_Loaded">
+    
+    
 
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
         <Grid>
@@ -47,7 +49,7 @@
                     </StackPanel.Resources>
 
                     <StackPanel>
-                        <Label Content="Id customer" Target="{Binding ElementName=txtIdCustomer}"/>
+                        <Label Content="Customer's id" Target="{Binding ElementName=txtIdCustomer}"/>
                         <TextBox x:Name="txtIdCustomer" Width="200" Text="{Binding IdCustomer, Mode=TwoWay}"
                              IsEnabled="False"/>
                     </StackPanel>
@@ -109,25 +111,27 @@
                            FontSize="25" Margin="0,0,0,20"/>
 
                 <StackPanel>
-                    <Label Content="Id room" Target="{Binding ElementName=txtIdRoom}"/>
-                    <TextBox x:Name="txtIdRoom" Width="200" IsEnabled="False"/>
+                    <Label Content="Room's id" Target="{Binding ElementName=cmbIdRoom}"/>
+                    <ComboBox x:Name="cmbIdRoom" Width="200" IsEnabled="true" ItemsSource="{Binding GetListIdRoomAvailable}"
+                              Text="{Binding ComboboxText, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                              SelectionChanged="cmbIdRoom_SelectionChanged"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Name" Target="{Binding ElementName=txtRoomName}"/>
-                    <TextBox x:Name="txtRoomName" Width="200"/>
+                    <TextBox x:Name="txtRoomName" Width="200" Text="{Binding TenPhong}" IsEnabled="False"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Kind of room" Target="{Binding ElementName=txtKind}"/>
-                    <TextBox x:Name="txtKind" Width="200"/>
+                    <TextBox x:Name="txtKind" Width="200" Text="{Binding TenLoaiPhong}" IsEnabled="False"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Base rates" Target="{Binding ElementName=txtRoomRate}"/>
-                    <TextBox Name="txtBaseRate" Width="130" IsEnabled="True" TextChanged="txtBaseRate_TextChanged"/>
+                    <TextBox Name="txtBaseRate" Width="130" IsEnabled="False" TextChanged="txtBaseRate_TextChanged" Text="{Binding Path=GiaPhongString}"/>
                     <Label Content="(per day)"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Number of people" Target="{Binding ElementName=cmbNumOfPeo}"/>
-                    <ComboBox Name="cmbNumOfPeo" SelectionChanged="cmbNumOfPeo_SelectionChanged">
+                    <ComboBox Name="cmbNumOfPeo" SelectionChanged="cmbNumOfPeo_SelectionChanged" Text="{Binding ComboboxText, Mode=TwoWay, ValidatesOnDataErrors=True}">
                         <ComboBoxItem Content="1"/>
                         <ComboBoxItem Content="2"/>
                         <ComboBoxItem Content="3"/>
@@ -144,12 +148,12 @@
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Total room rates" Target="{Binding ElementName=txtTotalRoomRate}"/>
-                    <TextBox Name="txtTotalRoomRate" Width="130" IsEnabled="False"/>
+                    <TextBox Name="txtTotalRoomRate" Width="130" IsEnabled="False" FontWeight="Bold"/>
                     <Label Content="(per day)"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Booking date" Target="{Binding ElementName=datePickerBook}"/>
-                    <DatePicker Name="datePickerBook" Width="130"/>
+                    <DatePicker Name="datePickerBook" Width="130" Text="{Binding Charges, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
                 </StackPanel>
 
                 <Image Margin="0,10,0,0" Source="D:\Documents\SchoolCourses\SE104\Project\HotelManagement6968\SourceCode\HOTEL6968\GUI\Assets\Rooms\Vip0.jpg"/>

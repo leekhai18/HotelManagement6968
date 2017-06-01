@@ -48,7 +48,7 @@
                     </StackPanel.Resources>
 
                     <StackPanel>
-                        <Label Content="Id Room" Target="{Binding ElementName=txtId}"/>
+                        <Label Content="Room's id" Target="{Binding ElementName=txtId}"/>
                         <TextBox x:Name="txtId" Width="200" Text="{Binding IdentityCard, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
                     </StackPanel>
                     <StackPanel>

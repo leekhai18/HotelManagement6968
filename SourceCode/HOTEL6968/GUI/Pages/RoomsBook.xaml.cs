@@ -1,7 +1,9 @@
 ﻿using FirstFloor.ModernUI.App.Content;
+using FirstFloor.ModernUI.Windows;
 using HOTEL6968.BUS;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,13 +16,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FirstFloor.ModernUI.Windows.Navigation;
 
 namespace HOTEL6968.GUI.Pages
 {
     /// <summary>
     /// Interaction logic for RoomsBook.xaml
     /// </summary>
-    public partial class RoomsBook : UserControl
+    /// 
+     public partial class RoomsBook : UserControl, IContent
     {
         RoomBUS roomBUS = new RoomBUS();
 
@@ -28,6 +32,41 @@ namespace HOTEL6968.GUI.Pages
         {
             InitializeComponent();
         }
+
+        public RoomsBook Instance
+        {
+            get
+            {
+                return this;
+            }
+        }
+
+        #region OnNavigateTo
+        public void OnFragmentNavigation(FirstFloor.ModernUI.Windows.Navigation.FragmentNavigationEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(e.Fragment))
+            {
+                roomBUS.idRoomSelected = e.Fragment;
+
+                this.DataContext = roomBUS.GetRoomWithId(roomBUS.idRoomSelected);
+            }
+        }
+
+        public void OnNavigatedFrom(FirstFloor.ModernUI.Windows.Navigation.NavigationEventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void OnNavigatedTo(FirstFloor.ModernUI.Windows.Navigation.NavigationEventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void OnNavigatingFrom(FirstFloor.ModernUI.Windows.Navigation.NavigatingCancelEventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+        #endregion
 
         private void btnBook_Click(object sender, RoutedEventArgs e)
         {
@@ -37,6 +76,25 @@ namespace HOTEL6968.GUI.Pages
         private void RoomsBook_Loaded(object sender, RoutedEventArgs e)
         {
             Keyboard.Focus(txtIdentityCard);
+
+            FormsViewModel dataContextForm = new FormsViewModel();
+            cmbNumOfPeo.DataContext = dataContextForm;
+            datePickerBook.DataContext = dataContextForm;
+            cmbIdRoom.DataContext = roomBUS;
+            cmbIdRoom.SelectedIndex = cmbIdRoom.Items.IndexOf(roomBUS.idRoomSelected);
+        }
+
+        private void cmbIdRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.DataContext = null;
+            this.DataContext = roomBUS.GetRoomWithId(cmbIdRoom.SelectedItem.ToString());
+
+            FormsViewModel dataContextForm = new FormsViewModel();
+            cmbNumOfPeo.DataContext = dataContextForm;
+            datePickerBook.DataContext = dataContextForm;
+            checkboxHasForeigner.IsChecked = false;
+
+            UpdateSurcharge(rates = 0);
         }
 
         //Suport variable
@@ -84,9 +142,9 @@ namespace HOTEL6968.GUI.Pages
         float rates = 0;
         void UpdateSurcharge(float rate)
         {
-            txtSurcharge.Text = Convert.ToString(Convert.ToInt32(txtBaseRate.Text) * rate);
+            txtSurcharge.Text = (Convert.ToDouble(txtBaseRate.Text) * rate).ToString("0,0");
 
-            txtTotalRoomRate.Text = Convert.ToString(Convert.ToInt32(txtBaseRate.Text) + Convert.ToInt32(txtSurcharge.Text));
+            txtTotalRoomRate.Text = (Convert.ToDouble(txtBaseRate.Text) + Convert.ToDouble(txtSurcharge.Text)).ToString("0,0");
         }
 
         private void cmbNumOfPeo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -118,6 +176,8 @@ namespace HOTEL6968.GUI.Pages
 
             UpdateSurcharge(rates);
         }
-#endregion
+
+        #endregion
+
     }
 }
