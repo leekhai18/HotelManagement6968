@@ -45,11 +45,15 @@ namespace HOTEL6968.DAL
 
     public class BillDAL
     {
-        public void InitBill(string idCustomer , string idRoom, string rateRoomPerDay, DateTime bookingDay)
+        public void InitBill(string idCustomer , string idRoom, Decimal rateRoomPerDay, DateTime bookingDay)
         {
             using (var db = new QuanLyKhachSanEntities())
             {
+                string idBill = (db.HOA_DON.Count() + 1).ToString();
 
+                db.HOA_DON.Add(new HOA_DON() { SoHoaDon = idBill, MaKhachHang = idCustomer, MaPhong = idRoom, GiaPhong1Ngay = rateRoomPerDay, ThoiGianDat = bookingDay });
+
+                db.SaveChanges();
             }
         }
 

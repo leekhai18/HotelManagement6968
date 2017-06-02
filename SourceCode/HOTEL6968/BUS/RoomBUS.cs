@@ -104,9 +104,9 @@ namespace HOTEL6968.BUS
             return cusDAL.GetCustomerWithIdentityCard(identityCard);
         }
 
-        public RoomViewModel GetRoomWithId(string id)
+        public RoomViewModel GetRoomWithId(string idRoom)
         {
-            return roomDAL.GetRoomWithId(id);
+            return roomDAL.GetRoomWithId(idRoom);
         }
 
         public List<string> GetListIdRoomAvailable
@@ -115,6 +115,11 @@ namespace HOTEL6968.BUS
             {
                 return roomDAL.GetListIdRoomAvailable();
             }
+        }
+
+        public void ChangeStatusRoom(string idRoom)
+        {
+            roomDAL.ChangeStatusRoom(idRoom);
         }
 #endregion
 

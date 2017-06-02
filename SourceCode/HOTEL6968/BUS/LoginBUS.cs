@@ -21,9 +21,9 @@ namespace HOTEL6968.BUS
                 // Add Rooms Group
                 List<Link> listLink = new List<Link>();
                 listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/RoomsManage.xaml", UriKind.Relative) });
-                listLink.Add(new Link() { DisplayName = "Add", Source = new Uri("GUI/Pages/RoomsAdd.xaml", UriKind.Relative) });
                 listLink.Add(new Link() { DisplayName = "Book", Source = new Uri("GUI/Pages/RoomsBook.xaml", UriKind.Relative) });
                 listLink.Add(new Link() { DisplayName = "Pay", Source = new Uri("GUI/Pages/RoomsPay.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Add", Source = new Uri("GUI/Pages/RoomsAdd.xaml", UriKind.Relative) });
                 menuGroup.Add(mainWd, "Rooms", listLink.Count, listLink);
 
                 // Add Services Group

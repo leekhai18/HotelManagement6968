@@ -29,6 +29,7 @@ namespace HOTEL6968.GUI.Pages
     {
         RoomBUS roomBUS = new RoomBUS();
         CustomerBUS customerBUS = new CustomerBUS();
+        BillBUS billBUS = new BillBUS();
 
         public RoomsBook()
         {
@@ -81,12 +82,17 @@ namespace HOTEL6968.GUI.Pages
                 {
                     string kindCus = (RadioKindCus.IsChecked == false) ? "LKH02" : "LKH01";
 
-                    //Check update or add
+                    //Check update or add Customer
                     if (Convert.ToInt32(txtIdCustomer.Text.Substring(txtIdCustomer.Text.Length - 4)) < customerBUS.LenghtListCustomer)
                         customerBUS.UpdateInfoCustomer(txtIdCustomer.Text, txtFullName.Text, txtIdentityCard.Text, txtPhoneNumber.Text, (DateTime.Parse(datepickDateBirth.Text)), kindCus);
                     else
                         customerBUS.AddNewCustomer(txtIdCustomer.Text, txtFullName.Text, txtIdentityCard.Text, txtPhoneNumber.Text, (DateTime.Parse(datepickDateBirth.Text)), kindCus);
 
+                    //Initialization Bill
+                    billBUS.InitBill(txtIdCustomer.Text, cmbIdRoom.SelectedItem.ToString(), Convert.ToDecimal(txtTotalRoomRate.Text), (DateTime)datePickerBook.SelectedDate);
+
+                    //Change status room
+                    roomBUS.ChangeStatusRoom(cmbIdRoom.SelectedItem.ToString());
 
                     ModernDialog.ShowMessage("You have successfully", "Success", MessageBoxButton.OK);
 

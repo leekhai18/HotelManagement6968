@@ -100,11 +100,11 @@ namespace HOTEL6968.DAL
             }
         }
 
-        public RoomViewModel GetRoomWithId(string id)
+        public RoomViewModel GetRoomWithId(string idRoom)
         {
             List<RoomViewModel> listRoom = GetListRooms();
 
-            RoomViewModel room = listRoom.Where(p => p.MaPhong == id).FirstOrDefault();
+            RoomViewModel room = listRoom.Where(p => p.MaPhong == idRoom).FirstOrDefault();
 
             return room;
         }
@@ -123,6 +123,21 @@ namespace HOTEL6968.DAL
             }
 
             return listIdRoomAvailable;
+        }
+
+        public void ChangeStatusRoom(string idRoom)
+        {
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                var room = db.PHONGs.Where(p => p.MaPhong == idRoom).FirstOrDefault();
+
+                if (room.MaTinhTrang == 1)
+                    room.MaTinhTrang = 2;
+                else if (room.MaTinhTrang == 2)
+                    room.MaTinhTrang = 1;
+
+                db.SaveChanges();
+            }
         }
     }
 }
