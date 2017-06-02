@@ -125,6 +125,23 @@ namespace HOTEL6968.DAL
             return listIdRoomAvailable;
         }
 
+        public List<string> GetListIdRoomHided()
+        {
+            List<RoomViewModel> listRoom = GetListRooms();
+
+            List<RoomViewModel> listRoomHided = listRoom.Where(p => p.MaTinhTrang == 2).ToList();
+
+            List<string> listIdRoomHided = new List<string>();
+
+            for (int i = 0; i < listRoomHided.Count; i++)
+            {
+                listIdRoomHided.Add(listRoomHided[i].MaPhong);
+            }
+
+            return listIdRoomHided;
+        }
+
+
         public void ChangeStatusRoom(string idRoom)
         {
             using (var db = new QuanLyKhachSanEntities())

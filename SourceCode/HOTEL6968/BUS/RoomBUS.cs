@@ -117,6 +117,14 @@ namespace HOTEL6968.BUS
             }
         }
 
+        public List<string> GetListIdRoomHided
+        {
+            get
+            {
+                return roomDAL.GetListIdRoomHided();
+            }
+        }
+
         public void ChangeStatusRoom(string idRoom)
         {
             roomDAL.ChangeStatusRoom(idRoom);

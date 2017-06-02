@@ -58,6 +58,12 @@ namespace HOTEL6968.BUS
         {
             serviceDAL.AddNewService(id, name, idKind, charges, information, imageSource);
         }
-#endregion
+        #endregion
+
+
+        public ServiceViewModel GetServiceWithId(string idService)
+        {
+            return serviceDAL.GetServiceWithId(idService);
+        }
     }
 }

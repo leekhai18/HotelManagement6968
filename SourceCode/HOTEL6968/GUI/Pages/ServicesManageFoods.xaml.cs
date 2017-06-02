@@ -1,4 +1,6 @@
-﻿using HOTEL6968.BUS;
+﻿using FirstFloor.ModernUI.Windows.Controls;
+using HOTEL6968.BUS;
+using HOTEL6968.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +54,50 @@ namespace HOTEL6968.GUI.Pages
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(lvFoods.ItemsSource).Refresh();
+        }
+
+        private void btnBook_Click(object sender, RoutedEventArgs e)
+        {
+            if (isSelected)
+            {
+                // create a blank modern window with lorem content
+                // the BlankWindow ModernWindow styles is found in the mui assembly at Assets/ModernWindowStyles.xaml
+
+                MainWindow.bookingServiceWindow = new ModernWindow
+                {
+                    Style = (Style)App.Current.Resources["BlankWindow"],
+                    Title = "Booking Services",
+                    Content = new ServicesBook(idService),
+                    Width = 400,
+                    Height = 400,
+                    ResizeMode = ResizeMode.NoResize,
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen             
+                };
+
+                MainWindow.bookingServiceWindow.Show();
+            }
+            else
+            {
+                ModernDialog.ShowMessage("Please! Select the service you want to operate", "Warning", MessageBoxButton.OK);
+            }
+
+        }
+
+        //
+        bool isSelected = false;
+        string idService = "";
+        private void lvFoods_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count != 0)
+            {
+                isSelected = true;
+
+                idService = (e.AddedItems[0] as ServiceViewModel).MaDichVu;         
+            }
+            else
+            {
+                isSelected = false;
+            }
         }
     }
 }

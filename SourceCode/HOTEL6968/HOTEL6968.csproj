@@ -158,6 +158,9 @@
     <Compile Include="GUI\Pages\ServicesAdd.xaml.cs">
       <DependentUpon>ServicesAdd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Pages\ServicesBook.xaml.cs">
+      <DependentUpon>ServicesBook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Pages\ServicesManage.xaml.cs">
       <DependentUpon>ServicesManage.xaml</DependentUpon>
     </Compile>
@@ -222,6 +225,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="GUI\Pages\ServicesAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Pages\ServicesBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

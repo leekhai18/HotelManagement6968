@@ -17,6 +17,7 @@ namespace HOTEL6968.DAL
 
         public ServiceViewModel(DICH_VU dichVu)
         {
+            this.MaDichVu = dichVu.MaDichVu;
             this.TenDichVu = dichVu.TenDichVu;
             this.MaLoaiDichVu = dichVu.MaLoaiDichVu;
             this.GiaDichVu = dichVu.GiaDichVu;
@@ -28,6 +29,7 @@ namespace HOTEL6968.DAL
             AppearanceManager.Current.PropertyChanged += OnAppearanceManagerPropertyChanged;
         }
 
+        public string MaDichVu { get; set; }
         public string TenDichVu { get; set; }
         public string MaLoaiDichVu { get; set; }
         public decimal GiaDichVu { get; set; }
@@ -57,6 +59,21 @@ namespace HOTEL6968.DAL
 
     public class ServiceDAL
     {
+        public List<ServiceViewModel> GetListService()
+        {
+            List<ServiceViewModel> list = new List<ServiceViewModel>();
+
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                foreach (var dichVu in db.DICH_VU)
+                {
+                    list.Add(new ServiceViewModel(dichVu));
+                }
+            }
+
+            return list;
+        }
+
         public List<ServiceViewModel> GetListFoods()
         {
             List<ServiceViewModel> listFoods = new List<ServiceViewModel>();
@@ -113,6 +130,13 @@ namespace HOTEL6968.DAL
 
                 db.SaveChanges();
             }
+        }
+
+        public ServiceViewModel GetServiceWithId(string idService)
+        {
+            var service = GetListService().Where(p => p.MaDichVu == idService).FirstOrDefault();
+
+            return service;
         }
     }
 }

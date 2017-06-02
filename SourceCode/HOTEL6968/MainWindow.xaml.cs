@@ -24,6 +24,8 @@ namespace HOTEL6968
     {
         public static MainWindow mainWindow;
 
+        public static ModernWindow bookingServiceWindow;
+
         public MainWindow()
         {
             InitializeComponent();
