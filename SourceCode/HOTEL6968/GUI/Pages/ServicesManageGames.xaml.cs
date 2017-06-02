@@ -1,4 +1,6 @@
-﻿using HOTEL6968.BUS;
+﻿using FirstFloor.ModernUI.Windows.Controls;
+using HOTEL6968.BUS;
+using HOTEL6968.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +30,6 @@ namespace HOTEL6968.GUI.Pages
             InitializeComponent();
             this.DataContext = serviceBUS;
 
-            // Bug fix late
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvGames.Items);
             view.Filter = SearchFilter;
         }
@@ -52,6 +53,36 @@ namespace HOTEL6968.GUI.Pages
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(lvGames.ItemsSource).Refresh();
+        }
+
+        private void btnBook_Click(object sender, RoutedEventArgs e)
+        {
+            if (isSelected)
+            {
+                serviceBUS.CreateBookingServiceWindow(idService);
+            }
+            else
+            {
+                ModernDialog.ShowMessage("Please! Select the service you want to operate", "Warning", MessageBoxButton.OK);
+            }
+        }
+
+        //Util
+        bool isSelected = false;
+        string idService = "";
+
+        private void lvGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count != 0)
+            {
+                isSelected = true;
+
+                idService = (e.AddedItems[0] as ServiceViewModel).MaDichVu;
+            }
+            else
+            {
+                isSelected = false;
+            }
         }
     }
 }

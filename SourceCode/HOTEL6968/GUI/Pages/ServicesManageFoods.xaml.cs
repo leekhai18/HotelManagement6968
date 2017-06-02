@@ -60,32 +60,18 @@ namespace HOTEL6968.GUI.Pages
         {
             if (isSelected)
             {
-                // create a blank modern window with lorem content
-                // the BlankWindow ModernWindow styles is found in the mui assembly at Assets/ModernWindowStyles.xaml
-
-                MainWindow.bookingServiceWindow = new ModernWindow
-                {
-                    Style = (Style)App.Current.Resources["BlankWindow"],
-                    Title = "Booking Services",
-                    Content = new ServicesBook(idService),
-                    Width = 400,
-                    Height = 400,
-                    ResizeMode = ResizeMode.NoResize,
-                    WindowStartupLocation = WindowStartupLocation.CenterScreen             
-                };
-
-                MainWindow.bookingServiceWindow.Show();
+                serviceBUS.CreateBookingServiceWindow(idService);
             }
             else
             {
                 ModernDialog.ShowMessage("Please! Select the service you want to operate", "Warning", MessageBoxButton.OK);
             }
-
         }
 
-        //
+        //Util
         bool isSelected = false;
         string idService = "";
+
         private void lvFoods_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count != 0)

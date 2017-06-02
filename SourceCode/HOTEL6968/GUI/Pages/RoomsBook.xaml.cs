@@ -36,14 +36,6 @@ namespace HOTEL6968.GUI.Pages
             InitializeComponent();
         }
 
-        public RoomsBook Instance
-        {
-            get
-            {
-                return this;
-            }
-        }
-
         #region OnNavigateTo
         public void OnFragmentNavigation(FirstFloor.ModernUI.Windows.Navigation.FragmentNavigationEventArgs e)
         {

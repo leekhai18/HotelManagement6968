@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using HOTEL6968.GUI.Pages;
 
 namespace HOTEL6968.BUS
 {
@@ -60,10 +61,32 @@ namespace HOTEL6968.BUS
         }
         #endregion
 
+#region Booking Services
 
         public ServiceViewModel GetServiceWithId(string idService)
         {
             return serviceDAL.GetServiceWithId(idService);
         }
+
+        public void CreateBookingServiceWindow(string idService)
+        {
+            // create a blank modern window with lorem content
+            // the BlankWindow ModernWindow styles is found in the mui assembly at Assets/ModernWindowStyles.xaml
+
+            MainWindow.bookingServiceWindow = new ModernWindow
+            {
+                Style = (Style)App.Current.Resources["BlankWindow"],
+                Title = "Booking Services",
+                Content = new ServicesBook(idService),
+                Width = 400,
+                Height = 400,
+                ResizeMode = ResizeMode.NoResize,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+
+            MainWindow.bookingServiceWindow.Show();
+        }
+
+        #endregion
     }
 }

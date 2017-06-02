@@ -1,4 +1,5 @@
-﻿using HOTEL6968.BUS;
+﻿using FirstFloor.ModernUI.Windows.Controls;
+using HOTEL6968.BUS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +24,25 @@ namespace HOTEL6968.GUI.Pages
     {
         ServiceBUS serviceBUS = new ServiceBUS();
         RoomBUS roomBUS = new RoomBUS();
+        BillBUS billBUS = new BillBUS();
+        BillDetailBUS billDetailBUS = new BillDetailBUS();
+
         decimal priceSevice = 0;
         string idServiceSelected = "";
 
         public ServicesBook()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            var dataContext = serviceBUS.GetServiceWithId(idServiceSelected);
+            DataContext = dataContext;
+            cmbIdRoom.DataContext = roomBUS;
+
+            priceSevice = dataContext.GiaDichVu;
+            txtValueQuantity.Text = "1";
         }
 
         public ServicesBook(string idService)
@@ -50,22 +64,19 @@ namespace HOTEL6968.GUI.Pages
 
         private void btnBook_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.bookingServiceWindow.Close();
+            if (cmbIdRoom.SelectedItem != null)
+            {
+                string idBill = billBUS.GetIdBill(cmbIdRoom.SelectedItem.ToString());
+                billDetailBUS.AddDetail(idBill, idServiceSelected, Convert.ToInt16(txtValueQuantity.Text));
+
+                MainWindow.bookingServiceWindow.Close();
+                ModernDialog.ShowMessage("You have successfully", "Success", MessageBoxButton.OK);
+            }
         }
 
         private void txtValueQuantity_TextChanged(object sender, TextChangedEventArgs e)
         {
             txtTotalPrices.Text = (priceSevice * Convert.ToInt16(txtValueQuantity.Text)).ToString("0,0");
-        }
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            var dataContext = serviceBUS.GetServiceWithId(idServiceSelected);
-            DataContext = dataContext;
-            cmbIdRoom.DataContext = roomBUS;
-
-            priceSevice = dataContext.GiaDichVu;
-            txtValueQuantity.Text = "1";
         }
     }
 }

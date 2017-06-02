@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="1000">
+             d:DesignHeight="500" d:DesignWidth="1000"
+             Loaded="UserControl_Loaded">
 
     <StackPanel>
         <Grid Margin="0,40,0,0">
@@ -34,32 +35,33 @@
 
                 <StackPanel Margin="0,30,0,4">
                     <Label Content="Room's name"/>
-                    <TextBox Text="Phong PH101 Standard" Width="200"/>
+                    <TextBox Text="{Binding Path=TenPhong}" Width="200" IsEnabled="False"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Cus's name"/>
-                    <TextBox Text="Kent" Width="200"/>
+                    <TextBox Text="{Binding Path=TenKhachHang}" Width="200" IsEnabled="False"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Identity card"/>
-                    <TextBox Text="214124124" Width="200"/>
+                    <TextBox Text="{Binding Path=CMND}" Width="200" IsEnabled="False"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Room's rates"/>
-                    <TextBox Text="1900" Width="150"/>
+                    <TextBox Name="txtRoomRate" Text="{Binding Path=GiaPhong1NgayString}" Width="150" IsEnabled="False"/>
                     <Label Content="(per day)"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Booking date"/>
-                    <DatePicker SelectedDate="12/12/12" Width="150"/>
+                    <DatePicker Name="datePickerBooking" SelectedDate="{Binding Path=ThoiGianDat}" Width="150" IsEnabled="False"/>
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Paying date"/>
-                    <DatePicker SelectedDate="12/13/12" Width="150"/>
+                    <DatePicker Name="datePickerPaying" Width="150" SelectedDateChanged="datePickerPaying_SelectedDateChanged"/>
                 </StackPanel>
                 <StackPanel Margin="0,20,0,0">
                     <Label Content="Total rate's room" FontWeight="Bold" Width="130"/>
-                    <Label Width="200" Content="10000" FontWeight="Bold" FontSize="20"/>
+                    <Label Name="labelTotalRateRoom" Width="200" Content="0" FontWeight="Bold" FontSize="20"
+                           />
                 </StackPanel>
 
             </StackPanel>
@@ -67,16 +69,14 @@
 
             <StackPanel Grid.Column="1">
                 <ScrollViewer>
-                    <DockPanel Height="195">
-                        <TextBlock DockPanel.Dock="Top" Text="Billing details" Style="{StaticResource Heading2}"/>
-                        <DataGrid Name="dataGridListCustomer" ItemsSource="{Binding ListKhachHang}" AutoGenerateColumns="False" >
+                    <DockPanel Height="200" MaxWidth="500" HorizontalAlignment="Left">
+                        <TextBlock DockPanel.Dock="Top" Text="Bill details" Style="{StaticResource Heading2}"/>
+                        <DataGrid Name="dataGridBillDetails" ItemsSource="{Binding GetListBillDetail}" AutoGenerateColumns="False" >
                             <DataGrid.Columns>
-                                <mui:DataGridTextColumn Header="Id Cus"  Binding="{Binding Path=MaKhachHang}" IsReadOnly="True"/>
-                                <mui:DataGridTextColumn Header="Name Cus" Binding="{Binding Path=TenKhachHang}" IsReadOnly="True"/>
-                                <mui:DataGridTextColumn Header="Identity Card" Binding="{Binding Path=CMND}" IsReadOnly="True"/>
-                                <mui:DataGridTextColumn Header="Birthday" Binding="{Binding Path=NgaySinhString}" IsReadOnly="True"/>
-                                <mui:DataGridTextColumn Header="Phone Number" Binding="{Binding Path=SDT}" IsReadOnly="True"/>
-                                <mui:DataGridCheckBoxColumn Header="Mem Vip" Binding="{Binding Path=IsVip}" IsReadOnly="True"/>
+                                <mui:DataGridTextColumn Header="Service's id"  Binding="{Binding Path=MaDichVu}" IsReadOnly="True"/>
+                                <mui:DataGridTextColumn Header="Name" Binding="{Binding Path=TenDichVu}" IsReadOnly="True"/>
+                                <mui:DataGridTextColumn Header="Unit price" Binding="{Binding Path=DonGiaString}" IsReadOnly="True"/>
+                                <mui:DataGridTextColumn Header="Quantity" Binding="{Binding Path=SoLuong}" IsReadOnly="True"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </DockPanel>
@@ -84,15 +84,21 @@
 
                 <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
                     <Label Content="Total rate's services" VerticalAlignment="Center" Width="130" FontWeight="Bold"/>
-                    <Label Width="200" Content="10000" FontWeight="Bold" FontSize="20" VerticalAlignment="Center"/>
+                    <Label Name="labelTotalRateService" Width="200" Content="0" FontWeight="Bold" FontSize="20" VerticalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
 
         <DockPanel HorizontalAlignment="Left" Margin="0,30,0,0">
             <Label Content="The total amount you pay" FontSize="20" FontWeight="Bold" Width="270"/>
-            <Label Content="10000000000000000" FontSize="20" FontWeight="Bold"/>
+            <Label Name="labelTotalPay" Content="0" FontSize="20" FontWeight="Bold"/>
         </DockPanel>
+
+        <Button Width="100" Height="50" HorizontalAlignment="Left" Margin="0,50,0,0"
+                Content="Complete" FontWeight="Bold"
+                Command="mui:LinkCommands.NavigateLink"
+                CommandParameter="GUI/Pages/RoomsManage.xaml"
+                Name="btnComplete" Click="btnComplete_Click"/>
     </StackPanel>
     
 </UserControl>

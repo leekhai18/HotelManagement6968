@@ -68,6 +68,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BUS\BillBUS.cs" />
+    <Compile Include="BUS\BillDetailBUS.cs" />
     <Compile Include="BUS\CustomerBUS.cs" />
     <Compile Include="BUS\LoginBUS.cs" />
     <Compile Include="BUS\ServiceBUS.cs" />
@@ -76,6 +77,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\BillDAL.cs" />
+    <Compile Include="DAL\BillDetailDAL.cs" />
     <Compile Include="DAL\CHUC_VU.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

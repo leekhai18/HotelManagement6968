@@ -15,5 +15,15 @@ namespace HOTEL6968.BUS
         {
             billDAL.InitBill(idCustomer, idRoom, rateRoomPerDay, bookingDay);
         }
+
+        public BillViewModel GetBill(string idRoom)
+        {
+            return billDAL.GetBill(idRoom);
+        }
+
+        public string GetIdBill(string idRoom)
+        {
+            return billDAL.GetIdBill(idRoom);
+        }
     }
 }
