@@ -40,7 +40,7 @@ namespace HOTEL6968.DAL
 
     public class CustomerDAL
     {
-        public List<CustomerViewModel> GetListKhachHang()
+        public List<CustomerViewModel> GetListCustomer()
         {
             List<CustomerViewModel> listKhachHang = new List<CustomerViewModel>();
 
@@ -65,9 +65,25 @@ namespace HOTEL6968.DAL
             }
         }
 
+        public void UpdateInfoCustomer(string id, string name, string identityCard, string phoneNum, DateTime birthday, string kindofCus)
+        {
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                var cus = db.KHACH_HANG.Where(p => p.CMND == identityCard).FirstOrDefault();
+
+                cus.MaKhachHang = id;
+                cus.TenKhachHang = name;
+                cus.SDT = phoneNum;
+                cus.NgaySinh = birthday;
+                cus.MaLoaiKhachHang = kindofCus;
+
+                db.SaveChanges();
+            }
+        }
+
         public CustomerViewModel GetCustomerWithIdentityCard(string identityCard)
         {
-            List<CustomerViewModel> listCus = GetListKhachHang();
+            List<CustomerViewModel> listCus = GetListCustomer();
 
             var cus = listCus.Where(p => p.CMND == identityCard).FirstOrDefault();           
 

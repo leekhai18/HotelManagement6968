@@ -8,7 +8,7 @@
              d:DesignHeight="400" d:DesignWidth="1000">
 
     <StackPanel>
-        <Grid Margin="0,20,0,0">
+        <Grid Margin="0,40,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="2*"/>
@@ -32,7 +32,7 @@
                     </Style>
                 </StackPanel.Resources>
 
-                <StackPanel Margin="0,20,0,4">
+                <StackPanel Margin="0,30,0,4">
                     <Label Content="Room's name"/>
                     <TextBox Text="Phong PH101 Standard" Width="200"/>
                 </StackPanel>
@@ -67,7 +67,7 @@
 
             <StackPanel Grid.Column="1">
                 <ScrollViewer>
-                    <DockPanel Height="185">
+                    <DockPanel Height="195">
                         <TextBlock DockPanel.Dock="Top" Text="Billing details" Style="{StaticResource Heading2}"/>
                         <DataGrid Name="dataGridListCustomer" ItemsSource="{Binding ListKhachHang}" AutoGenerateColumns="False" >
                             <DataGrid.Columns>

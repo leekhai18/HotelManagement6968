@@ -17,7 +17,7 @@ namespace HOTEL6968.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KHACH_HANG()
         {
-            this.DAT_PHONG = new HashSet<DAT_PHONG>();
+            this.HOA_DON = new HashSet<HOA_DON>();
         }
     
         public string MaKhachHang { get; set; }
@@ -28,7 +28,7 @@ namespace HOTEL6968.DAL
         public string MaLoaiKhachHang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DAT_PHONG> DAT_PHONG { get; set; }
+        public virtual ICollection<HOA_DON> HOA_DON { get; set; }
         public virtual LOAI_KHACH_HANG LOAI_KHACH_HANG { get; set; }
     }
 }

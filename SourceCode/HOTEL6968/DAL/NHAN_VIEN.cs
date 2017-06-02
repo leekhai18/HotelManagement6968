@@ -18,8 +18,6 @@ namespace HOTEL6968.DAL
         public NHAN_VIEN()
         {
             this.BAO_CAO = new HashSet<BAO_CAO>();
-            this.DAT_PHONG = new HashSet<DAT_PHONG>();
-            this.DOI_PHONG = new HashSet<DOI_PHONG>();
             this.HOA_DON = new HashSet<HOA_DON>();
         }
     
@@ -38,10 +36,6 @@ namespace HOTEL6968.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BAO_CAO> BAO_CAO { get; set; }
         public virtual CHUC_VU CHUC_VU { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DAT_PHONG> DAT_PHONG { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DOI_PHONG> DOI_PHONG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOA_DON> HOA_DON { get; set; }
         public virtual TAI_KHOAN TAI_KHOAN { get; set; }

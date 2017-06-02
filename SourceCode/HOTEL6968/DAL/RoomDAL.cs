@@ -25,6 +25,12 @@ namespace HOTEL6968.DAL
             this.GiaPhongString = ((Decimal)phong.LOAI_PHONG.GiaPhong).ToString("0,0");
             this.GiaPhong = phong.LOAI_PHONG.GiaPhong;
 
+            if (this.MaTinhTrang == 1)
+                this.Status = "Đặt ngay";
+            else if (this.MaTinhTrang == 2)
+                this.Status = "Trả phòng";
+                 
+
             AppearanceManager.Current.PropertyChanged += OnAppearanceManagerPropertyChanged;
         }
 
@@ -45,6 +51,7 @@ namespace HOTEL6968.DAL
         public string GhiChu { get; set; }
         public string GiaPhongString { get; set; }
         public Nullable<Decimal> GiaPhong { get; set; }
+        public string Status { get; set; }
 
         public Color CurrentWindowColor
         {

@@ -28,9 +28,7 @@ namespace HOTEL6968.DAL
         public virtual DbSet<BAO_CAO> BAO_CAO { get; set; }
         public virtual DbSet<CHUC_VU> CHUC_VU { get; set; }
         public virtual DbSet<CTHD> CTHDs { get; set; }
-        public virtual DbSet<DAT_PHONG> DAT_PHONG { get; set; }
         public virtual DbSet<DICH_VU> DICH_VU { get; set; }
-        public virtual DbSet<DOI_PHONG> DOI_PHONG { get; set; }
         public virtual DbSet<HOA_DON> HOA_DON { get; set; }
         public virtual DbSet<KHACH_HANG> KHACH_HANG { get; set; }
         public virtual DbSet<LOAI_DICH_VU> LOAI_DICH_VU { get; set; }

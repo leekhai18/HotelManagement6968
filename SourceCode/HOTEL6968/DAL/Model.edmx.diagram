@@ -4,38 +4,31 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8b1eef5ed0994a7f8dfe9afc83cca4e2" Name="Diagram1">
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.BAO_CAO" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.CHUC_VU" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.CTHD" Width="1.5" PointX="7.5" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.DAT_PHONG" Width="1.5" PointX="7.5" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.DICH_VU" Width="1.5" PointX="5.25" PointY="26.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.DOI_PHONG" Width="1.5" PointX="10.5" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.HOA_DON" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.KHACH_HANG" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.LOAI_DICH_VU" Width="1.5" PointX="3" PointY="27.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.LOAI_KHACH_HANG" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.LOAI_PHONG" Width="1.5" PointX="3" PointY="20.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.NHAN_VIEN" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.PHONG" Width="1.5" PointX="5.25" PointY="21.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.TAI_KHOAN" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.THAM_SO" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhachSanModel.TINH_TRANG" Width="1.5" PointX="3" PointY="23.25" IsExpanded="true" />
+      <Diagram DiagramId="822bd270fabf4a63bbf75890a464ec82" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.BAO_CAO" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.CHUC_VU" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.CTHD" Width="1.5" PointX="10.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.DICH_VU" Width="1.5" PointX="8.25" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.HOA_DON" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.KHACH_HANG" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.LOAI_DICH_VU" Width="1.5" PointX="6" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.LOAI_KHACH_HANG" Width="1.5" PointX="3.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.LOAI_PHONG" Width="1.5" PointX="3.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.NHAN_VIEN" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.PHONG" Width="1.5" PointX="6" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.sysdiagram" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.TAI_KHOAN" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.THAM_SO" Width="1.5" PointX="8.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyKhachSanModel.TINH_TRANG" Width="1.5" PointX="3.75" PointY="17.75" IsExpanded="true" />
         <AssociationConnector Association="QuanLyKhachSanModel.FK__BAO_CAO__MaNhanV__395884C4" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhachSanModel.FK__NHAN_VIEN__MaChu__2BFE89A6" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhachSanModel.FK__CTHD__MaDichVu__3864608B" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhachSanModel.FK__CTHD__SoHoaDon__37703C52" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhachSanModel.FK__DAT_PHONG__MaKha__367C1819" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhachSanModel.FK__DAT_PHONG__MaNha__3587F3E0" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhachSanModel.FK__DAT_PHONG__MaPho__3493CFA7" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhachSanModel.FK__DAT_PHONG__SoHoa__339FAB6E" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhachSanModel.FK__DICH_VU__MaLoaiD__2EDAF651" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhachSanModel.FK__DICH_VU__MaTinhT__18EBB532" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhachSanModel.FK__DOI_PHONG__MaNha__31B762FC" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhachSanModel.FK__DOI_PHONG__MaPho__32AB8735" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhachSanModel.FK__DOI_PHONG__SoHoa__30C33EC3" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyKhachSanModel.FK__HOA_DON__MaKhach__4D5F7D71" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhachSanModel.FK__HOA_DON__MaNhanV__2FCF1A8A" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyKhachSanModel.FK__HOA_DON__MaPhong__4E53A1AA" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhachSanModel.FK__KHACH_HAN__MaLoa__2DE6D218" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhachSanModel.FK__PHONG__MaLoaiPho__2CF2ADDF" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhachSanModel.FK__TAI_KHOAN__MaNha__29221CFB" ManuallyRouted="false" />

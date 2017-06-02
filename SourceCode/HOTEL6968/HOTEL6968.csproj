@@ -74,6 +74,7 @@
     <Compile Include="DAL\BAO_CAO.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\BillDAL.cs" />
     <Compile Include="DAL\CHUC_VU.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -81,13 +82,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\CustomerDAL.cs" />
-    <Compile Include="DAL\DAT_PHONG.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="DAL\DICH_VU.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\DOI_PHONG.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\HOA_DON.cs">

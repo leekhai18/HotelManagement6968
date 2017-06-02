@@ -32,17 +32,6 @@
           <Property Name="MaDichVu" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="SoLuong" Type="int" />
         </EntityType>
-        <EntityType Name="DAT_PHONG">
-          <Key>
-            <PropertyRef Name="SoHoaDon" />
-            <PropertyRef Name="MaPhong" />
-          </Key>
-          <Property Name="SoHoaDon" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="MaPhong" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="MaNhanVien" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="MaKhachHang" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="ThoiGianDat" Type="datetime" Nullable="false" />
-        </EntityType>
         <EntityType Name="DICH_VU">
           <Key>
             <PropertyRef Name="MaDichVu" />
@@ -55,26 +44,20 @@
           <Property Name="MaTinhTrang" Type="smallint" />
           <Property Name="NguonAnh" Type="nvarchar" MaxLength="300" />
         </EntityType>
-        <EntityType Name="DOI_PHONG">
-          <Key>
-            <PropertyRef Name="MaPhongCu" />
-            <PropertyRef Name="SoHoaDon" />
-            <PropertyRef Name="MaPhongMoi" />
-          </Key>
-          <Property Name="MaPhongCu" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="SoHoaDon" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="MaPhongMoi" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="MaNhanVien" Type="nvarchar" MaxLength="10" Nullable="false" />
-        </EntityType>
         <EntityType Name="HOA_DON">
           <Key>
             <PropertyRef Name="SoHoaDon" />
           </Key>
           <Property Name="SoHoaDon" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="MaNhanVienXuatHD" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="GhiChu" Type="ntext" />
-          <Property Name="ThanhTien" Type="money" />
-          <Property Name="ThoiGianXuatHD" Type="datetime" Nullable="false" />
+          <Property Name="MaNhanVienXuatHD" Type="nvarchar" MaxLength="10" />
+          <Property Name="MaKhachHang" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaPhong" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ThoiGianDat" Type="datetime" Nullable="false" />
+          <Property Name="ThoiGianTra" Type="datetime" />
+          <Property Name="TongGiaPhong" Type="money" />
+          <Property Name="TongGiaDichVu" Type="money" />
+          <Property Name="TongTien" Type="money" />
+          <Property Name="GiaPhong1Ngay" Type="money" />
         </EntityType>
         <EntityType Name="KHACH_HANG">
           <Key>
@@ -204,54 +187,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DAT_PHONG__MaKha__367C1819">
-          <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="1" />
-          <End Role="DAT_PHONG" Type="Self.DAT_PHONG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KHACH_HANG">
-              <PropertyRef Name="MaKhachHang" />
-            </Principal>
-            <Dependent Role="DAT_PHONG">
-              <PropertyRef Name="MaKhachHang" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DAT_PHONG__MaNha__3587F3E0">
-          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="1" />
-          <End Role="DAT_PHONG" Type="Self.DAT_PHONG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NHAN_VIEN">
-              <PropertyRef Name="MaNhanVien" />
-            </Principal>
-            <Dependent Role="DAT_PHONG">
-              <PropertyRef Name="MaNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DAT_PHONG__MaPho__3493CFA7">
-          <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
-          <End Role="DAT_PHONG" Type="Self.DAT_PHONG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PHONG">
-              <PropertyRef Name="MaPhong" />
-            </Principal>
-            <Dependent Role="DAT_PHONG">
-              <PropertyRef Name="MaPhong" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DAT_PHONG__SoHoa__339FAB6E">
-          <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="1" />
-          <End Role="DAT_PHONG" Type="Self.DAT_PHONG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HOA_DON">
-              <PropertyRef Name="SoHoaDon" />
-            </Principal>
-            <Dependent Role="DAT_PHONG">
-              <PropertyRef Name="SoHoaDon" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__DICH_VU__MaLoaiD__2EDAF651">
           <End Role="LOAI_DICH_VU" Type="Self.LOAI_DICH_VU" Multiplicity="1" />
           <End Role="DICH_VU" Type="Self.DICH_VU" Multiplicity="*" />
@@ -276,44 +211,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DOI_PHONG__MaNha__31B762FC">
-          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="1" />
-          <End Role="DOI_PHONG" Type="Self.DOI_PHONG" Multiplicity="*" />
+        <Association Name="FK__HOA_DON__MaKhach__4D5F7D71">
+          <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="1" />
+          <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="NHAN_VIEN">
-              <PropertyRef Name="MaNhanVien" />
+            <Principal Role="KHACH_HANG">
+              <PropertyRef Name="MaKhachHang" />
             </Principal>
-            <Dependent Role="DOI_PHONG">
-              <PropertyRef Name="MaNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DOI_PHONG__MaPho__32AB8735">
-          <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
-          <End Role="DOI_PHONG" Type="Self.DOI_PHONG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PHONG">
-              <PropertyRef Name="MaPhong" />
-            </Principal>
-            <Dependent Role="DOI_PHONG">
-              <PropertyRef Name="MaPhongMoi" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DOI_PHONG__SoHoa__30C33EC3">
-          <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="1" />
-          <End Role="DOI_PHONG" Type="Self.DOI_PHONG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HOA_DON">
-              <PropertyRef Name="SoHoaDon" />
-            </Principal>
-            <Dependent Role="DOI_PHONG">
-              <PropertyRef Name="SoHoaDon" />
+            <Dependent Role="HOA_DON">
+              <PropertyRef Name="MaKhachHang" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__HOA_DON__MaNhanV__2FCF1A8A">
-          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="1" />
+          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="0..1" />
           <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NHAN_VIEN">
@@ -321,6 +232,18 @@
             </Principal>
             <Dependent Role="HOA_DON">
               <PropertyRef Name="MaNhanVienXuatHD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOA_DON__MaPhong__4E53A1AA">
+          <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
+          <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONG">
+              <PropertyRef Name="MaPhong" />
+            </Principal>
+            <Dependent Role="HOA_DON">
+              <PropertyRef Name="MaPhong" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -388,9 +311,7 @@
           <EntitySet Name="BAO_CAO" EntityType="Self.BAO_CAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CHUC_VU" EntityType="Self.CHUC_VU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTHD" EntityType="Self.CTHD" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DAT_PHONG" EntityType="Self.DAT_PHONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DICH_VU" EntityType="Self.DICH_VU" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DOI_PHONG" EntityType="Self.DOI_PHONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HOA_DON" EntityType="Self.HOA_DON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHACH_HANG" EntityType="Self.KHACH_HANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOAI_DICH_VU" EntityType="Self.LOAI_DICH_VU" Schema="dbo" store:Type="Tables" />
@@ -414,22 +335,6 @@
             <End Role="HOA_DON" EntitySet="HOA_DON" />
             <End Role="CTHD" EntitySet="CTHD" />
           </AssociationSet>
-          <AssociationSet Name="FK__DAT_PHONG__MaKha__367C1819" Association="Self.FK__DAT_PHONG__MaKha__367C1819">
-            <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
-            <End Role="DAT_PHONG" EntitySet="DAT_PHONG" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DAT_PHONG__MaNha__3587F3E0" Association="Self.FK__DAT_PHONG__MaNha__3587F3E0">
-            <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
-            <End Role="DAT_PHONG" EntitySet="DAT_PHONG" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DAT_PHONG__MaPho__3493CFA7" Association="Self.FK__DAT_PHONG__MaPho__3493CFA7">
-            <End Role="PHONG" EntitySet="PHONG" />
-            <End Role="DAT_PHONG" EntitySet="DAT_PHONG" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DAT_PHONG__SoHoa__339FAB6E" Association="Self.FK__DAT_PHONG__SoHoa__339FAB6E">
-            <End Role="HOA_DON" EntitySet="HOA_DON" />
-            <End Role="DAT_PHONG" EntitySet="DAT_PHONG" />
-          </AssociationSet>
           <AssociationSet Name="FK__DICH_VU__MaLoaiD__2EDAF651" Association="Self.FK__DICH_VU__MaLoaiD__2EDAF651">
             <End Role="LOAI_DICH_VU" EntitySet="LOAI_DICH_VU" />
             <End Role="DICH_VU" EntitySet="DICH_VU" />
@@ -438,20 +343,16 @@
             <End Role="TINH_TRANG" EntitySet="TINH_TRANG" />
             <End Role="DICH_VU" EntitySet="DICH_VU" />
           </AssociationSet>
-          <AssociationSet Name="FK__DOI_PHONG__MaNha__31B762FC" Association="Self.FK__DOI_PHONG__MaNha__31B762FC">
-            <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
-            <End Role="DOI_PHONG" EntitySet="DOI_PHONG" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DOI_PHONG__MaPho__32AB8735" Association="Self.FK__DOI_PHONG__MaPho__32AB8735">
-            <End Role="PHONG" EntitySet="PHONG" />
-            <End Role="DOI_PHONG" EntitySet="DOI_PHONG" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DOI_PHONG__SoHoa__30C33EC3" Association="Self.FK__DOI_PHONG__SoHoa__30C33EC3">
+          <AssociationSet Name="FK__HOA_DON__MaKhach__4D5F7D71" Association="Self.FK__HOA_DON__MaKhach__4D5F7D71">
+            <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
             <End Role="HOA_DON" EntitySet="HOA_DON" />
-            <End Role="DOI_PHONG" EntitySet="DOI_PHONG" />
           </AssociationSet>
           <AssociationSet Name="FK__HOA_DON__MaNhanV__2FCF1A8A" Association="Self.FK__HOA_DON__MaNhanV__2FCF1A8A">
             <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
+            <End Role="HOA_DON" EntitySet="HOA_DON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOA_DON__MaPhong__4E53A1AA" Association="Self.FK__HOA_DON__MaPhong__4E53A1AA">
+            <End Role="PHONG" EntitySet="PHONG" />
             <End Role="HOA_DON" EntitySet="HOA_DON" />
           </AssociationSet>
           <AssociationSet Name="FK__KHACH_HAN__MaLoa__2DE6D218" Association="Self.FK__KHACH_HAN__MaLoa__2DE6D218">
@@ -511,21 +412,6 @@
           <NavigationProperty Name="DICH_VU" Relationship="Self.FK__CTHD__MaDichVu__3864608B" FromRole="CTHD" ToRole="DICH_VU" />
           <NavigationProperty Name="HOA_DON" Relationship="Self.FK__CTHD__SoHoaDon__37703C52" FromRole="CTHD" ToRole="HOA_DON" />
         </EntityType>
-        <EntityType Name="DAT_PHONG">
-          <Key>
-            <PropertyRef Name="SoHoaDon" />
-            <PropertyRef Name="MaPhong" />
-          </Key>
-          <Property Name="SoHoaDon" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaNhanVien" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaKhachHang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ThoiGianDat" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="KHACH_HANG" Relationship="Self.FK__DAT_PHONG__MaKha__367C1819" FromRole="DAT_PHONG" ToRole="KHACH_HANG" />
-          <NavigationProperty Name="NHAN_VIEN" Relationship="Self.FK__DAT_PHONG__MaNha__3587F3E0" FromRole="DAT_PHONG" ToRole="NHAN_VIEN" />
-          <NavigationProperty Name="PHONG" Relationship="Self.FK__DAT_PHONG__MaPho__3493CFA7" FromRole="DAT_PHONG" ToRole="PHONG" />
-          <NavigationProperty Name="HOA_DON" Relationship="Self.FK__DAT_PHONG__SoHoa__339FAB6E" FromRole="DAT_PHONG" ToRole="HOA_DON" />
-        </EntityType>
         <EntityType Name="DICH_VU">
           <Key>
             <PropertyRef Name="MaDichVu" />
@@ -541,33 +427,24 @@
           <NavigationProperty Name="LOAI_DICH_VU" Relationship="Self.FK__DICH_VU__MaLoaiD__2EDAF651" FromRole="DICH_VU" ToRole="LOAI_DICH_VU" />
           <NavigationProperty Name="TINH_TRANG" Relationship="Self.FK__DICH_VU__MaTinhT__18EBB532" FromRole="DICH_VU" ToRole="TINH_TRANG" />
         </EntityType>
-        <EntityType Name="DOI_PHONG">
-          <Key>
-            <PropertyRef Name="MaPhongCu" />
-            <PropertyRef Name="SoHoaDon" />
-            <PropertyRef Name="MaPhongMoi" />
-          </Key>
-          <Property Name="MaPhongCu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="SoHoaDon" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaPhongMoi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaNhanVien" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="NHAN_VIEN" Relationship="Self.FK__DOI_PHONG__MaNha__31B762FC" FromRole="DOI_PHONG" ToRole="NHAN_VIEN" />
-          <NavigationProperty Name="PHONG" Relationship="Self.FK__DOI_PHONG__MaPho__32AB8735" FromRole="DOI_PHONG" ToRole="PHONG" />
-          <NavigationProperty Name="HOA_DON" Relationship="Self.FK__DOI_PHONG__SoHoa__30C33EC3" FromRole="DOI_PHONG" ToRole="HOA_DON" />
-        </EntityType>
         <EntityType Name="HOA_DON">
           <Key>
             <PropertyRef Name="SoHoaDon" />
           </Key>
           <Property Name="SoHoaDon" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MaNhanVienXuatHD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="ThoiGianXuatHD" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MaNhanVienXuatHD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MaKhachHang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ThoiGianDat" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ThoiGianTra" Type="DateTime" Precision="3" />
+          <Property Name="TongGiaPhong" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TongGiaDichVu" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="GiaPhong1Ngay" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="CTHDs" Relationship="Self.FK__CTHD__SoHoaDon__37703C52" FromRole="HOA_DON" ToRole="CTHD" />
-          <NavigationProperty Name="DAT_PHONG" Relationship="Self.FK__DAT_PHONG__SoHoa__339FAB6E" FromRole="HOA_DON" ToRole="DAT_PHONG" />
-          <NavigationProperty Name="DOI_PHONG" Relationship="Self.FK__DOI_PHONG__SoHoa__30C33EC3" FromRole="HOA_DON" ToRole="DOI_PHONG" />
+          <NavigationProperty Name="KHACH_HANG" Relationship="Self.FK__HOA_DON__MaKhach__4D5F7D71" FromRole="HOA_DON" ToRole="KHACH_HANG" />
           <NavigationProperty Name="NHAN_VIEN" Relationship="Self.FK__HOA_DON__MaNhanV__2FCF1A8A" FromRole="HOA_DON" ToRole="NHAN_VIEN" />
+          <NavigationProperty Name="PHONG" Relationship="Self.FK__HOA_DON__MaPhong__4E53A1AA" FromRole="HOA_DON" ToRole="PHONG" />
         </EntityType>
         <EntityType Name="KHACH_HANG">
           <Key>
@@ -579,7 +456,7 @@
           <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NgaySinh" Type="DateTime" Precision="3" />
           <Property Name="MaLoaiKhachHang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DAT_PHONG" Relationship="Self.FK__DAT_PHONG__MaKha__367C1819" FromRole="KHACH_HANG" ToRole="DAT_PHONG" />
+          <NavigationProperty Name="HOA_DON" Relationship="Self.FK__HOA_DON__MaKhach__4D5F7D71" FromRole="KHACH_HANG" ToRole="HOA_DON" />
           <NavigationProperty Name="LOAI_KHACH_HANG" Relationship="Self.FK__KHACH_HAN__MaLoa__2DE6D218" FromRole="KHACH_HANG" ToRole="LOAI_KHACH_HANG" />
         </EntityType>
         <EntityType Name="LOAI_DICH_VU">
@@ -625,8 +502,6 @@
           <Property Name="NguonAnh" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BAO_CAO" Relationship="Self.FK__BAO_CAO__MaNhanV__395884C4" FromRole="NHAN_VIEN" ToRole="BAO_CAO" />
           <NavigationProperty Name="CHUC_VU" Relationship="Self.FK__NHAN_VIEN__MaChu__2BFE89A6" FromRole="NHAN_VIEN" ToRole="CHUC_VU" />
-          <NavigationProperty Name="DAT_PHONG" Relationship="Self.FK__DAT_PHONG__MaNha__3587F3E0" FromRole="NHAN_VIEN" ToRole="DAT_PHONG" />
-          <NavigationProperty Name="DOI_PHONG" Relationship="Self.FK__DOI_PHONG__MaNha__31B762FC" FromRole="NHAN_VIEN" ToRole="DOI_PHONG" />
           <NavigationProperty Name="HOA_DON" Relationship="Self.FK__HOA_DON__MaNhanV__2FCF1A8A" FromRole="NHAN_VIEN" ToRole="HOA_DON" />
           <NavigationProperty Name="TAI_KHOAN" Relationship="Self.FK__TAI_KHOAN__MaNha__29221CFB" FromRole="NHAN_VIEN" ToRole="TAI_KHOAN" />
         </EntityType>
@@ -639,8 +514,7 @@
           <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TenPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MaTinhTrang" Type="Int16" />
-          <NavigationProperty Name="DAT_PHONG" Relationship="Self.FK__DAT_PHONG__MaPho__3493CFA7" FromRole="PHONG" ToRole="DAT_PHONG" />
-          <NavigationProperty Name="DOI_PHONG" Relationship="Self.FK__DOI_PHONG__MaPho__32AB8735" FromRole="PHONG" ToRole="DOI_PHONG" />
+          <NavigationProperty Name="HOA_DON" Relationship="Self.FK__HOA_DON__MaPhong__4E53A1AA" FromRole="PHONG" ToRole="HOA_DON" />
           <NavigationProperty Name="LOAI_PHONG" Relationship="Self.FK__PHONG__MaLoaiPho__2CF2ADDF" FromRole="PHONG" ToRole="LOAI_PHONG" />
           <NavigationProperty Name="TINH_TRANG" Relationship="Self.FK__PHONG__MaTinhTra__17F790F9" FromRole="PHONG" ToRole="TINH_TRANG" />
         </EntityType>
@@ -727,54 +601,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DAT_PHONG__MaKha__367C1819">
-          <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="1" />
-          <End Role="DAT_PHONG" Type="Self.DAT_PHONG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KHACH_HANG">
-              <PropertyRef Name="MaKhachHang" />
-            </Principal>
-            <Dependent Role="DAT_PHONG">
-              <PropertyRef Name="MaKhachHang" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DAT_PHONG__MaNha__3587F3E0">
-          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="1" />
-          <End Role="DAT_PHONG" Type="Self.DAT_PHONG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NHAN_VIEN">
-              <PropertyRef Name="MaNhanVien" />
-            </Principal>
-            <Dependent Role="DAT_PHONG">
-              <PropertyRef Name="MaNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DAT_PHONG__MaPho__3493CFA7">
-          <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
-          <End Role="DAT_PHONG" Type="Self.DAT_PHONG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PHONG">
-              <PropertyRef Name="MaPhong" />
-            </Principal>
-            <Dependent Role="DAT_PHONG">
-              <PropertyRef Name="MaPhong" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DAT_PHONG__SoHoa__339FAB6E">
-          <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="1" />
-          <End Role="DAT_PHONG" Type="Self.DAT_PHONG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HOA_DON">
-              <PropertyRef Name="SoHoaDon" />
-            </Principal>
-            <Dependent Role="DAT_PHONG">
-              <PropertyRef Name="SoHoaDon" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__DICH_VU__MaLoaiD__2EDAF651">
           <End Role="LOAI_DICH_VU" Type="Self.LOAI_DICH_VU" Multiplicity="1" />
           <End Role="DICH_VU" Type="Self.DICH_VU" Multiplicity="*" />
@@ -799,44 +625,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DOI_PHONG__MaNha__31B762FC">
-          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="1" />
-          <End Role="DOI_PHONG" Type="Self.DOI_PHONG" Multiplicity="*" />
+        <Association Name="FK__HOA_DON__MaKhach__4D5F7D71">
+          <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="1" />
+          <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="NHAN_VIEN">
-              <PropertyRef Name="MaNhanVien" />
+            <Principal Role="KHACH_HANG">
+              <PropertyRef Name="MaKhachHang" />
             </Principal>
-            <Dependent Role="DOI_PHONG">
-              <PropertyRef Name="MaNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DOI_PHONG__MaPho__32AB8735">
-          <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
-          <End Role="DOI_PHONG" Type="Self.DOI_PHONG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PHONG">
-              <PropertyRef Name="MaPhong" />
-            </Principal>
-            <Dependent Role="DOI_PHONG">
-              <PropertyRef Name="MaPhongMoi" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DOI_PHONG__SoHoa__30C33EC3">
-          <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="1" />
-          <End Role="DOI_PHONG" Type="Self.DOI_PHONG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HOA_DON">
-              <PropertyRef Name="SoHoaDon" />
-            </Principal>
-            <Dependent Role="DOI_PHONG">
-              <PropertyRef Name="SoHoaDon" />
+            <Dependent Role="HOA_DON">
+              <PropertyRef Name="MaKhachHang" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__HOA_DON__MaNhanV__2FCF1A8A">
-          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="1" />
+          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="0..1" />
           <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NHAN_VIEN">
@@ -844,6 +646,18 @@
             </Principal>
             <Dependent Role="HOA_DON">
               <PropertyRef Name="MaNhanVienXuatHD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOA_DON__MaPhong__4E53A1AA">
+          <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
+          <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONG">
+              <PropertyRef Name="MaPhong" />
+            </Principal>
+            <Dependent Role="HOA_DON">
+              <PropertyRef Name="MaPhong" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -899,9 +713,7 @@
           <EntitySet Name="BAO_CAO" EntityType="Self.BAO_CAO" />
           <EntitySet Name="CHUC_VU" EntityType="Self.CHUC_VU" />
           <EntitySet Name="CTHDs" EntityType="Self.CTHD" />
-          <EntitySet Name="DAT_PHONG" EntityType="Self.DAT_PHONG" />
           <EntitySet Name="DICH_VU" EntityType="Self.DICH_VU" />
-          <EntitySet Name="DOI_PHONG" EntityType="Self.DOI_PHONG" />
           <EntitySet Name="HOA_DON" EntityType="Self.HOA_DON" />
           <EntitySet Name="KHACH_HANG" EntityType="Self.KHACH_HANG" />
           <EntitySet Name="LOAI_DICH_VU" EntityType="Self.LOAI_DICH_VU" />
@@ -929,22 +741,6 @@
             <End Role="HOA_DON" EntitySet="HOA_DON" />
             <End Role="CTHD" EntitySet="CTHDs" />
           </AssociationSet>
-          <AssociationSet Name="FK__DAT_PHONG__MaKha__367C1819" Association="Self.FK__DAT_PHONG__MaKha__367C1819">
-            <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
-            <End Role="DAT_PHONG" EntitySet="DAT_PHONG" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DAT_PHONG__MaNha__3587F3E0" Association="Self.FK__DAT_PHONG__MaNha__3587F3E0">
-            <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
-            <End Role="DAT_PHONG" EntitySet="DAT_PHONG" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DAT_PHONG__MaPho__3493CFA7" Association="Self.FK__DAT_PHONG__MaPho__3493CFA7">
-            <End Role="PHONG" EntitySet="PHONGs" />
-            <End Role="DAT_PHONG" EntitySet="DAT_PHONG" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DAT_PHONG__SoHoa__339FAB6E" Association="Self.FK__DAT_PHONG__SoHoa__339FAB6E">
-            <End Role="HOA_DON" EntitySet="HOA_DON" />
-            <End Role="DAT_PHONG" EntitySet="DAT_PHONG" />
-          </AssociationSet>
           <AssociationSet Name="FK__DICH_VU__MaLoaiD__2EDAF651" Association="Self.FK__DICH_VU__MaLoaiD__2EDAF651">
             <End Role="LOAI_DICH_VU" EntitySet="LOAI_DICH_VU" />
             <End Role="DICH_VU" EntitySet="DICH_VU" />
@@ -953,20 +749,16 @@
             <End Role="TINH_TRANG" EntitySet="TINH_TRANG" />
             <End Role="DICH_VU" EntitySet="DICH_VU" />
           </AssociationSet>
-          <AssociationSet Name="FK__DOI_PHONG__MaNha__31B762FC" Association="Self.FK__DOI_PHONG__MaNha__31B762FC">
-            <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
-            <End Role="DOI_PHONG" EntitySet="DOI_PHONG" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DOI_PHONG__MaPho__32AB8735" Association="Self.FK__DOI_PHONG__MaPho__32AB8735">
-            <End Role="PHONG" EntitySet="PHONGs" />
-            <End Role="DOI_PHONG" EntitySet="DOI_PHONG" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DOI_PHONG__SoHoa__30C33EC3" Association="Self.FK__DOI_PHONG__SoHoa__30C33EC3">
+          <AssociationSet Name="FK__HOA_DON__MaKhach__4D5F7D71" Association="Self.FK__HOA_DON__MaKhach__4D5F7D71">
+            <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
             <End Role="HOA_DON" EntitySet="HOA_DON" />
-            <End Role="DOI_PHONG" EntitySet="DOI_PHONG" />
           </AssociationSet>
           <AssociationSet Name="FK__HOA_DON__MaNhanV__2FCF1A8A" Association="Self.FK__HOA_DON__MaNhanV__2FCF1A8A">
             <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
+            <End Role="HOA_DON" EntitySet="HOA_DON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOA_DON__MaPhong__4E53A1AA" Association="Self.FK__HOA_DON__MaPhong__4E53A1AA">
+            <End Role="PHONG" EntitySet="PHONGs" />
             <End Role="HOA_DON" EntitySet="HOA_DON" />
           </AssociationSet>
           <AssociationSet Name="FK__KHACH_HAN__MaLoa__2DE6D218" Association="Self.FK__KHACH_HAN__MaLoa__2DE6D218">
@@ -1021,17 +813,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DAT_PHONG">
-            <EntityTypeMapping TypeName="QuanLyKhachSanModel.DAT_PHONG">
-              <MappingFragment StoreEntitySet="DAT_PHONG">
-                <ScalarProperty Name="SoHoaDon" ColumnName="SoHoaDon" />
-                <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
-                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
-                <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
-                <ScalarProperty Name="ThoiGianDat" ColumnName="ThoiGianDat" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="DICH_VU">
             <EntityTypeMapping TypeName="QuanLyKhachSanModel.DICH_VU">
               <MappingFragment StoreEntitySet="DICH_VU">
@@ -1045,24 +826,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DOI_PHONG">
-            <EntityTypeMapping TypeName="QuanLyKhachSanModel.DOI_PHONG">
-              <MappingFragment StoreEntitySet="DOI_PHONG">
-                <ScalarProperty Name="MaPhongCu" ColumnName="MaPhongCu" />
-                <ScalarProperty Name="SoHoaDon" ColumnName="SoHoaDon" />
-                <ScalarProperty Name="MaPhongMoi" ColumnName="MaPhongMoi" />
-                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="HOA_DON">
             <EntityTypeMapping TypeName="QuanLyKhachSanModel.HOA_DON">
               <MappingFragment StoreEntitySet="HOA_DON">
                 <ScalarProperty Name="SoHoaDon" ColumnName="SoHoaDon" />
                 <ScalarProperty Name="MaNhanVienXuatHD" ColumnName="MaNhanVienXuatHD" />
-                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
-                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
-                <ScalarProperty Name="ThoiGianXuatHD" ColumnName="ThoiGianXuatHD" />
+                <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+                <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
+                <ScalarProperty Name="ThoiGianDat" ColumnName="ThoiGianDat" />
+                <ScalarProperty Name="ThoiGianTra" ColumnName="ThoiGianTra" />
+                <ScalarProperty Name="TongGiaPhong" ColumnName="TongGiaPhong" />
+                <ScalarProperty Name="TongGiaDichVu" ColumnName="TongGiaDichVu" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+                <ScalarProperty Name="GiaPhong1Ngay" ColumnName="GiaPhong1Ngay" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

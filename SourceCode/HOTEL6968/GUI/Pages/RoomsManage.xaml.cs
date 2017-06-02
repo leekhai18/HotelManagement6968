@@ -1,4 +1,5 @@
-﻿using HOTEL6968.BUS;
+﻿using FirstFloor.ModernUI.Windows.Controls;
+using HOTEL6968.BUS;
 using HOTEL6968.DAL;
 using System;
 using System.Collections.Generic;
@@ -104,11 +105,6 @@ namespace HOTEL6968.GUI.Pages
                         roomBUS.statusOfRoom = 1;
                         break;
                     }
-                case "2": //Fixing = 3
-                    {
-                        roomBUS.statusOfRoom = 3;
-                        break;
-                    }
                 default:
                     break;
             }
@@ -116,16 +112,51 @@ namespace HOTEL6968.GUI.Pages
             roomBUS.Filter(lvRoom, roomBUS.kindOfRoom, roomBUS.statusOfRoom);
         }
 
+
+        //
+        bool isBooking = false;
+        bool isSelected = false;
         private void btn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationCommands.GoToPage.Execute("/GUI/Pages/RoomsBook.xaml#" + roomBUS.idRoomSelected, this);
+            if (isSelected)
+            {
+                if (isBooking)
+                {
+                    NavigationCommands.GoToPage.Execute("/GUI/Pages/RoomsBook.xaml#" + roomBUS.idRoomSelected, this);
+                }
+                else
+                {
+                    NavigationCommands.GoToPage.Execute("/GUI/Pages/RoomsPay.xaml#" + roomBUS.idRoomSelected, this);
+                }
+            }
+            else
+            {
+                ModernDialog.ShowMessage("Please! Select the room you want to operate", "Warning", MessageBoxButton.OK);
+            }
         }
 
         private void lvRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count != 0)
             {
-                roomBUS.idRoomSelected = (e.AddedItems[0] as RoomViewModel).MaPhong;            
+                isSelected = true;
+
+                RoomViewModel roomSelected = (e.AddedItems[0] as RoomViewModel);
+
+                if (roomSelected.MaTinhTrang == 1)
+                {
+                    roomBUS.idRoomSelected = (e.AddedItems[0] as RoomViewModel).MaPhong;
+                    isBooking = true;
+                }
+                else
+                {
+                    roomBUS.idRoomSelected = (e.AddedItems[0] as RoomViewModel).MaPhong;
+                    isBooking = false;
+                }
+            }
+            else
+            {
+                isSelected = false;
             }
         }
     }

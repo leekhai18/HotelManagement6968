@@ -17,8 +17,7 @@ namespace HOTEL6968.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PHONG()
         {
-            this.DAT_PHONG = new HashSet<DAT_PHONG>();
-            this.DOI_PHONG = new HashSet<DOI_PHONG>();
+            this.HOA_DON = new HashSet<HOA_DON>();
         }
     
         public string MaPhong { get; set; }
@@ -28,9 +27,7 @@ namespace HOTEL6968.DAL
         public Nullable<short> MaTinhTrang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DAT_PHONG> DAT_PHONG { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DOI_PHONG> DOI_PHONG { get; set; }
+        public virtual ICollection<HOA_DON> HOA_DON { get; set; }
         public virtual LOAI_PHONG LOAI_PHONG { get; set; }
         public virtual TINH_TRANG TINH_TRANG { get; set; }
     }

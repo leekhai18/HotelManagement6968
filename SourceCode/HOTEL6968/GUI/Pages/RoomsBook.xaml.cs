@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FirstFloor.ModernUI.Windows.Navigation;
+using FirstFloor.ModernUI.Windows.Controls;
 
 namespace HOTEL6968.GUI.Pages
 {
@@ -27,6 +28,7 @@ namespace HOTEL6968.GUI.Pages
      public partial class RoomsBook : UserControl, IContent
     {
         RoomBUS roomBUS = new RoomBUS();
+        CustomerBUS customerBUS = new CustomerBUS();
 
         public RoomsBook()
         {
@@ -70,7 +72,37 @@ namespace HOTEL6968.GUI.Pages
 
         private void btnBook_Click(object sender, RoutedEventArgs e)
         {
+            if (txtFullName.Text != "" && txtIdCustomer.Text != "" && txtIdentityCard.Text != "" && datepickDateBirth.Text != "" && checkboxAgree.IsChecked == true
+                   && cmbIdRoom.SelectedItem != null && cmbNumOfPeo.SelectedItem != null && datePickerBook.Text != "")
+            {
+                var resultDialog = ModernDialog.ShowMessage("Are you sure that " + txtFullName.Text + " want to book " + txtRoomName.Text, "Verify", MessageBoxButton.YesNo);
 
+                if (resultDialog == MessageBoxResult.Yes)
+                {
+                    string kindCus = (RadioKindCus.IsChecked == false) ? "LKH02" : "LKH01";
+
+                    //Check update or add
+                    if (Convert.ToInt32(txtIdCustomer.Text.Substring(txtIdCustomer.Text.Length - 4)) < customerBUS.LenghtListCustomer)
+                        customerBUS.UpdateInfoCustomer(txtIdCustomer.Text, txtFullName.Text, txtIdentityCard.Text, txtPhoneNumber.Text, (DateTime.Parse(datepickDateBirth.Text)), kindCus);
+                    else
+                        customerBUS.AddNewCustomer(txtIdCustomer.Text, txtFullName.Text, txtIdentityCard.Text, txtPhoneNumber.Text, (DateTime.Parse(datepickDateBirth.Text)), kindCus);
+
+
+                    ModernDialog.ShowMessage("You have successfully", "Success", MessageBoxButton.OK);
+
+                    RefreshForm();
+                }
+            }
+            else
+            {
+                ModernDialog.ShowMessage("Please fill in all required fields", "Notify", MessageBoxButton.OK);
+            }
+        }
+
+        void RefreshForm()
+        {
+            MainWindow mainWd = MainWindow.mainWindow;
+            mainWd.ContentSource = new Uri("GUI/Pages/RoomsBook.xaml", UriKind.Relative);
         }
 
         private void RoomsBook_Loaded(object sender, RoutedEventArgs e)

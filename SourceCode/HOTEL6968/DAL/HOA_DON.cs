@@ -18,22 +18,23 @@ namespace HOTEL6968.DAL
         public HOA_DON()
         {
             this.CTHDs = new HashSet<CTHD>();
-            this.DAT_PHONG = new HashSet<DAT_PHONG>();
-            this.DOI_PHONG = new HashSet<DOI_PHONG>();
         }
     
         public string SoHoaDon { get; set; }
         public string MaNhanVienXuatHD { get; set; }
-        public string GhiChu { get; set; }
-        public Nullable<decimal> ThanhTien { get; set; }
-        public System.DateTime ThoiGianXuatHD { get; set; }
+        public string MaKhachHang { get; set; }
+        public string MaPhong { get; set; }
+        public System.DateTime ThoiGianDat { get; set; }
+        public Nullable<System.DateTime> ThoiGianTra { get; set; }
+        public Nullable<decimal> TongGiaPhong { get; set; }
+        public Nullable<decimal> TongGiaDichVu { get; set; }
+        public Nullable<decimal> TongTien { get; set; }
+        public Nullable<decimal> GiaPhong1Ngay { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHD> CTHDs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DAT_PHONG> DAT_PHONG { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DOI_PHONG> DOI_PHONG { get; set; }
+        public virtual KHACH_HANG KHACH_HANG { get; set; }
         public virtual NHAN_VIEN NHAN_VIEN { get; set; }
+        public virtual PHONG PHONG { get; set; }
     }
 }
