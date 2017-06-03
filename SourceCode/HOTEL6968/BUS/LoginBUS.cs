@@ -47,7 +47,7 @@ namespace HOTEL6968.BUS
                 // Add Statistics Report Group
                 listLink.Clear();
                 listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/StatisticsManage.xaml", UriKind.Relative) });
-                menuGroup.Add(mainWd, "Statistics Report", listLink.Count, listLink);
+                menuGroup.Add(mainWd, "Statistics", listLink.Count, listLink);
 
                 menuGroup.Remove(mainWd, 0, "GUI/Pages/RoomsManage.xaml");
             }

@@ -25,5 +25,10 @@ namespace HOTEL6968.BUS
         {
             return billDAL.GetIdBill(idRoom);
         }
+
+        public void CompleteBill(string idRoom, DateTime payingDate, decimal roomRate, decimal serviceRate, decimal totalRates)
+        {
+            billDAL.CompleteBill(idRoom, payingDate, roomRate, serviceRate, totalRates);
+        }
     }
 }

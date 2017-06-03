@@ -9,7 +9,7 @@
              Loaded="UserControl_Loaded">
 
     <StackPanel>
-        <Grid Margin="0,20,0,0">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="2*"/>
@@ -34,7 +34,7 @@
                 </StackPanel.Resources>
 
                 <StackPanel>
-                    <TextBlock Text="BILL" Style="{StaticResource Heading1}" FontSize="30" FontWeight="Bold"/>
+                    <TextBlock Text="BILL" Style="{StaticResource Heading1}" FontSize="25" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Margin="0,30,0,4">
                     <Label Content="Room's name"/>

@@ -19,7 +19,9 @@ namespace HOTEL6968.DAL
             this.MaPhong = hd.MaPhong;
             this.TenPhong = hd.PHONG.TenPhong;
             this.ThoiGianDat = hd.ThoiGianDat;
+            this.ThoiGianDatString = ThoiGianDat.ToString("dd/MM/yyyy");
             this.ThoiGianTra = hd.ThoiGianTra;
+            this.ThoiGianTraString = (ThoiGianTra == null) ? "" : ((DateTime)ThoiGianTra).ToString("dd/MM/yyyy");
             this.TongGiaDichVu = hd.TongGiaDichVu;
             this.TongGiaDichVuString = (this.TongGiaDichVu != null) ? ((Decimal)hd.TongGiaDichVu).ToString("0,0") : "0";
             this.TongGiaPhong = hd.TongGiaPhong;
@@ -38,7 +40,9 @@ namespace HOTEL6968.DAL
         public string MaPhong { get; set; }
         public string TenPhong { get; set; }
         public System.DateTime ThoiGianDat { get; set; }
+        public string ThoiGianDatString { get; set; }
         public Nullable<System.DateTime> ThoiGianTra { get; set; }
+        public string ThoiGianTraString { get; set; }
         public Nullable<decimal> TongGiaPhong { get; set; }
         public Nullable<decimal> TongGiaDichVu { get; set; }
         public Nullable<decimal> TongTien { get; set; }
@@ -86,11 +90,25 @@ namespace HOTEL6968.DAL
         }
 
         public string GetIdBill(string idRoom)
+        {   
+            return (idRoom == null) ? "" : GetBill(idRoom).SoHoaDon;
+        }
+
+        public void CompleteBill(string idRoom, DateTime payingDate, decimal roomRate, decimal serviceRate, decimal totalRates)
         {
-            if (idRoom == "")
-                return "";
-            
-            return GetBill(idRoom).SoHoaDon;
+            string soHD = GetIdBill(idRoom);
+
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                var bill = db.HOA_DON.Where(p => p.SoHoaDon == soHD).FirstOrDefault();
+
+                bill.ThoiGianTra = payingDate;
+                bill.TongGiaDichVu = serviceRate;
+                bill.TongTien = totalRates;
+                bill.TongGiaPhong = roomRate;
+
+                db.SaveChanges();
+            }
         }
     }
 }

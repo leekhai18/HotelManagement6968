@@ -34,6 +34,7 @@ namespace HOTEL6968.GUI.Pages
         decimal roomRatePerDay = 0;
         decimal totalRoomRate = 0;
         decimal totalServiceRate = 0;
+        decimal totalRates = 0;
 
         public RoomsPay()
         {
@@ -68,7 +69,7 @@ namespace HOTEL6968.GUI.Pages
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             idRoom = (roomBUS.idRoomSelected == "") ? "" : roomBUS.idRoomSelected;
-            billDetailBUS = new BillDetailBUS(idRoom);
+            billDetailBUS = new BillDetailBUS(billBUS.GetIdBill(idRoom));
 
             dataGridBillDetails.DataContext = null;
             dataGridBillDetails.DataContext = billDetailBUS;
@@ -108,7 +109,8 @@ namespace HOTEL6968.GUI.Pages
                     totalRoomRate = 0;
                     labelTotalRateRoom.Content = totalRoomRate.ToString("0,0");
 
-                    labelTotalPay.Content = (totalRoomRate + totalServiceRate).ToString("0,0") + " VND";
+                    totalRates = totalRoomRate + totalServiceRate;
+                    labelTotalPay.Content = totalRates.ToString("0,0") + " VND";
                 }
             }
             else if (isRealChangeDatePicker == true)
@@ -116,10 +118,11 @@ namespace HOTEL6968.GUI.Pages
                 isRealChangeDatePicker = true;
 
                 // UPDATE rate is displayed
-                totalRoomRate = (datePickerPaying.SelectedDate - datePickerBooking.SelectedDate).Value.Days * roomRatePerDay;
+                totalRoomRate = (datePickerPaying.SelectedDate == null) ? 0 : (datePickerPaying.SelectedDate - datePickerBooking.SelectedDate).Value.Days * roomRatePerDay;
                 labelTotalRateRoom.Content = totalRoomRate.ToString("0,0");
 
-                labelTotalPay.Content = (totalRoomRate + totalServiceRate).ToString("0,0") + " VND";
+                totalRates = totalRoomRate + totalServiceRate;
+                labelTotalPay.Content = totalRates.ToString("0,0") + " VND";
             }
         }
 
@@ -133,12 +136,13 @@ namespace HOTEL6968.GUI.Pages
 
                 if (resultDialog == MessageBoxResult.OK)
                 {
+                    billBUS.CompleteBill(idRoom, (DateTime)datePickerPaying.SelectedDate, totalRoomRate, totalServiceRate, totalRates);
+                    roomBUS.ChangeStatusRoom(idRoom);
+
                     datePickerPaying.DataContext = null;
                     datePickerPaying.DataContext = new FormsViewModel();
 
                     NavigationCommands.GoToPage.Execute("/GUI/Pages/RoomsManage.xaml", this);
-
-                    roomBUS.ChangeStatusRoom(idRoom);
                 }
             }
             else

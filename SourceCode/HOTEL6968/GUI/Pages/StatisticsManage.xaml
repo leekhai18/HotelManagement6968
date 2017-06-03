@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="HOTEL6968.GUI.Pages.StatisticsManage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="1200"
+             Style="{StaticResource ContentRoot}"
+             Loaded="StatisticsManage_Loaded">
+
+    <StackPanel Orientation="Horizontal">
+
+        <StackPanel Width="200">
+            <TextBox Style="{StaticResource ResourceKey=placeHolder}" Tag=" Search..." Name="txtSearch"
+                     TextChanged="txtSearch_TextChanged"/>
+
+            <TextBlock Margin="0,15,0,0" Text="Fillter to Report" FontWeight="Bold" FontSize="15"/>
+            <DockPanel Margin="0,5,0,0">
+                <TextBlock Text="Month" Width="50" VerticalAlignment="Bottom"/>
+                <ComboBox Name="cmbMonth">
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="5"/>
+                    <ComboBoxItem Content="6"/>
+                    <ComboBoxItem Content="7"/>
+                    <ComboBoxItem Content="8"/>
+                    <ComboBoxItem Content="9"/>
+                    <ComboBoxItem Content="10"/>
+                    <ComboBoxItem Content="11"/>
+                    <ComboBoxItem Content="12"/>
+                </ComboBox>
+            </DockPanel>
+            <DockPanel Margin="0,5,0,0">
+                <TextBlock Text="Year" Width="50" VerticalAlignment="Bottom"/>
+                <TextBox Name="txtYear"/>
+            </DockPanel>
+            <DockPanel Margin="50,5,0,0">
+                <Button Name="btnView" Content="view" Click="btnView_Click"
+                        Width="60" Height="30"/> 
+                <Button Name="btnPrint" Width="90" Content="print" Click="btnPrint_Click"
+                        Height="30" HorizontalAlignment="Right"/>
+            </DockPanel>
+
+            <StackPanel Name="resultFillter" Margin="0,40,0,0" Visibility="Hidden">
+                <DockPanel>
+                    <TextBlock Text="Statistic" FontWeight="Bold" FontSize="15" Width="123"/>
+                    <DockPanel>
+                        <TextBlock Text="{Binding ElementName=cmbMonth, Path=Text, Mode=TwoWay, NotifyOnTargetUpdated=True}" FontWeight="Bold" FontSize="15" Margin="0,0,5,0"/>
+                        <TextBlock Text="/" FontWeight="Bold" FontSize="15"/>
+                        <TextBlock Text="{Binding ElementName=txtYear, Path=Text, Mode=TwoWay, NotifyOnTargetUpdated=True}" FontWeight="Bold" FontSize="15" Margin="5,0,0,0"/>
+                    </DockPanel>
+                </DockPanel>
+
+                <DockPanel Margin="0,10,0,0">
+                    <TextBlock Text="Revenue services" Width="120"/>
+                    <TextBlock Name="revenueService" Text="{Binding GetRevenueService}" Margin="5,0,0,0" FontWeight="Bold"/>
+                </DockPanel>
+
+                <DockPanel Margin="0,5,0,0">
+                    <TextBlock Text="Revenue rooms" Width="120"/>
+                    <TextBlock Text="{Binding Path=GetRevenueRoom}" Margin="5,0,0,0" FontWeight="Bold"/>
+                </DockPanel>
+
+                <DockPanel Margin="0,5,0,0">
+                    <TextBlock Text="Total revenues" Width="120"/>
+                    <TextBlock Text="{Binding Path=GetTotalRevenue}" Margin="5,0,0,0" FontWeight="Bold"/>
+                </DockPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <DockPanel Margin="10,0,0,0">
+            <TextBlock DockPanel.Dock="Top" Text="Transaction history" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+            <DataGrid Name="dataGridHistory" ItemsSource="{Binding TransactionHistory}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <mui:DataGridTextColumn Header="Bill id" Binding="{Binding Path=SoHoaDon}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Room id" Binding="{Binding Path=MaPhong}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Customer name" Binding="{Binding Path=TenKhachHang}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Identity card" Binding="{Binding Path=CMND}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Booking date" Binding="{Binding Path=ThoiGianDatString}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Paying date" Binding="{Binding Path=ThoiGianTraString}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Room rates" Binding="{Binding Path=TongGiaPhongString}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Service rates" Binding="{Binding Path=TongGiaDichVuString}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Total rates" Binding="{Binding Path=TongTienString}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+        <DataGrid Width="100"/>
+
+    </StackPanel>
+</UserControl>

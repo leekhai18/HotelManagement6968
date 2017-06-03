@@ -73,6 +73,7 @@
     <Compile Include="BUS\LoginBUS.cs" />
     <Compile Include="BUS\ServiceBUS.cs" />
     <Compile Include="BUS\StaffBUS.cs" />
+    <Compile Include="BUS\StatisticBUS.cs" />
     <Compile Include="DAL\BAO_CAO.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -181,6 +182,9 @@
     <Compile Include="GUI\Pages\StaffsManage.xaml.cs">
       <DependentUpon>StaffsManage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Pages\StatisticsManage.xaml.cs">
+      <DependentUpon>StatisticsManage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -259,6 +263,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\Pages\StaffsManage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Pages\StatisticsManage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
