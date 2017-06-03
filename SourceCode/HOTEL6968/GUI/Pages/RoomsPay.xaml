@@ -9,7 +9,7 @@
              Loaded="UserControl_Loaded">
 
     <StackPanel>
-        <Grid Margin="0,40,0,0">
+        <Grid Margin="0,20,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="2*"/>
@@ -33,6 +33,9 @@
                     </Style>
                 </StackPanel.Resources>
 
+                <StackPanel>
+                    <TextBlock Text="BILL" Style="{StaticResource Heading1}" FontSize="30" FontWeight="Bold"/>
+                </StackPanel>
                 <StackPanel Margin="0,30,0,4">
                     <Label Content="Room's name"/>
                     <TextBox Text="{Binding Path=TenPhong}" Width="200" IsEnabled="False"/>
@@ -56,11 +59,12 @@
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Paying date"/>
-                    <DatePicker Name="datePickerPaying" Width="150" SelectedDateChanged="datePickerPaying_SelectedDateChanged"/>
+                    <DatePicker Name="datePickerPaying" Width="150" SelectedDateChanged="datePickerPaying_SelectedDateChanged"
+                                Text="{Binding IdentityCard, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Margin="0,20,0,0">
                     <Label Content="Total rate's room" FontWeight="Bold" Width="130"/>
-                    <Label Name="labelTotalRateRoom" Width="200" Content="0" FontWeight="Bold" FontSize="20"
+                    <Label Name="labelTotalRateRoom" Width="200" Content="00" FontWeight="Bold" FontSize="20"
                            />
                 </StackPanel>
 
@@ -69,7 +73,7 @@
 
             <StackPanel Grid.Column="1">
                 <ScrollViewer>
-                    <DockPanel Height="200" MaxWidth="500" HorizontalAlignment="Left">
+                    <DockPanel Margin="0,40,0,0" Height="200" MaxWidth="500" HorizontalAlignment="Left">
                         <TextBlock DockPanel.Dock="Top" Text="Bill details" Style="{StaticResource Heading2}"/>
                         <DataGrid Name="dataGridBillDetails" ItemsSource="{Binding GetListBillDetail}" AutoGenerateColumns="False" >
                             <DataGrid.Columns>
@@ -96,8 +100,6 @@
 
         <Button Width="100" Height="50" HorizontalAlignment="Left" Margin="0,50,0,0"
                 Content="Complete" FontWeight="Bold"
-                Command="mui:LinkCommands.NavigateLink"
-                CommandParameter="GUI/Pages/RoomsManage.xaml"
                 Name="btnComplete" Click="btnComplete_Click"/>
     </StackPanel>
     

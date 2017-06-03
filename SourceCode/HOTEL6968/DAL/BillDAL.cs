@@ -87,6 +87,9 @@ namespace HOTEL6968.DAL
 
         public string GetIdBill(string idRoom)
         {
+            if (idRoom == "")
+                return "";
+            
             return GetBill(idRoom).SoHoaDon;
         }
     }

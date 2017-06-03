@@ -25,11 +25,12 @@ namespace HOTEL6968.DAL
             this.GiaPhongString = ((Decimal)phong.LOAI_PHONG.GiaPhong).ToString("0,0");
             this.GiaPhong = phong.LOAI_PHONG.GiaPhong;
 
-            if (this.MaTinhTrang == 1)
-                this.Status = "Đặt ngay";
-            else if (this.MaTinhTrang == 2)
+            if (this.MaTinhTrang == 2)
                 this.Status = "Trả phòng";
-                 
+            else
+                this.Status = "Đặt ngay";
+
+
 
             AppearanceManager.Current.PropertyChanged += OnAppearanceManagerPropertyChanged;
         }

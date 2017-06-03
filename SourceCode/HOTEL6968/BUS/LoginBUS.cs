@@ -44,6 +44,11 @@ namespace HOTEL6968.BUS
                 listLink.Add(new Link() { DisplayName = "Add Template", Source = new Uri("GUI/Pages/CustomersAdd.xaml", UriKind.Relative) });
                 menuGroup.Add(mainWd, "Customers", listLink.Count, listLink);
 
+                // Add Statistics Report Group
+                listLink.Clear();
+                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/StatisticsManage.xaml", UriKind.Relative) });
+                menuGroup.Add(mainWd, "Statistics Report", listLink.Count, listLink);
+
                 menuGroup.Remove(mainWd, 0, "GUI/Pages/RoomsManage.xaml");
             }
         }

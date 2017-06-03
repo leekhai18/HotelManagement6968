@@ -75,7 +75,7 @@ namespace HOTEL6968.GUI.Pages
                     string kindCus = (RadioKindCus.IsChecked == false) ? "LKH02" : "LKH01";
 
                     //Check update or add Customer
-                    if (Convert.ToInt32(txtIdCustomer.Text.Substring(txtIdCustomer.Text.Length - 4)) < customerBUS.LenghtListCustomer)
+                    if (Convert.ToInt32(txtIdCustomer.Text.Substring(txtIdCustomer.Text.Length - 4)) < customerBUS.LenghtListCustomer + 1)
                         customerBUS.UpdateInfoCustomer(txtIdCustomer.Text, txtFullName.Text, txtIdentityCard.Text, txtPhoneNumber.Text, (DateTime.Parse(datepickDateBirth.Text)), kindCus);
                     else
                         customerBUS.AddNewCustomer(txtIdCustomer.Text, txtFullName.Text, txtIdentityCard.Text, txtPhoneNumber.Text, (DateTime.Parse(datepickDateBirth.Text)), kindCus);
@@ -86,9 +86,12 @@ namespace HOTEL6968.GUI.Pages
                     //Change status room
                     roomBUS.ChangeStatusRoom(cmbIdRoom.SelectedItem.ToString());
 
-                    ModernDialog.ShowMessage("You have successfully", "Success", MessageBoxButton.OK);
+                    var resultDialogSuccess = ModernDialog.ShowMessage("You have successfully", "Success", MessageBoxButton.OK);
 
-                    RefreshForm();
+                    if (resultDialogSuccess == MessageBoxResult.OK)
+                    {
+                        RefreshForm();
+                    }
                 }
             }
             else
@@ -99,7 +102,11 @@ namespace HOTEL6968.GUI.Pages
 
         void RefreshForm()
         {
+            RefreshFormCustomer();
+            txtIdentityCard.Text = "";
+
             MainWindow mainWd = MainWindow.mainWindow;
+            mainWd.ContentSource = null;
             mainWd.ContentSource = new Uri("GUI/Pages/RoomsBook.xaml", UriKind.Relative);
         }
 
@@ -110,6 +117,8 @@ namespace HOTEL6968.GUI.Pages
             FormsViewModel dataContextForm = new FormsViewModel();
             cmbNumOfPeo.DataContext = dataContextForm;
             datePickerBook.DataContext = dataContextForm;
+
+            cmbIdRoom.DataContext = null;
             cmbIdRoom.DataContext = roomBUS;
             cmbIdRoom.SelectedIndex = cmbIdRoom.Items.IndexOf(roomBUS.idRoomSelected);
         }
@@ -117,7 +126,7 @@ namespace HOTEL6968.GUI.Pages
         private void cmbIdRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             this.DataContext = null;
-            this.DataContext = roomBUS.GetRoomWithId(cmbIdRoom.SelectedItem.ToString());
+            this.DataContext = (cmbIdRoom.SelectedItem == null) ? null : roomBUS.GetRoomWithId(cmbIdRoom.SelectedItem.ToString());
 
             FormsViewModel dataContextForm = new FormsViewModel();
             cmbNumOfPeo.DataContext = dataContextForm;
@@ -172,9 +181,9 @@ namespace HOTEL6968.GUI.Pages
         float rates = 0;
         void UpdateSurcharge(float rate)
         {
-            txtSurcharge.Text = (Convert.ToDouble(txtBaseRate.Text) * rate).ToString("0,0");
+            txtSurcharge.Text = (txtBaseRate.Text == "") ? "0" : (Convert.ToDouble(txtBaseRate.Text) * rate).ToString("0,0");
 
-            txtTotalRoomRate.Text = (Convert.ToDouble(txtBaseRate.Text) + Convert.ToDouble(txtSurcharge.Text)).ToString("0,0");
+            txtTotalRoomRate.Text = (txtBaseRate.Text == "") ? "0" : (Convert.ToDouble(txtBaseRate.Text) + Convert.ToDouble(txtSurcharge.Text)).ToString("0,0");
         }
 
         private void cmbNumOfPeo_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -27,9 +27,10 @@ namespace HOTEL6968.GUI.Pages
     /// </summary>
     public partial class RoomsPay : UserControl, IContent
     {
-        BillDetailBUS billDetailBUS = new BillDetailBUS("2");
+        BillDetailBUS billDetailBUS;
         RoomBUS roomBUS = new RoomBUS();
         BillBUS billBUS = new BillBUS();
+        string idRoom = "";
         decimal roomRatePerDay = 0;
         decimal totalRoomRate = 0;
         decimal totalServiceRate = 0;
@@ -66,37 +67,84 @@ namespace HOTEL6968.GUI.Pages
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            idRoom = (roomBUS.idRoomSelected == "") ? "" : roomBUS.idRoomSelected;
+            billDetailBUS = new BillDetailBUS(idRoom);
+
             dataGridBillDetails.DataContext = null;
             dataGridBillDetails.DataContext = billDetailBUS;
 
             this.DataContext = null;
-            this.DataContext = billBUS.GetBill(roomBUS.idRoomSelected);
+            this.DataContext = billBUS.GetBill(idRoom);
 
-            roomRatePerDay = (decimal)billBUS.GetBill(roomBUS.idRoomSelected).GiaPhong1Ngay;
+            roomRatePerDay = (billBUS.GetBill(idRoom) == null) ? 0 : (decimal)billBUS.GetBill(idRoom).GiaPhong1Ngay;
             totalServiceRate = billDetailBUS.TotalPriceOfBill;
 
+            isRealChangeDatePicker = true;
+            labelTotalRateRoom.Content = "00";
             labelTotalRateService.Content = totalServiceRate.ToString("0,0");
-            labelTotalPay.Content = labelTotalRateService.Content;
+            labelTotalPay.Content = labelTotalRateService.Content + " VND";
+
+            datePickerPaying.DataContext = null;
+            datePickerPaying.DataContext = new FormsViewModel();
         }
 
+
+        bool isRealChangeDatePicker = true;
         private void datePickerPaying_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             if (datePickerPaying.SelectedDate <= datePickerBooking.SelectedDate)
             {
-                ModernDialog.ShowMessage("Not valid", "Warning!", MessageBoxButton.OK);
+                isRealChangeDatePicker = false;
+
+                var resultDialog = ModernDialog.ShowMessage("Not valid", "Warning!", MessageBoxButton.OK);
+                if (resultDialog == MessageBoxResult.OK)
+                {
+                    datePickerPaying.DataContext = null;
+                    datePickerPaying.DataContext = new FormsViewModel();
+
+                    isRealChangeDatePicker = true;
+
+                    // UPDATE rate is displayed
+                    totalRoomRate = 0;
+                    labelTotalRateRoom.Content = totalRoomRate.ToString("0,0");
+
+                    labelTotalPay.Content = (totalRoomRate + totalServiceRate).ToString("0,0") + " VND";
+                }
             }
-            else
+            else if (isRealChangeDatePicker == true)
             {
+                isRealChangeDatePicker = true;
+
+                // UPDATE rate is displayed
                 totalRoomRate = (datePickerPaying.SelectedDate - datePickerBooking.SelectedDate).Value.Days * roomRatePerDay;
                 labelTotalRateRoom.Content = totalRoomRate.ToString("0,0");
 
-                labelTotalPay.Content = (totalRoomRate + totalServiceRate).ToString("0,0");
+                labelTotalPay.Content = (totalRoomRate + totalServiceRate).ToString("0,0") + " VND";
             }
         }
 
         private void btnComplete_Click(object sender, RoutedEventArgs e)
         {
-            roomBUS.ChangeStatusRoom(roomBUS.idRoomSelected);
+            if (datePickerPaying.SelectedDate != null)
+            {
+                isRealChangeDatePicker = false;
+
+                var resultDialog = ModernDialog.ShowMessage("You have successfully", "Success", MessageBoxButton.OK);
+
+                if (resultDialog == MessageBoxResult.OK)
+                {
+                    datePickerPaying.DataContext = null;
+                    datePickerPaying.DataContext = new FormsViewModel();
+
+                    NavigationCommands.GoToPage.Execute("/GUI/Pages/RoomsManage.xaml", this);
+
+                    roomBUS.ChangeStatusRoom(idRoom);
+                }
+            }
+            else
+            {
+                ModernDialog.ShowMessage("Please select paying date", "Warning!", MessageBoxButton.OK);
+            }
         }
     }
 }
