@@ -14,8 +14,8 @@ namespace HOTEL6968.DAL
     
     public partial class THAM_SO
     {
-        public string MaThamSo { get; set; }
         public string TenThamSo { get; set; }
         public string GiaTriThamSo { get; set; }
+        public int MaThamSo { get; set; }
     }
 }

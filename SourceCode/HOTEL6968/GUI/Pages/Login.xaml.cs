@@ -1,4 +1,5 @@
 ﻿using FirstFloor.ModernUI.App.Content;
+using FirstFloor.ModernUI.Windows.Controls;
 using HOTEL6968;
 using HOTEL6968.BUS;
 using System;
@@ -24,6 +25,7 @@ namespace GUI.Pages
     public partial class Login : UserControl
     {
         LoginBUS loginBUS = new LoginBUS();
+        AccountBUS accountBUS = new AccountBUS();
 
         public Login()
         {
@@ -32,7 +34,21 @@ namespace GUI.Pages
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            loginBUS.btnLogin_Click();
+            if (accountBUS.IsAvailable(txtUserName.Text, txtPassword.Password) == true)
+            {
+                progressLoading.IsActive = true;
+
+                loginBUS.btnLogin_Click();
+            }
+            else
+            {
+                ModernDialog.ShowMessage("Tài khoản hoặc mật khẩu không đúng", "Lỗi đăng nhập", MessageBoxButton.OK);
+            }
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            accountBUS.IsAvailable(txtUserName.Text, txtPassword.Password);
         }
     }
 }

@@ -71,8 +71,7 @@
         <ListView Name="lvRoom" ItemsSource="{Binding ListRooms}"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ItemTemplate="{StaticResource RoomListDataTemplate}"                
-                  Margin="10,0,0,0"
-                  SelectionChanged="lvRoom_SelectionChanged"
+                  Margin="10,0,0,0"                 
                   >
         </ListView>
 

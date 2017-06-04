@@ -51,8 +51,7 @@
         <ListView Name="lvGames" ItemsSource="{Binding ListGames}"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ItemTemplate="{StaticResource ServiceListDataTemplate}"                
-                  Margin="10,0,0,0"
-                  SelectionChanged="lvGames_SelectionChanged">
+                  Margin="10,0,0,0">
         </ListView>
 
     </StackPanel>

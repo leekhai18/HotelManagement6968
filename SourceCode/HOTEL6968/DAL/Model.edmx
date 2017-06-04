@@ -25,12 +25,12 @@
         </EntityType>
         <EntityType Name="CTHD">
           <Key>
-            <PropertyRef Name="SoHoaDon" />
-            <PropertyRef Name="MaDichVu" />
+            <PropertyRef Name="MaCTHD" />
           </Key>
           <Property Name="SoHoaDon" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="MaDichVu" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="SoLuong" Type="int" />
+          <Property Name="MaCTHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="DICH_VU">
           <Key>
@@ -140,9 +140,9 @@
           <Key>
             <PropertyRef Name="MaThamSo" />
           </Key>
-          <Property Name="MaThamSo" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="TenThamSo" Type="nvarchar" MaxLength="50" />
           <Property Name="GiaTriThamSo" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaThamSo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="TINH_TRANG">
           <Key>
@@ -403,12 +403,12 @@
         </EntityType>
         <EntityType Name="CTHD">
           <Key>
-            <PropertyRef Name="SoHoaDon" />
-            <PropertyRef Name="MaDichVu" />
+            <PropertyRef Name="MaCTHD" />
           </Key>
           <Property Name="SoHoaDon" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MaDichVu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SoLuong" Type="Int32" />
+          <Property Name="MaCTHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="DICH_VU" Relationship="Self.FK__CTHD__MaDichVu__3864608B" FromRole="CTHD" ToRole="DICH_VU" />
           <NavigationProperty Name="HOA_DON" Relationship="Self.FK__CTHD__SoHoaDon__37703C52" FromRole="CTHD" ToRole="HOA_DON" />
         </EntityType>
@@ -540,9 +540,9 @@
           <Key>
             <PropertyRef Name="MaThamSo" />
           </Key>
-          <Property Name="MaThamSo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TenThamSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GiaTriThamSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaThamSo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="TINH_TRANG">
           <Key>
@@ -810,6 +810,7 @@
                 <ScalarProperty Name="SoHoaDon" ColumnName="SoHoaDon" />
                 <ScalarProperty Name="MaDichVu" ColumnName="MaDichVu" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="MaCTHD" ColumnName="MaCTHD" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -930,9 +931,9 @@
           <EntitySetMapping Name="THAM_SO">
             <EntityTypeMapping TypeName="QuanLyKhachSanModel.THAM_SO">
               <MappingFragment StoreEntitySet="THAM_SO">
-                <ScalarProperty Name="MaThamSo" ColumnName="MaThamSo" />
                 <ScalarProperty Name="TenThamSo" ColumnName="TenThamSo" />
                 <ScalarProperty Name="GiaTriThamSo" ColumnName="GiaTriThamSo" />
+                <ScalarProperty Name="MaThamSo" ColumnName="MaThamSo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

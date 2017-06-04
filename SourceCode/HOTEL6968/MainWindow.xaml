@@ -10,14 +10,15 @@
                   >
 
     <mui:ModernWindow.TitleLinks>
-        <mui:Link DisplayName="Settings" Source="GUI/Pages/Setting.xaml"/>
-        <mui:Link DisplayName="About" Source="GUI/Pages/About.xaml"/>
+        <mui:Link DisplayName="Giao diện" Source="GUI/Pages/Setting.xaml"/>
+        <mui:Link DisplayName="Thông tin" Source="GUI/Pages/About.xaml"/>
+        <mui:Link DisplayName="Đăng xuất" Source="GUI/Pages/SelectAuthority.xaml"/>
     </mui:ModernWindow.TitleLinks>
 
     <mui:ModernWindow.MenuLinkGroups>
-        <mui:LinkGroup DisplayName="Welcome">
+        <mui:LinkGroup DisplayName="Chào mừng">
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="Introduction" Source="GUI/Pages/SelectAuthority.xaml"/>
+                <mui:Link DisplayName="Giới thiệu" Source="GUI/Pages/SelectAuthority.xaml"/>
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>

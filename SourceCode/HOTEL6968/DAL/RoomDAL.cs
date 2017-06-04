@@ -157,5 +157,55 @@ namespace HOTEL6968.DAL
                 db.SaveChanges();
             }
         }
+
+        public void UpdateRateRoom(string idKindOfRoom, decimal rate)
+        {
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                var kindRoom = db.LOAI_PHONG.Where(p => p.MaLoaiPhong == idKindOfRoom).FirstOrDefault();
+
+                kindRoom.GiaPhong = rate;
+
+                db.SaveChanges();
+            }
+        }
+
+        public void UpdateSurchage(string surchageNumber, string surchageForeign)
+        {
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                var number = db.THAM_SO.Where(p => p.TenThamSo == "PhuThuSoLuongKhach").FirstOrDefault();
+                number.GiaTriThamSo = surchageNumber;
+
+                var foreign = db.THAM_SO.Where(p => p.TenThamSo == "PhuThuKhachNuocNgoai").FirstOrDefault();
+                foreign.GiaTriThamSo = surchageForeign;
+
+                db.SaveChanges();
+            }
+        }
+
+        public decimal RateRoom(string idKindOfRoom)
+        {
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                return (decimal)db.LOAI_PHONG.Where(p => p.MaLoaiPhong == idKindOfRoom).FirstOrDefault().GiaPhong;
+            }
+        }
+
+        public string SurchageNumber()
+        {
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                return db.THAM_SO.Where(p => p.TenThamSo == "PhuThuSoLuongKhach").FirstOrDefault().GiaTriThamSo;
+            }
+        }
+
+        public string SurchageForeign()
+        {
+            using (var db = new QuanLyKhachSanEntities())
+            {
+                return db.THAM_SO.Where(p => p.TenThamSo == "PhuThuKhachNuocNgoai").FirstOrDefault().GiaTriThamSo;
+            }
+        }
     }
 }

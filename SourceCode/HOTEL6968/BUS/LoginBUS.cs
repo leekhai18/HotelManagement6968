@@ -1,5 +1,6 @@
 ﻿using FirstFloor.ModernUI.App.Content;
 using FirstFloor.ModernUI.Presentation;
+using HOTEL6968.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace HOTEL6968.BUS
 {
     public class LoginBUS
     {
+        // Authority
         MenuGroup menuGroup = new MenuGroup();
 
         public void btnLogin_Click()
@@ -48,6 +50,11 @@ namespace HOTEL6968.BUS
                 listLink.Clear();
                 listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/StatisticsManage.xaml", UriKind.Relative) });
                 menuGroup.Add(mainWd, "Statistics", listLink.Count, listLink);
+
+                // Add Rule Group
+                listLink.Clear();
+                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/RulesManage.xaml", UriKind.Relative) });
+                menuGroup.Add(mainWd, "Rule", listLink.Count, listLink);
 
                 menuGroup.Remove(mainWd, 0, "GUI/Pages/RoomsManage.xaml");
             }

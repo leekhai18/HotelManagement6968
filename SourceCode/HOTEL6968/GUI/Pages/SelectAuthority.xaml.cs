@@ -24,6 +24,8 @@ namespace GUI.Pages
     /// </summary>
     public partial class SelectAuthority : UserControl
     {
+        MainWindowBUS mainBUS = new MainWindowBUS();
+
         public SelectAuthority()
         {
             InitializeComponent();
@@ -48,6 +50,11 @@ namespace GUI.Pages
                 listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/ServicesManage.xaml", UriKind.Relative) });
                 menuGroup.Add(mainWd, "Services", listLink.Count, listLink);
             }
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

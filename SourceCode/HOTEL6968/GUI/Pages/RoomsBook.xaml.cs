@@ -30,6 +30,8 @@ namespace HOTEL6968.GUI.Pages
         RoomBUS roomBUS = new RoomBUS();
         CustomerBUS customerBUS = new CustomerBUS();
         BillBUS billBUS = new BillBUS();
+        RuleBUS ruleBUS = new RuleBUS();
+    
 
         public RoomsBook()
         {
@@ -191,16 +193,16 @@ namespace HOTEL6968.GUI.Pages
             if (cmbNumOfPeo.SelectedIndex > 1)
             {
                 if (checkboxHasForeigner.IsChecked == false)
-                    rates = 0.25f;
+                    rates = (float)Convert.ToDouble(ruleBUS.SurchageNumber);
                 else
-                    rates = 0.75f;
+                    rates = (float)Convert.ToDouble(ruleBUS.SurchageNumber) + (float)Convert.ToDouble(ruleBUS.SurchageForeign);
             }
             else
             {
                 if (checkboxHasForeigner.IsChecked == false)
                     rates = 0;
                 else
-                    rates = 0.5f;
+                    rates = (float)Convert.ToDouble(ruleBUS.SurchageForeign);
             }
 
             UpdateSurcharge(rates);
@@ -209,9 +211,9 @@ namespace HOTEL6968.GUI.Pages
         private void checkboxHasForeigner_Click(object sender, RoutedEventArgs e)
         {
             if (checkboxHasForeigner.IsChecked == true)
-                rates = rates + 0.5f;
+                rates = rates + (float)Convert.ToDouble(ruleBUS.SurchageForeign);
             else
-                rates = (rates > 0.5f) ? (rates - 0.5f) : 0;
+                rates = (rates > (float)Convert.ToDouble(ruleBUS.SurchageForeign)) ? (rates - (float)Convert.ToDouble(ruleBUS.SurchageForeign)) : 0;
 
             UpdateSurcharge(rates);
         }

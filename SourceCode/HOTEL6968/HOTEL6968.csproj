@@ -67,13 +67,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BUS\AccountBUS.cs" />
     <Compile Include="BUS\BillBUS.cs" />
     <Compile Include="BUS\BillDetailBUS.cs" />
     <Compile Include="BUS\CustomerBUS.cs" />
     <Compile Include="BUS\LoginBUS.cs" />
+    <Compile Include="BUS\MainWindowBUS.cs" />
+    <Compile Include="BUS\RuleBUS.cs" />
     <Compile Include="BUS\ServiceBUS.cs" />
     <Compile Include="BUS\StaffBUS.cs" />
     <Compile Include="BUS\StatisticBUS.cs" />
+    <Compile Include="DAL\AccountDAL.cs" />
     <Compile Include="DAL\BAO_CAO.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -158,6 +162,9 @@
     <Compile Include="GUI\Pages\RoomsPay.xaml.cs">
       <DependentUpon>RoomsPay.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Pages\RulesManage.xaml.cs">
+      <DependentUpon>RulesManage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Pages\ServicesAdd.xaml.cs">
       <DependentUpon>ServicesAdd.xaml</DependentUpon>
     </Compile>
@@ -223,6 +230,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\Pages\RoomsPay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Pages\RulesManage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

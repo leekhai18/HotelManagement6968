@@ -84,7 +84,7 @@ namespace HOTEL6968.BUS
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
 
-            MainWindow.bookingServiceWindow.Show();
+            MainWindow.bookingServiceWindow.ShowDialog();
         }
 
         #endregion

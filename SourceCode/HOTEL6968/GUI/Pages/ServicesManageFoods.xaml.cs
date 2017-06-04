@@ -58,31 +58,17 @@ namespace HOTEL6968.GUI.Pages
 
         private void btnBook_Click(object sender, RoutedEventArgs e)
         {
-            if (isSelected)
+            Button button = sender as Button;
+
+            string idService = (string)button.DataContext.GetType().GetProperty("MaDichVu").GetValue(button.DataContext, null);
+
+            if (button.Content.Equals("Đặt ngay"))
             {
                 serviceBUS.CreateBookingServiceWindow(idService);
             }
             else
             {
                 ModernDialog.ShowMessage("Please! Select the service you want to operate", "Warning", MessageBoxButton.OK);
-            }
-        }
-
-        //Util
-        bool isSelected = false;
-        string idService = "";
-
-        private void lvFoods_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (e.AddedItems.Count != 0)
-            {
-                isSelected = true;
-
-                idService = (e.AddedItems[0] as ServiceViewModel).MaDichVu;         
-            }
-            else
-            {
-                isSelected = false;
             }
         }
     }

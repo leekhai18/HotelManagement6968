@@ -27,6 +27,7 @@ namespace HOTEL6968.GUI.Pages
     public partial class StaffsAdd : UserControl
     {
         StaffBUS staffBUS = new StaffBUS();
+        AccountBUS accountBUS = new AccountBUS();
 
         public StaffsAdd()
         {
@@ -105,6 +106,7 @@ namespace HOTEL6968.GUI.Pages
                     string gen = (RadioGendeMale.IsChecked == true) ? "Nam" : "Nữ";
 
                     staffBUS.AddNewStaff(txtId.Text, txtFullName.Text, txtIdentityCard.Text, txtAddress.Text, txtEmail.Text, gen, idPos, DateTime.Parse(datepickDateBirth.Text), txtPhoneNum.Text, imageSourceAdded);
+                    accountBUS.Create(txtId.Text, "123");
 
                     ModernDialog.ShowMessage("You have successfully added", "Success", MessageBoxButton.OK);
 

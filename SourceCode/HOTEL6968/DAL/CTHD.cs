@@ -17,6 +17,7 @@ namespace HOTEL6968.DAL
         public string SoHoaDon { get; set; }
         public string MaDichVu { get; set; }
         public Nullable<int> SoLuong { get; set; }
+        public int MaCTHD { get; set; }
     
         public virtual DICH_VU DICH_VU { get; set; }
         public virtual HOA_DON HOA_DON { get; set; }

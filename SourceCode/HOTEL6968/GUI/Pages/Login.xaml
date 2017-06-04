@@ -5,10 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             Loaded="UserControl_Loaded">
+    
     <Grid Style="{StaticResource ContentRoot}">
-        <ScrollViewer>
+        <Grid>
+            <mui:ModernProgressRing Name="progressLoading" IsActive="False" Width="100" Height="100"/>
+
             <StackPanel Height="168">
+
                 <mui:BBCodeBlock BBCode="[b]ONLY[/b] for [b]STAFF[/b]" HorizontalAlignment="Center" Height="34" Margin="90,0"/>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
@@ -34,6 +39,6 @@
                             CommandTarget="{Binding ElementName=ContentFrame}"/>
                 </Grid>
             </StackPanel>
-        </ScrollViewer>
+        </Grid>
     </Grid>
 </UserControl>

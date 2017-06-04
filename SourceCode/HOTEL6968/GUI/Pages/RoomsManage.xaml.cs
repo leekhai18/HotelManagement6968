@@ -114,49 +114,19 @@ namespace HOTEL6968.GUI.Pages
 
 
         //
-        bool isBooking = false;
-        bool isSelected = false;
         private void btn_Click(object sender, RoutedEventArgs e)
         {
-            if (isSelected)
+            Button button = sender as Button;
+
+            string idRoom = (string)button.DataContext.GetType().GetProperty("MaPhong").GetValue(button.DataContext, null);
+
+            if (button.Content.Equals("Đặt ngay"))
             {
-                if (isBooking)
-                {
-                    NavigationCommands.GoToPage.Execute("/GUI/Pages/RoomsBook.xaml#" + roomBUS.idRoomSelected, this);
-                }
-                else
-                {
-                    NavigationCommands.GoToPage.Execute("/GUI/Pages/RoomsPay.xaml#" + roomBUS.idRoomSelected, this);
-                }
+                NavigationCommands.GoToPage.Execute("/GUI/Pages/RoomsBook.xaml#" + idRoom, this);
             }
             else
             {
-                ModernDialog.ShowMessage("Please! Select the room you want to operate", "Warning", MessageBoxButton.OK);
-            }
-        }
-
-        private void lvRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (e.AddedItems.Count != 0)
-            {
-                isSelected = true;
-
-                RoomViewModel roomSelected = (e.AddedItems[0] as RoomViewModel);
-
-                if (roomSelected.MaTinhTrang == 1)
-                {
-                    roomBUS.idRoomSelected = (e.AddedItems[0] as RoomViewModel).MaPhong;
-                    isBooking = true;
-                }
-                else
-                {
-                    roomBUS.idRoomSelected = (e.AddedItems[0] as RoomViewModel).MaPhong;
-                    isBooking = false;
-                }
-            }
-            else
-            {
-                isSelected = false;
+                NavigationCommands.GoToPage.Execute("/GUI/Pages/RoomsPay.xaml#" + idRoom, this);
             }
         }
     }

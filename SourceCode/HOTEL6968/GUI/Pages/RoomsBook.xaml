@@ -8,8 +8,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="900"
              Loaded="RoomsBook_Loaded">
-    
-    
 
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
         <Grid>
@@ -156,7 +154,7 @@
                     <DatePicker Name="datePickerBook" Width="130" Text="{Binding Charges, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
                 </StackPanel>
 
-                <Image Margin="0,10,0,0" Source="D:\Documents\SchoolCourses\SE104\Project\HotelManagement6968\SourceCode\HOTEL6968\GUI\Assets\Rooms\Vip0.jpg"/>
+                <Image Margin="0,10,0,0" Source="{Binding NguonAnh}"/>
             </StackPanel>
         </Grid>
     </ScrollViewer>
