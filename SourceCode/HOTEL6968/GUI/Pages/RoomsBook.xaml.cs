@@ -18,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FirstFloor.ModernUI.Windows.Navigation;
 using FirstFloor.ModernUI.Windows.Controls;
+using System.Text.RegularExpressions;
 
 namespace HOTEL6968.GUI.Pages
 {
@@ -220,5 +221,16 @@ namespace HOTEL6968.GUI.Pages
 
         #endregion
 
+        private void txtIdentityCard_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
+        }
+
+        private void txtPhoneNumber_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
+        }
     }
 }

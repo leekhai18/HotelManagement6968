@@ -54,7 +54,8 @@
                     <StackPanel>
                         <Label Content="CMND" Target="{Binding ElementName=txtIdentityCard}"/>
                         <TextBox x:Name="txtIdentityCard" Width="200"  Text="{Binding IdentityCard, Mode=TwoWay, ValidatesOnDataErrors=True}"
-                                 TextChanged="txtIdentityCard_TextChanged"/>
+                                 TextChanged="txtIdentityCard_TextChanged"
+                                 PreviewTextInput="txtIdentityCard_PreviewTextInput"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Họ và tên" Target="{Binding ElementName=txtFullName}"/>
@@ -62,7 +63,8 @@
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Số điện thoại" Target="{Binding ElementName=txtPhoneNumber}"/>
-                        <TextBox x:Name="txtPhoneNumber" Width="200" />
+                        <TextBox x:Name="txtPhoneNumber" Width="200"
+                                 PreviewTextInput="txtPhoneNumber_PreviewTextInput"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Ngày sinh" Target="{Binding ElementName=datepickDateBirth}" />

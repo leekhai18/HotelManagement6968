@@ -65,7 +65,8 @@
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Đơn giá" Target="{Binding ElementName=txtCharges}"/>
-                        <TextBox x:Name="txtCharges" Width="200" Text="{Binding Charges, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                        <TextBox x:Name="txtCharges" Width="200" Text="{Binding Charges, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 PreviewTextInput="txtCharges_PreviewTextInput"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Ảnh mô tả" Target="{Binding ElementName=txtImageSource}"/>

@@ -3,6 +3,7 @@ using FirstFloor.ModernUI.Presentation;
 using HOTEL6968;
 using HOTEL6968.BUS;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

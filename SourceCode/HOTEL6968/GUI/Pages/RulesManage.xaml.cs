@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -79,5 +80,40 @@ namespace HOTEL6968.GUI.Pages
             }
         }
 
+        private void txtSurNumberCus_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (txtSurNumberCus.Text.Contains(".") == true)
+            {
+                if (e.Text == ".")
+                    e.Handled = true;
+            }
+            else
+            {
+                var regex = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
+
+                e.Handled = !regex.IsMatch(e.Text);
+            }
+        }
+
+        private void txtSurForeign_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (txtSurForeign.Text.Contains(".") == true)
+            {
+                if (e.Text == ".")
+                    e.Handled = true;
+            }
+            else
+            {
+                var regex = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
+
+                e.Handled = !regex.IsMatch(e.Text);
+            }
+        }
+
+        private void txtRate_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var regex = new Regex(@"^[0-9]*(?:\,[0-9]*)?$");
+            e.Handled = !regex.IsMatch(e.Text);
+        }
     }
 }
