@@ -15,8 +15,8 @@ namespace FirstFloor.ModernUI.App.Content
     public class SettingsAppearanceViewModel
         : NotifyPropertyChanged
     {
-        private const string FontSmall = "small";
-        private const string FontLarge = "large";
+        private const string FontSmall = "nhỏ";
+        private const string FontLarge = "lớn";
 
         private Color[] listColors = new Color[]{
             Color.FromRgb(0xa4, 0xc4, 0x00),   // lime
@@ -49,8 +49,8 @@ namespace FirstFloor.ModernUI.App.Content
         public SettingsAppearanceViewModel()
         {
             // add the default themes
-            this.themes.Add(new Link { DisplayName = "dark", Source = AppearanceManager.DarkThemeSource });
-            this.themes.Add(new Link { DisplayName = "light", Source = AppearanceManager.LightThemeSource });
+            this.themes.Add(new Link { DisplayName = "đêm", Source = AppearanceManager.DarkThemeSource });
+            this.themes.Add(new Link { DisplayName = "sáng", Source = AppearanceManager.LightThemeSource });
 
             this.SelectedFontSize = AppearanceManager.Current.FontSize == FontSize.Large ? FontLarge : FontSmall;
             SyncThemeAndColor();

@@ -75,7 +75,7 @@ namespace HOTEL6968.GUI.Pages
             }
             else
             {
-                ModernDialog.ShowMessage("Please! Select month and year", "Warning!", MessageBoxButton.OK);
+                ModernDialog.ShowMessage("Chọn tháng và năm", "Thông báo", MessageBoxButton.OK);
             }
         }
 

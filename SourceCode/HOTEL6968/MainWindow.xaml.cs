@@ -26,6 +26,8 @@ namespace HOTEL6968
 
         public static ModernWindow bookingServiceWindow;
 
+        public static bool isCheck = false;
+
         public MainWindow()
         {
             InitializeComponent();

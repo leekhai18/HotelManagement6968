@@ -17,15 +17,15 @@
         </StackPanel>
         
         <DockPanel Margin="10,0,0,0">
-            <TextBlock DockPanel.Dock="Top" Text="CUSTOMER LIST" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+            <TextBlock DockPanel.Dock="Top" Text="Danh sách khách hàng" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
             <DataGrid Name="dataGridListCustomer" ItemsSource="{Binding ListCustomer}" AutoGenerateColumns="False" >
                 <DataGrid.Columns>
-                    <mui:DataGridTextColumn Header="Customer's id"  Binding="{Binding Path=MaKhachHang}" IsReadOnly="True"/>
-                    <mui:DataGridTextColumn Header="Name" Binding="{Binding Path=TenKhachHang}" IsReadOnly="True"/>
-                    <mui:DataGridTextColumn Header="Identity Card" Binding="{Binding Path=CMND}" IsReadOnly="True"/>
-                    <mui:DataGridTextColumn Header="Birthday" Binding="{Binding Path=NgaySinhString}" IsReadOnly="True"/>
-                    <mui:DataGridTextColumn Header="Phone Number" Binding="{Binding Path=SDT}" IsReadOnly="True"/>
-                    <mui:DataGridCheckBoxColumn Header="Mem Vip" Binding="{Binding Path=IsVip}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Mã số"  Binding="{Binding Path=MaKhachHang}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Họ và tên" Binding="{Binding Path=TenKhachHang}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="CMND" Binding="{Binding Path=CMND}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Ngày sinh" Binding="{Binding Path=NgaySinhString}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Số điện thoại" Binding="{Binding Path=SDT}" IsReadOnly="True"/>
+                    <mui:DataGridCheckBoxColumn Header="VIP" Binding="{Binding Path=IsVip}" IsReadOnly="True"/>
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>

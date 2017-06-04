@@ -34,36 +34,36 @@
                 </StackPanel.Resources>
 
                 <StackPanel>
-                    <TextBlock Text="BILL" Style="{StaticResource Heading1}" FontSize="25" FontWeight="Bold"/>
+                    <TextBlock Text="HÓA ĐƠN" Style="{StaticResource Heading1}" FontSize="25" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Margin="0,30,0,4">
-                    <Label Content="Room's name"/>
+                    <Label Content="Tên phòng"/>
                     <TextBox Text="{Binding Path=TenPhong}" Width="200" IsEnabled="False"/>
                 </StackPanel>
                 <StackPanel>
-                    <Label Content="Cus's name"/>
+                    <Label Content="Tên khách hàng"/>
                     <TextBox Text="{Binding Path=TenKhachHang}" Width="200" IsEnabled="False"/>
                 </StackPanel>
                 <StackPanel>
-                    <Label Content="Identity card"/>
+                    <Label Content="CMND"/>
                     <TextBox Text="{Binding Path=CMND}" Width="200" IsEnabled="False"/>
                 </StackPanel>
                 <StackPanel>
-                    <Label Content="Room's rates"/>
+                    <Label Content="Giá phòng"/>
                     <TextBox Name="txtRoomRate" Text="{Binding Path=GiaPhong1NgayString}" Width="150" IsEnabled="False"/>
-                    <Label Content="(per day)"/>
+                    <Label Content="(1 ngày)"/>
                 </StackPanel>
                 <StackPanel>
-                    <Label Content="Booking date"/>
+                    <Label Content="Ngày đặt"/>
                     <DatePicker Name="datePickerBooking" SelectedDate="{Binding Path=ThoiGianDat}" Width="150" IsEnabled="False"/>
                 </StackPanel>
                 <StackPanel>
-                    <Label Content="Paying date"/>
+                    <Label Content="Ngày trả"/>
                     <DatePicker Name="datePickerPaying" Width="150" SelectedDateChanged="datePickerPaying_SelectedDateChanged"
                                 Text="{Binding IdentityCard, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Margin="0,20,0,0">
-                    <Label Content="Total rate's room" FontWeight="Bold" Width="130"/>
+                    <Label Content="Tổng tiền phòng" FontWeight="Bold" Width="130"/>
                     <Label Name="labelTotalRateRoom" Width="200" Content="00" FontWeight="Bold" FontSize="20"
                            />
                 </StackPanel>
@@ -74,32 +74,32 @@
             <StackPanel Grid.Column="1">
                 <ScrollViewer>
                     <DockPanel Margin="0,40,0,0" Height="200" MaxWidth="500" HorizontalAlignment="Left">
-                        <TextBlock DockPanel.Dock="Top" Text="Bill details" Style="{StaticResource Heading2}"/>
+                        <TextBlock DockPanel.Dock="Top" Text="Chi tiết hóa đơn" Style="{StaticResource Heading2}"/>
                         <DataGrid Name="dataGridBillDetails" ItemsSource="{Binding GetListBillDetail}" AutoGenerateColumns="False" >
                             <DataGrid.Columns>
-                                <mui:DataGridTextColumn Header="Service's id"  Binding="{Binding Path=MaDichVu}" IsReadOnly="True"/>
-                                <mui:DataGridTextColumn Header="Name" Binding="{Binding Path=TenDichVu}" IsReadOnly="True"/>
-                                <mui:DataGridTextColumn Header="Unit price" Binding="{Binding Path=DonGiaString}" IsReadOnly="True"/>
-                                <mui:DataGridTextColumn Header="Quantity" Binding="{Binding Path=SoLuong}" IsReadOnly="True"/>
+                                <mui:DataGridTextColumn Header="Mã dịch vụ"  Binding="{Binding Path=MaDichVu}" IsReadOnly="True"/>
+                                <mui:DataGridTextColumn Header="Tên dịch vụ" Binding="{Binding Path=TenDichVu}" IsReadOnly="True"/>
+                                <mui:DataGridTextColumn Header="Đơn giá" Binding="{Binding Path=DonGiaString}" IsReadOnly="True"/>
+                                <mui:DataGridTextColumn Header="Số lượng" Binding="{Binding Path=SoLuong}" IsReadOnly="True"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </DockPanel>
                 </ScrollViewer>
 
                 <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
-                    <Label Content="Total rate's services" VerticalAlignment="Center" Width="130" FontWeight="Bold"/>
+                    <Label Content="Tổng tiền dịch vụ" VerticalAlignment="Center" Width="130" FontWeight="Bold"/>
                     <Label Name="labelTotalRateService" Width="200" Content="0" FontWeight="Bold" FontSize="20" VerticalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
 
         <DockPanel HorizontalAlignment="Left" Margin="0,30,0,0">
-            <Label Content="The total amount you pay" FontSize="20" FontWeight="Bold" Width="270"/>
+            <Label Content="Tổng tiền hóa đơn" FontSize="20" FontWeight="Bold" Width="270"/>
             <Label Name="labelTotalPay" Content="0" FontSize="20" FontWeight="Bold"/>
         </DockPanel>
 
-        <Button Width="100" Height="50" HorizontalAlignment="Left" Margin="0,50,0,0"
-                Content="Complete" FontWeight="Bold"
+        <Button Width="120" Height="50" HorizontalAlignment="Left" Margin="0,50,0,0"
+                Content="Thanh toán" FontWeight="Bold"
                 Name="btnComplete" Click="btnComplete_Click"/>
     </StackPanel>
     

@@ -19,7 +19,7 @@
 
             <StackPanel Grid.Column="0" MinWidth="200" Name="mainLayout">
 
-                <TextBlock Text="CUSTOMER INFORMATION" Style="{StaticResource Heading2}"
+                <TextBlock Text="Thông tin khách hàng" Style="{StaticResource Heading2}"
                            FontSize="25" Margin="0,0,0,20" />
 
                 <StackPanel x:Name="Form" Orientation="Vertical">
@@ -47,42 +47,43 @@
                     </StackPanel.Resources>
 
                     <StackPanel>
-                        <Label Content="Customer's id" Target="{Binding ElementName=txtIdCustomer}"/>
+                        <Label Content="Mã số" Target="{Binding ElementName=txtIdCustomer}"/>
                         <TextBox x:Name="txtIdCustomer" Width="200" Text="{Binding IdCustomer, Mode=TwoWay}"
                              IsEnabled="False"/>
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Identity card" Target="{Binding ElementName=txtIdentityCard}"/>
+                        <Label Content="CMND" Target="{Binding ElementName=txtIdentityCard}"/>
                         <TextBox x:Name="txtIdentityCard" Width="200"  Text="{Binding IdentityCard, Mode=TwoWay, ValidatesOnDataErrors=True}"
                                  TextChanged="txtIdentityCard_TextChanged"/>
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Full name" Target="{Binding ElementName=txtFullName}"/>
+                        <Label Content="Họ và tên" Target="{Binding ElementName=txtFullName}"/>
                         <TextBox x:Name="txtFullName" Width="200" Text="{Binding FullName, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Phone number" Target="{Binding ElementName=txtPhoneNumber}"/>
+                        <Label Content="Số điện thoại" Target="{Binding ElementName=txtPhoneNumber}"/>
                         <TextBox x:Name="txtPhoneNumber" Width="200" />
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Birth date" Target="{Binding ElementName=datepickDateBirth}" />
+                        <Label Content="Ngày sinh" Target="{Binding ElementName=datepickDateBirth}" />
                         <DatePicker x:Name="datepickDateBirth"/>
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Kind of Cus" Target="{Binding ElementName=RadioKindCus}"/>
-                        <RadioButton x:Name="RadioKindCus" Content="Member" IsChecked="True"/>
+                        <Label Content="Loại khách hàng" Target="{Binding ElementName=RadioKindCus}"/>
+                        <RadioButton x:Name="RadioKindCus" Content="Thành viên" IsChecked="True"/>
                         <RadioButton Name="radioKindVIP" Content="VIP" Margin="8,0,0,0" />
                     </StackPanel>
                     <StackPanel >
                         <Label/>
                         <CheckBox Name="checkboxAgree">
-                            <TextBlock FontWeight="Bold" Text="I agree to the license terms and conditions of hotel" 
+                            <TextBlock FontWeight="Bold" Text="Tôi đồng ý với các điều khoản và điều kiện cấp phép của khách sạn" 
                                        Width="200" TextWrapping="Wrap"/>
                         </CheckBox>
                     </StackPanel>
 
 
-                    <Button Name="btnBook" Content="Book" FontWeight="Bold" Margin="100,16,0,0" HorizontalAlignment="Left"
+                    <Button Name="btnBook" Content="Đặt" FontWeight="Bold"
+                            Margin="100,16,0,0" HorizontalAlignment="Left" Width="100" Height="30"
                         Click="btnBook_Click"/>
                 </StackPanel>
             </StackPanel>
@@ -105,30 +106,30 @@
                     </Style>
                 </StackPanel.Resources>
 
-                <TextBlock Text="ROOM INFORMATION" Style="{StaticResource Heading2}"
+                <TextBlock Text="Thông tin phòng" Style="{StaticResource Heading2}"
                            FontSize="25" Margin="0,0,0,20"/>
 
                 <StackPanel>
-                    <Label Content="Room's id" Target="{Binding ElementName=cmbIdRoom}"/>
+                    <Label Content="Mã phòng" Target="{Binding ElementName=cmbIdRoom}"/>
                     <ComboBox x:Name="cmbIdRoom" Width="200" IsEnabled="true" ItemsSource="{Binding GetListIdRoomAvailable}"
                               Text="{Binding ComboboxText, Mode=TwoWay, ValidatesOnDataErrors=True}"
                               SelectionChanged="cmbIdRoom_SelectionChanged"/>
                 </StackPanel>
                 <StackPanel>
-                    <Label Content="Name" Target="{Binding ElementName=txtRoomName}"/>
+                    <Label Content="Tên phòng" Target="{Binding ElementName=txtRoomName}"/>
                     <TextBox x:Name="txtRoomName" Width="200" Text="{Binding TenPhong}" IsEnabled="False"/>
                 </StackPanel>
                 <StackPanel>
-                    <Label Content="Kind of room" Target="{Binding ElementName=txtKind}"/>
+                    <Label Content="Loại phòng" Target="{Binding ElementName=txtKind}"/>
                     <TextBox x:Name="txtKind" Width="200" Text="{Binding TenLoaiPhong}" IsEnabled="False"/>
                 </StackPanel>
                 <StackPanel>
-                    <Label Content="Base rates" Target="{Binding ElementName=txtRoomRate}"/>
+                    <Label Content="Giá cơ bản" Target="{Binding ElementName=txtRoomRate}"/>
                     <TextBox Name="txtBaseRate" Width="130" IsEnabled="False" TextChanged="txtBaseRate_TextChanged" Text="{Binding Path=GiaPhongString}"/>
-                    <Label Content="(per day)"/>
+                    <Label Content="(1 ngày)"/>
                 </StackPanel>
                 <StackPanel>
-                    <Label Content="Number of people" Target="{Binding ElementName=cmbNumOfPeo}"/>
+                    <Label Content="Số người" Target="{Binding ElementName=cmbNumOfPeo}"/>
                     <ComboBox Name="cmbNumOfPeo" SelectionChanged="cmbNumOfPeo_SelectionChanged" Text="{Binding ComboboxText, Mode=TwoWay, ValidatesOnDataErrors=True}">
                         <ComboBoxItem Content="1"/>
                         <ComboBoxItem Content="2"/>
@@ -136,21 +137,21 @@
                         <ComboBoxItem Content="4"/>
                     </ComboBox>
                     <CheckBox Name="checkboxHasForeigner" Margin="30,0,0,0" Click="checkboxHasForeigner_Click">
-                        <TextBlock Text="Foreigner"/>
+                        <TextBlock Text="Khách nước ngoài"/>
                     </CheckBox>
                 </StackPanel>
                 <StackPanel>
-                    <Label Content="Surcharge" Target="{Binding ElementName=txtSurcharge}"/>
+                    <Label Content="Phụ thu" Target="{Binding ElementName=txtSurcharge}"/>
                     <TextBox Name="txtSurcharge" Width="130" Text="0" IsEnabled="False"/>
-                    <Label Content="(per day)"/>
+                    <Label Content="(1 ngày)"/>
                 </StackPanel>
                 <StackPanel>
-                    <Label Content="Total room rates" Target="{Binding ElementName=txtTotalRoomRate}"/>
+                    <Label Content="Tổng tiền" Target="{Binding ElementName=txtTotalRoomRate}"/>
                     <TextBox Name="txtTotalRoomRate" Width="130" IsEnabled="False" FontWeight="Bold"/>
-                    <Label Content="(per day)"/>
+                    <Label Content="(1 ngày)"/>
                 </StackPanel>
                 <StackPanel>
-                    <Label Content="Booking date" Target="{Binding ElementName=datePickerBook}"/>
+                    <Label Content="Ngày đặt" Target="{Binding ElementName=datePickerBook}"/>
                     <DatePicker Name="datePickerBook" Width="130" Text="{Binding Charges, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
                 </StackPanel>
 

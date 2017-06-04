@@ -10,9 +10,9 @@
     <Grid Style="{StaticResource ContentRoot}">
         <mui:ModernTab SelectedSource="/GUI/Pages/ServicesManageFoods.xaml" Layout="Tab">
             <mui:ModernTab.Links>
-                <mui:Link x:Name="linkFoods" DisplayName="Foods" Source="/GUI/Pages/ServicesManageFoods.xaml" />
-                <mui:Link x:Name="linkGames" DisplayName="Games" Source="/GUI/Pages/ServicesManageGames.xaml" />
-                <mui:Link x:Name="linkRests" DisplayName="Rests" Source="/GUI/Pages/ServicesManageRests.xaml" />
+                <mui:Link x:Name="linkFoods" DisplayName="Món ăn" Source="/GUI/Pages/ServicesManageFoods.xaml" />
+                <mui:Link x:Name="linkGames" DisplayName="Trò chơi" Source="/GUI/Pages/ServicesManageGames.xaml" />
+                <mui:Link x:Name="linkRests" DisplayName="Nghỉ dưỡng" Source="/GUI/Pages/ServicesManageRests.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>
     </Grid>

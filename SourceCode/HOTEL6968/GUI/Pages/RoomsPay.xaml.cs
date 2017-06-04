@@ -97,7 +97,7 @@ namespace HOTEL6968.GUI.Pages
             {
                 isRealChangeDatePicker = false;
 
-                var resultDialog = ModernDialog.ShowMessage("Not valid", "Warning!", MessageBoxButton.OK);
+                var resultDialog = ModernDialog.ShowMessage("Ngày trả phòng không hợp lệ", "Thông báo", MessageBoxButton.OK);
                 if (resultDialog == MessageBoxResult.OK)
                 {
                     datePickerPaying.DataContext = null;
@@ -132,7 +132,7 @@ namespace HOTEL6968.GUI.Pages
             {
                 isRealChangeDatePicker = false;
 
-                var resultDialog = ModernDialog.ShowMessage("You have successfully", "Success", MessageBoxButton.OK);
+                var resultDialog = ModernDialog.ShowMessage("Bạn đã thành công", "Thành công", MessageBoxButton.OK);
 
                 if (resultDialog == MessageBoxResult.OK)
                 {
@@ -147,7 +147,7 @@ namespace HOTEL6968.GUI.Pages
             }
             else
             {
-                ModernDialog.ShowMessage("Please select paying date", "Warning!", MessageBoxButton.OK);
+                ModernDialog.ShowMessage("Xin chọn ngày trả phòng", "Thông báo", MessageBoxButton.OK);
             }
         }
     }

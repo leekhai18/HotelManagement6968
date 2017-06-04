@@ -21,7 +21,7 @@
         <ScrollViewer Grid.Column="0">
             <StackPanel MinWidth="200">
 
-                <TextBlock Text="NEW ROOM" Style="{StaticResource Heading2}" Margin="0,0,0,20" />
+                <TextBlock Text="Thông tin phòng mới" Style="{StaticResource Heading2}" Margin="0,0,0,20" />
 
                 <StackPanel x:Name="Form" Orientation="Vertical">
 
@@ -48,15 +48,15 @@
                     </StackPanel.Resources>
 
                     <StackPanel>
-                        <Label Content="Room's id" Target="{Binding ElementName=txtId}"/>
+                        <Label Content="Mã phòng" Target="{Binding ElementName=txtId}"/>
                         <TextBox x:Name="txtId" Width="200" Text="{Binding IdentityCard, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Full name" Target="{Binding ElementName=txtFullName}"/>
+                        <Label Content="Tên phòng" Target="{Binding ElementName=txtFullName}"/>
                         <TextBox x:Name="txtFullName" Width="200" Text="{Binding FullName, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Kind of room" Target="{Binding ElementName=ComboState}"/>
+                        <Label Content="Loại phòng" Target="{Binding ElementName=ComboState}"/>
                         <ComboBox x:Name="cmbKindOfRoom" Text="{Binding ComboboxText, Mode=TwoWay, ValidatesOnDataErrors=True}"
                                   Width="200" SelectionChanged="cmbKindOfRoom_SelectionChanged">
                             <ComboBoxItem>Standard</ComboBoxItem>
@@ -67,11 +67,11 @@
                     </StackPanel>
 
                     <StackPanel Height="150">
-                        <Label Content="Information" Target="{Binding ElementName=txtInfomation}" VerticalAlignment="Top"/>
+                        <Label Content="Mô tả chi tiết" Target="{Binding ElementName=txtInfomation}" VerticalAlignment="Top"/>
                         <TextBox x:Name="txtInfomation" Width="200" TextWrapping="Wrap"/>
                     </StackPanel>
 
-                    <Button Name="btnSubmit" Content="Submit" Margin="100,16,0,0" HorizontalAlignment="Left" Click="btnSubmit_Click"/>
+                    <Button Name="btnSubmit" Content="Lưu" Margin="100,16,0,0" HorizontalAlignment="Left" Click="btnSubmit_Click"/>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

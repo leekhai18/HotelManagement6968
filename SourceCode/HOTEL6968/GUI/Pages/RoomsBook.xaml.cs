@@ -70,7 +70,7 @@ namespace HOTEL6968.GUI.Pages
             if (txtFullName.Text != "" && txtIdCustomer.Text != "" && txtIdentityCard.Text != "" && datepickDateBirth.Text != "" && checkboxAgree.IsChecked == true
                    && cmbIdRoom.SelectedItem != null && cmbNumOfPeo.SelectedItem != null && datePickerBook.Text != "")
             {
-                var resultDialog = ModernDialog.ShowMessage("Are you sure that " + txtFullName.Text + " want to book " + txtRoomName.Text, "Verify", MessageBoxButton.YesNo);
+                var resultDialog = ModernDialog.ShowMessage("Bạn có chắc chắn muốn đặt phòng " + txtRoomName.Text, "Xác nhận", MessageBoxButton.YesNo);
 
                 if (resultDialog == MessageBoxResult.Yes)
                 {
@@ -88,7 +88,7 @@ namespace HOTEL6968.GUI.Pages
                     //Change status room
                     roomBUS.ChangeStatusRoom(cmbIdRoom.SelectedItem.ToString());
 
-                    var resultDialogSuccess = ModernDialog.ShowMessage("You have successfully", "Success", MessageBoxButton.OK);
+                    var resultDialogSuccess = ModernDialog.ShowMessage("Bạn đã thành công", "Thành công", MessageBoxButton.OK);
 
                     if (resultDialogSuccess == MessageBoxResult.OK)
                     {
@@ -98,7 +98,7 @@ namespace HOTEL6968.GUI.Pages
             }
             else
             {
-                ModernDialog.ShowMessage("Please fill in all required fields", "Notify", MessageBoxButton.OK);
+                ModernDialog.ShowMessage("Xin điền đầy đủ các trường dữ liệu", "Thông báo", MessageBoxButton.OK);
             }
         }
 

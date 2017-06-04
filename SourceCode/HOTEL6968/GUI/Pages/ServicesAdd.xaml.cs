@@ -46,7 +46,7 @@ namespace HOTEL6968.GUI.Pages
         {
             if (txtId.Text != "" && txtFullName.Text != "" && txtCharges.Text != "" && cmbKindOfService.Text != "" && txtImageSource.Text != "")
             {
-                var resultDialog = ModernDialog.ShowMessage("Are you sure that you want to add " + txtFullName.Text, "Verify", MessageBoxButton.YesNo);
+                var resultDialog = ModernDialog.ShowMessage("Bạn có chắn chắc muốn thêm " + txtFullName.Text, "Xác nhận", MessageBoxButton.YesNo);
 
                 if (resultDialog == MessageBoxResult.Yes)
                 {
@@ -75,14 +75,14 @@ namespace HOTEL6968.GUI.Pages
 
                     serviceBUS.AddNewService(txtId.Text, txtFullName.Text, idKind, txtCharges.Text, txtInfomation.Text, imageSourceAdded);
 
-                    ModernDialog.ShowMessage("You have successfully added", "Success", MessageBoxButton.OK);
+                    ModernDialog.ShowMessage("Bạn đã thêm thành công", "Thành công", MessageBoxButton.OK);
 
                     RefreshForm();
                 }
             }
             else
             {
-                ModernDialog.ShowMessage("Please fill in all required fields", "Notify", MessageBoxButton.OK);
+                ModernDialog.ShowMessage("Xin điền đầy đủ các trường dữ liệu", "Thông báo", MessageBoxButton.OK);
             }
         }
 

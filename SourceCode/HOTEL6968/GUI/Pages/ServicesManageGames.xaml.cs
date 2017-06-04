@@ -67,7 +67,7 @@ namespace HOTEL6968.GUI.Pages
             }
             else
             {
-                ModernDialog.ShowMessage("Please! Select the service you want to operate", "Warning", MessageBoxButton.OK);
+                ModernDialog.ShowMessage("Xin chọn dịch vụ", "Thông báo", MessageBoxButton.OK);
             }
         }
     }

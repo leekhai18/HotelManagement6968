@@ -21,7 +21,7 @@
         <ScrollViewer Grid.Column="0">
             <StackPanel MinWidth="200">
 
-                <TextBlock Text="NEW SERVICE" Style="{StaticResource Heading2}" Margin="0,0,0,20" />
+                <TextBlock Text="Thông tin dịch vụ mới" Style="{StaticResource Heading2}" Margin="0,0,0,20" />
 
                 <StackPanel x:Name="Form" Orientation="Vertical">
 
@@ -48,15 +48,15 @@
                     </StackPanel.Resources>
 
                     <StackPanel>
-                        <Label Content="Service's id" Target="{Binding ElementName=txtId}"/>
+                        <Label Content="Mã dịch vụ" Target="{Binding ElementName=txtId}"/>
                         <TextBox x:Name="txtId" Width="200" Text="{Binding IdService, Mode=OneWay}" IsEnabled="False"/>
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Full name" Target="{Binding ElementName=txtFullName}"/>
+                        <Label Content="Tên dịch vụ" Target="{Binding ElementName=txtFullName}"/>
                         <TextBox x:Name="txtFullName" Width="200" Text="{Binding FullName, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Kind of service" Target="{Binding ElementName=cmbKindOfService}"/>
+                        <Label Content="Loại hình" Target="{Binding ElementName=cmbKindOfService}"/>
                         <ComboBox x:Name="cmbKindOfService" Text="{Binding ComboboxText, Mode=TwoWay, ValidatesOnDataErrors=True}" Width="200">
                             <ComboBoxItem>Food</ComboBoxItem>
                             <ComboBoxItem>Game</ComboBoxItem>
@@ -64,11 +64,11 @@
                         </ComboBox>
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Charges" Target="{Binding ElementName=txtCharges}"/>
+                        <Label Content="Đơn giá" Target="{Binding ElementName=txtCharges}"/>
                         <TextBox x:Name="txtCharges" Width="200" Text="{Binding Charges, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Image source" Target="{Binding ElementName=txtImageSource}"/>
+                        <Label Content="Ảnh mô tả" Target="{Binding ElementName=txtImageSource}"/>
                         <DockPanel>
                             <TextBox x:Name="txtImageSource" Width="120" Text="{Binding IdentityCard, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                             <Button Name="btnBrowser" Margin="1,0,0,0" Width="79" Content="Browser" Click="btnBrowser_Click"/>
@@ -76,11 +76,11 @@
                     </StackPanel>
 
                     <StackPanel Height="150">
-                        <Label Content="Information" Target="{Binding ElementName=txtInfomation}" VerticalAlignment="Top"/>
+                        <Label Content="Mô tả chi tiết" Target="{Binding ElementName=txtInfomation}" VerticalAlignment="Top"/>
                         <TextBox x:Name="txtInfomation" Width="200" TextWrapping="Wrap"/>
                     </StackPanel>
 
-                    <Button Name="btnSubmit" Content="Submit" Margin="100,16,0,0" HorizontalAlignment="Left" Click="btnSubmit_Click"/>
+                    <Button Name="btnSubmit" Content="Lưu" Margin="100,16,0,0" HorizontalAlignment="Left" Click="btnSubmit_Click"/>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

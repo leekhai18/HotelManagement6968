@@ -22,39 +22,38 @@ namespace HOTEL6968.BUS
             {
                 // Add Rooms Group
                 List<Link> listLink = new List<Link>();
-                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/RoomsManage.xaml", UriKind.Relative) });
-                listLink.Add(new Link() { DisplayName = "Book", Source = new Uri("GUI/Pages/RoomsBook.xaml", UriKind.Relative) });
-                listLink.Add(new Link() { DisplayName = "Pay", Source = new Uri("GUI/Pages/RoomsPay.xaml", UriKind.Relative) });
-                listLink.Add(new Link() { DisplayName = "Add", Source = new Uri("GUI/Pages/RoomsAdd.xaml", UriKind.Relative) });
-                menuGroup.Add(mainWd, "Rooms", listLink.Count, listLink);
+                listLink.Add(new Link() { DisplayName = "Quản lí", Source = new Uri("GUI/Pages/RoomsManage.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Đặt", Source = new Uri("GUI/Pages/RoomsBook.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Trả", Source = new Uri("GUI/Pages/RoomsPay.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Thêm", Source = new Uri("GUI/Pages/RoomsAdd.xaml", UriKind.Relative) });
+                menuGroup.Add(mainWd, "Phòng", listLink.Count, listLink);
 
                 // Add Services Group
                 listLink.Clear();
-                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/ServicesManage.xaml", UriKind.Relative) });
-                listLink.Add(new Link() { DisplayName = "Add", Source = new Uri("GUI/Pages/ServicesAdd.xaml", UriKind.Relative) });
-                menuGroup.Add(mainWd, "Services", listLink.Count, listLink);
+                listLink.Add(new Link() { DisplayName = "Quản lí", Source = new Uri("GUI/Pages/ServicesManage.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Thêm", Source = new Uri("GUI/Pages/ServicesAdd.xaml", UriKind.Relative) });
+                menuGroup.Add(mainWd, "Dịch vụ", listLink.Count, listLink);
 
                 // Add Staffs Group
                 listLink.Clear();
-                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/StaffsManage.xaml", UriKind.Relative) });
-                listLink.Add(new Link() { DisplayName = "Add", Source = new Uri("GUI/Pages/StaffsAdd.xaml", UriKind.Relative) });
-                menuGroup.Add(mainWd, "Staffs", listLink.Count, listLink);
+                listLink.Add(new Link() { DisplayName = "Quản lí", Source = new Uri("GUI/Pages/StaffsManage.xaml", UriKind.Relative) });
+                listLink.Add(new Link() { DisplayName = "Thêm", Source = new Uri("GUI/Pages/StaffsAdd.xaml", UriKind.Relative) });
+                menuGroup.Add(mainWd, "Nhân viên", listLink.Count, listLink);
 
                 // Add Customers Group
                 listLink.Clear();
-                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/CustomersManage.xaml", UriKind.Relative) });
-                listLink.Add(new Link() { DisplayName = "Add Template", Source = new Uri("GUI/Pages/CustomersAdd.xaml", UriKind.Relative) });
-                menuGroup.Add(mainWd, "Customers", listLink.Count, listLink);
+                listLink.Add(new Link() { DisplayName = "Quản lí", Source = new Uri("GUI/Pages/CustomersManage.xaml", UriKind.Relative) });
+                menuGroup.Add(mainWd, "Khách hàng", listLink.Count, listLink);
 
                 // Add Statistics Report Group
                 listLink.Clear();
-                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/StatisticsManage.xaml", UriKind.Relative) });
-                menuGroup.Add(mainWd, "Statistics", listLink.Count, listLink);
+                listLink.Add(new Link() { DisplayName = "Quản lí", Source = new Uri("GUI/Pages/StatisticsManage.xaml", UriKind.Relative) });
+                menuGroup.Add(mainWd, "Thống kê", listLink.Count, listLink);
 
                 // Add Rule Group
                 listLink.Clear();
-                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/RulesManage.xaml", UriKind.Relative) });
-                menuGroup.Add(mainWd, "Rule", listLink.Count, listLink);
+                listLink.Add(new Link() { DisplayName = "Quản lí", Source = new Uri("GUI/Pages/RulesManage.xaml", UriKind.Relative) });
+                menuGroup.Add(mainWd, "Qui định", listLink.Count, listLink);
 
                 menuGroup.Remove(mainWd, 0, "GUI/Pages/RoomsManage.xaml");
             }

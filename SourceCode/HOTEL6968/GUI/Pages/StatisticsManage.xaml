@@ -12,12 +12,12 @@
     <StackPanel Orientation="Horizontal">
 
         <StackPanel Width="200">
-            <TextBox Style="{StaticResource ResourceKey=placeHolder}" Tag=" Search..." Name="txtSearch"
+            <TextBox Style="{StaticResource ResourceKey=placeHolder}" Tag=" Tìm kiếm..." Name="txtSearch"
                      TextChanged="txtSearch_TextChanged"/>
 
-            <TextBlock Margin="0,15,0,0" Text="Fillter to Report" FontWeight="Bold" FontSize="15"/>
+            <TextBlock Margin="0,15,0,0" Text="Lọc để báo cáo" FontWeight="Bold" FontSize="15"/>
             <DockPanel Margin="0,5,0,0">
-                <TextBlock Text="Month" Width="50" VerticalAlignment="Bottom"/>
+                <TextBlock Text="Tháng" Width="50" VerticalAlignment="Bottom"/>
                 <ComboBox Name="cmbMonth">
                     <ComboBoxItem Content="1"/>
                     <ComboBoxItem Content="2"/>
@@ -34,13 +34,13 @@
                 </ComboBox>
             </DockPanel>
             <DockPanel Margin="0,5,0,0">
-                <TextBlock Text="Year" Width="50" VerticalAlignment="Bottom"/>
+                <TextBlock Text="Năm" Width="50" VerticalAlignment="Bottom"/>
                 <TextBox Name="txtYear"/>
             </DockPanel>
             <DockPanel Margin="50,5,0,0">
-                <Button Name="btnView" Content="view" Click="btnView_Click"
+                <Button Name="btnView" Content="xem" Click="btnView_Click"
                         Width="60" Height="30"/> 
-                <Button Name="btnPrint" Width="90" Content="print" Click="btnPrint_Click"
+                <Button Name="btnPrint" Width="90" Content="xuất" Click="btnPrint_Click"
                         Height="30" HorizontalAlignment="Right"/>
             </DockPanel>
 
@@ -72,18 +72,18 @@
         </StackPanel>
 
         <DockPanel Margin="10,0,0,0">
-            <TextBlock DockPanel.Dock="Top" Text="Transaction history" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+            <TextBlock DockPanel.Dock="Top" Text="Lịch sử giao dịch" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
             <DataGrid Name="dataGridHistory" ItemsSource="{Binding TransactionHistory}" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <mui:DataGridTextColumn Header="Bill id" Binding="{Binding Path=SoHoaDon}" IsReadOnly="True"/>
-                    <mui:DataGridTextColumn Header="Room id" Binding="{Binding Path=MaPhong}" IsReadOnly="True"/>
-                    <mui:DataGridTextColumn Header="Customer name" Binding="{Binding Path=TenKhachHang}" IsReadOnly="True"/>
-                    <mui:DataGridTextColumn Header="Identity card" Binding="{Binding Path=CMND}" IsReadOnly="True"/>
-                    <mui:DataGridTextColumn Header="Booking date" Binding="{Binding Path=ThoiGianDatString}" IsReadOnly="True"/>
-                    <mui:DataGridTextColumn Header="Paying date" Binding="{Binding Path=ThoiGianTraString}" IsReadOnly="True"/>
-                    <mui:DataGridTextColumn Header="Room rates" Binding="{Binding Path=TongGiaPhongString}" IsReadOnly="True"/>
-                    <mui:DataGridTextColumn Header="Service rates" Binding="{Binding Path=TongGiaDichVuString}" IsReadOnly="True"/>
-                    <mui:DataGridTextColumn Header="Total rates" Binding="{Binding Path=TongTienString}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Số hóa đơn" Binding="{Binding Path=SoHoaDon}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Mã phòng" Binding="{Binding Path=MaPhong}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Tên khách hàng" Binding="{Binding Path=TenKhachHang}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="CMND" Binding="{Binding Path=CMND}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Ngày đặt" Binding="{Binding Path=ThoiGianDatString}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Ngày trả" Binding="{Binding Path=ThoiGianTraString}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Giá phòng" Binding="{Binding Path=TongGiaPhongString}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Giá DV" Binding="{Binding Path=TongGiaDichVuString}" IsReadOnly="True"/>
+                    <mui:DataGridTextColumn Header="Tổng tiền" Binding="{Binding Path=TongTienString}" IsReadOnly="True"/>
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>

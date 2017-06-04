@@ -21,7 +21,7 @@
         <ScrollViewer Grid.Column="0">
             <StackPanel MinWidth="200">
 
-                <TextBlock Text="NEW STAFF" Style="{StaticResource Heading2}" Margin="0,0,0,20" />
+                <TextBlock Text="Thông tin nhân viên mới" Style="{StaticResource Heading2}" Margin="0,0,0,20" />
 
                 <StackPanel x:Name="Form" Orientation="Vertical">
 
@@ -48,39 +48,39 @@
                     </StackPanel.Resources>
 
                     <StackPanel>
-                        <Label Content="Staff's id" Target="{Binding ElementName=txtId}"/>
+                        <Label Content="Mã nhân viên" Target="{Binding ElementName=txtId}"/>
                         <TextBox x:Name="txtId" Width="200" Text="{Binding IdStaff, Mode=OneWay}" IsEnabled="False"/>
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Full name" Target="{Binding ElementName=txtFullName}"/>
+                        <Label Content="Họ và tên" Target="{Binding ElementName=txtFullName}"/>
                         <TextBox x:Name="txtFullName" Width="200" Text="{Binding FullName, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Identity card" Target="{Binding ElementName=txtIdentityCard}"/>
+                        <Label Content="CMND" Target="{Binding ElementName=txtIdentityCard}"/>
                         <TextBox x:Name="txtIdentityCard" Width="200" Text="{Binding IdentityCard, Mode=TwoWay, ValidatesOnDataErrors=True}" />
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Gender" Target="{Binding ElementName=RadioGendeMale}"/>
+                        <Label Content="Giới tính" Target="{Binding ElementName=RadioGendeMale}"/>
                         <RadioButton x:Name="RadioGendeMale">
-                            <TextBlock>Male</TextBlock>
+                            <TextBlock>Nam</TextBlock>
                         </RadioButton>
-                        <RadioButton Content="Female" Margin="8,0,0,0" />
+                        <RadioButton Content="Nữ" Margin="8,0,0,0" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,5">
-                        <Label Content="Birth date" Target="{Binding ElementName=datepickDateBirth}" />
+                        <Label Content="Ngày sinh" Target="{Binding ElementName=datepickDateBirth}" />
                         <DatePicker x:Name="datepickDateBirth"/>
                     </StackPanel>
 
                     <StackPanel>
-                        <Label Content="Position" Target="{Binding ElementName=cmbPosition}"/>
+                        <Label Content="Chức vụ" Target="{Binding ElementName=cmbPosition}"/>
                         <ComboBox x:Name="cmbPosition" Width="200">
-                            <ComboBoxItem>Receptionists</ComboBoxItem>
-                            <ComboBoxItem>Manager</ComboBoxItem>
-                            <ComboBoxItem>Other</ComboBoxItem>
+                            <ComboBoxItem>Tiếp tân</ComboBoxItem>
+                            <ComboBoxItem>Quản lí</ComboBoxItem>
+                            <ComboBoxItem>Khác</ComboBoxItem>
                         </ComboBox>
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Phone Number" Target="{Binding ElementName=txtPhoneNum}"/>
+                        <Label Content="Số điện thoại" Target="{Binding ElementName=txtPhoneNum}"/>
                         <TextBox x:Name="txtPhoneNum" Width="200"/>
                     </StackPanel>
                     <StackPanel>
@@ -88,11 +88,11 @@
                         <TextBox x:Name="txtEmail" Width="200"/>
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Address" Target="{Binding ElementName=txtAddress}"/>
+                        <Label Content="Địa chỉ" Target="{Binding ElementName=txtAddress}"/>
                         <TextBox x:Name="txtAddress" Width="200"/>
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Image source" Target="{Binding ElementName=txtImageSource}"/>
+                        <Label Content="Ảnh đại diện" Target="{Binding ElementName=txtImageSource}"/>
                         <DockPanel>
                             <TextBox x:Name="txtImageSource" Width="120"/>
                             <Button Name="btnBrowser" Margin="1,0,0,0" Width="79" Content="Browser" Click="btnBrowser_Click"/>
@@ -101,11 +101,11 @@
                     <StackPanel >
                         <Label/>
                         <CheckBox Name="checkboxAgree">
-                            <TextBlock FontWeight="Bold" Text="I agree to the license terms and conditions of hotel"  />
+                            <TextBlock FontWeight="Bold" Text="Tôi đồng ý với các thỏa thuận và điều kiện của khách sạn"  />
                         </CheckBox>
                     </StackPanel>
 
-                    <Button Name="btnSubmit" Content="Submit" Margin="100,16,0,0" HorizontalAlignment="Left" Click="btnSubmit_Click"/>
+                    <Button Name="btnSubmit" Content="Lưu" Margin="100,16,0,0" HorizontalAlignment="Left" Click="btnSubmit_Click"/>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

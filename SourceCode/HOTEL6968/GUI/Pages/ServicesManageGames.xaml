@@ -43,7 +43,7 @@
 
     <StackPanel Orientation="Horizontal">
         <StackPanel Width="200">
-            <TextBox Style="{StaticResource ResourceKey=placeHolder}" Tag=" Search..." Name="txtSearch"
+            <TextBox Style="{StaticResource ResourceKey=placeHolder}" Tag=" Tìm kiếm..." Name="txtSearch"
                      TextChanged="txtSearch_TextChanged"/>
 
         </StackPanel>

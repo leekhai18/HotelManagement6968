@@ -36,9 +36,9 @@ namespace GUI.Pages
         {
             if (accountBUS.IsAvailable(txtUserName.Text, txtPassword.Password) == true)
             {
-                progressLoading.IsActive = true;
-
                 loginBUS.btnLogin_Click();
+
+                MainWindow.isCheck = true;
             }
             else
             {
@@ -49,6 +49,24 @@ namespace GUI.Pages
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             accountBUS.IsAvailable(txtUserName.Text, txtPassword.Password);
+            txtPassword.Password = "";
+            txtUserName.Text = "";
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
+        }
+
+        private void txtUserName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Keyboard.Focus(txtPassword);
+            }
         }
     }
 }

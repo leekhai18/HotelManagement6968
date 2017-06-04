@@ -70,7 +70,7 @@ namespace HOTEL6968.GUI.Pages
                 billDetailBUS.AddDetail(idBill, idServiceSelected, Convert.ToInt16(txtValueQuantity.Text));
 
                 MainWindow.bookingServiceWindow.Close();
-                ModernDialog.ShowMessage("You have successfully", "Success", MessageBoxButton.OK);
+                ModernDialog.ShowMessage("Bạn đã thành công", "Thành công", MessageBoxButton.OK);
             }
         }
 

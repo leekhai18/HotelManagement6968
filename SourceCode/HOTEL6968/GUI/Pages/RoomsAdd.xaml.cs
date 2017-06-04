@@ -40,7 +40,7 @@ namespace HOTEL6968.GUI.Pages
         {
             if (txtFullName.Text != "" && txtId.Text != "" && cmbKindOfRoom.Text != "")
             {
-                var resultDialog = ModernDialog.ShowMessage("Are you sure that you want to add " + txtFullName.Text, "Verify", MessageBoxButton.YesNo);
+                var resultDialog = ModernDialog.ShowMessage("Bạn có chắc chắn muốn thêm " + txtFullName.Text, "Xác nhận", MessageBoxButton.YesNo);
 
                 if (resultDialog == MessageBoxResult.Yes)
                 {
@@ -75,12 +75,12 @@ namespace HOTEL6968.GUI.Pages
 
                     roomBUS.AddNewRoom(txtId.Text, txtFullName.Text, idKind , txtInfomation.Text);
 
-                    ModernDialog.ShowMessage("You have successfully added", "Success", MessageBoxButton.OK);
+                    ModernDialog.ShowMessage("Bạn đã thêm thành công", "Thành công", MessageBoxButton.OK);
                 }
             }
             else
             {
-                ModernDialog.ShowMessage("Please fill in all required fields", "Notify", MessageBoxButton.OK);
+                ModernDialog.ShowMessage("Xin điền đầy đủ các trường dữ liệu", "Thông báo", MessageBoxButton.OK);
             }
         }
 

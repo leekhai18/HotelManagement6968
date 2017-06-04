@@ -140,19 +140,19 @@ namespace FirstFloor.ModernUI.App.Content
             {
                 if (columnName == "FullName")
                 {
-                    return string.IsNullOrEmpty(this.fullName) ? "Required value" : null;
+                    return string.IsNullOrEmpty(this.fullName) ? "Yêu cầu dữ liệu" : null;
                 }
                 if (columnName == "IdentityCard")
                 {
-                    return string.IsNullOrEmpty(this.identityCard) ? "Required value" : null;
+                    return string.IsNullOrEmpty(this.identityCard) ? "Yêu cầu dữ liệu" : null;
                 }
                 if (columnName == "Charges")
                 {
-                    return string.IsNullOrEmpty(this.charges) ? "Required value" : null;
+                    return string.IsNullOrEmpty(this.charges) ? "Yêu cầu dữ liệu" : null;
                 }
                 if (columnName == "ComboboxText")
                 {
-                    return string.IsNullOrEmpty(this.comboboxText) ? "Required value" : null;
+                    return string.IsNullOrEmpty(this.comboboxText) ? "Yêu cầu dữ liệu" : null;
                 }
 
                 return null;

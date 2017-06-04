@@ -50,11 +50,18 @@ namespace GUI.Pages
                 listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/ServicesManage.xaml", UriKind.Relative) });
                 menuGroup.Add(mainWd, "Services", listLink.Count, listLink);
             }
+
+            MainWindow.isCheck = true;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            if (MainWindow.isCheck == true)
+            {
+                mainBUS.Init();
 
+                MainWindow.isCheck = false;
+            }
         }
     }
 }
