@@ -48,8 +48,8 @@ namespace GUI.Pages
 
                 // Add Services Group
                 List<Link> listLink = new List<Link>();
-                listLink.Add(new Link() { DisplayName = "Manage", Source = new Uri("GUI/Pages/ServicesManage.xaml", UriKind.Relative) });
-                menuGroup.Add(mainWd, "Services", listLink.Count, listLink);
+                listLink.Add(new Link() { DisplayName = "Quản lí", Source = new Uri("GUI/Pages/ServicesManage.xaml", UriKind.Relative) });
+                menuGroup.Add(mainWd, "Dịch vụ", listLink.Count, listLink);
             }
 
             MainWindow.isCheck = true;
