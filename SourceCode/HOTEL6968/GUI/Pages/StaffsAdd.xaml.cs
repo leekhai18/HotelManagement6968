@@ -75,7 +75,7 @@ namespace HOTEL6968.GUI.Pages
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            if (txtId.Text != "" && txtFullName.Text != "" && txtIdentityCard.Text != "" && checkboxAgree.IsChecked == true)
+            if (txtId.Text != "" && txtFullName.Text != "" && txtIdentityCard.Text != "" && checkboxAgree.IsChecked == true && cmbPosition.Text != "" && txtImageSource.Text != "")
             {
                 var resultDialog = ModernDialog.ShowMessage("Bạn có chắc chắn muốn thêm " + txtFullName.Text, "Xác nhận", MessageBoxButton.YesNo);
 
@@ -85,17 +85,17 @@ namespace HOTEL6968.GUI.Pages
                     string idPos = "";
                     switch (cmbPosition.Text)
                     {
-                        case "Receptionists":
+                        case "Tiếp tân":
                             {
                                 idPos = "CV01";
                                 break;
                             }
-                        case "Manager":
+                        case "Quản lí":
                             {
                                 idPos = "CV03";
                                 break;
                             }
-                        case "Other":
+                        case "Khác":
                             {
                                 idPos = "CV02";
                                 break;

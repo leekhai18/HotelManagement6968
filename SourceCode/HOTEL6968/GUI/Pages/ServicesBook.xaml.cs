@@ -72,6 +72,10 @@ namespace HOTEL6968.GUI.Pages
                 MainWindow.bookingServiceWindow.Close();
                 ModernDialog.ShowMessage("Bạn đã thành công", "Thành công", MessageBoxButton.OK);
             }
+            else
+            {
+                ModernDialog.ShowMessage("Mời bạn chọn phòng", "Thông báo", MessageBoxButton.OK);
+            }
         }
 
         private void txtValueQuantity_TextChanged(object sender, TextChangedEventArgs e)

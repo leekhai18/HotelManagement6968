@@ -65,25 +65,25 @@ namespace HOTEL6968.BUS
                 case "0": //Standard
                     {
                         imageSource = roomDAL.FindImageSource("STD");
-                        imageKindOfRoom.Source = new BitmapImage(new Uri ("pack://application:,,,/HOTEL6968;component" + imageSource));
+                        imageKindOfRoom.Source = new BitmapImage(new Uri ("pack://application:,,,/HotelManagement;component" + imageSource));
                         break;
                     }
                 case "1": //Suite
                     {
                         imageSource = roomDAL.FindImageSource("SUI");
-                        imageKindOfRoom.Source = new BitmapImage(new Uri("pack://application:,,,/HOTEL6968;component" + imageSource));
+                        imageKindOfRoom.Source = new BitmapImage(new Uri("pack://application:,,,/HotelManagement;component" + imageSource));
                         break;
                     }
                 case "2": //Superior
                     {
                         imageSource = roomDAL.FindImageSource("SUP");
-                        imageKindOfRoom.Source = new BitmapImage(new Uri("pack://application:,,,/HOTEL6968;component" + imageSource));
+                        imageKindOfRoom.Source = new BitmapImage(new Uri("pack://application:,,,/HotelManagement;component" + imageSource));
                         break;
                     }
                 case "3": //VIP
                     {
                         imageSource = roomDAL.FindImageSource("VIP");
-                        imageKindOfRoom.Source = new BitmapImage(new Uri("pack://application:,,,/HOTEL6968;component" + imageSource));
+                        imageKindOfRoom.Source = new BitmapImage(new Uri("pack://application:,,,/HotelManagement;component" + imageSource));
                         break;
                     }
                 default:

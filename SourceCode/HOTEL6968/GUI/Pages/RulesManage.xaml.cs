@@ -39,12 +39,20 @@ namespace HOTEL6968.GUI.Pages
 
         private void btnSaveDetailRoom_Click(object sender, RoutedEventArgs e)
         {
-            var resultDialog = ModernDialog.ShowMessage("Bạn có chắn chắn muốn thay đổi giá phòng " + cmbKindOfRoom.Text, "Xác nhận", MessageBoxButton.OKCancel);
-
-            if (resultDialog == MessageBoxResult.OK)
+            if (txtRate.Text != "" && cmbKindOfRoom.Text != "")
             {
-                ruleBUS.UpdateRateRoom(idKind, Convert.ToDecimal(txtRate.Text));         
+                var resultDialog = ModernDialog.ShowMessage("Bạn có chắn chắn muốn thay đổi giá phòng " + cmbKindOfRoom.Text, "Xác nhận", MessageBoxButton.OKCancel);
+
+                if (resultDialog == MessageBoxResult.OK)
+                {
+                    ModernDialog.ShowMessage("Bạn đã lưu thành công", "Thành công", MessageBoxButton.OK);
+                    ruleBUS.UpdateRateRoom(idKind, Convert.ToDecimal(txtRate.Text));
+                }
             }
+            else
+            {
+                ModernDialog.ShowMessage("Mời bạn nhập giá trị", "Thông báo", MessageBoxButton.OK);
+            }              
         }
 
         private void cmbKindOfRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -72,11 +80,19 @@ namespace HOTEL6968.GUI.Pages
 
         private void btnSaveDetailSurchageRoom_Click(object sender, RoutedEventArgs e)
         {
-            var resultDialog = ModernDialog.ShowMessage("Bạn có chắn chắn muốn thay đổi phụ thu " + cmbKindOfRoom.Text, "Xác nhận", MessageBoxButton.OKCancel);
-
-            if (resultDialog == MessageBoxResult.OK)
+            if (txtSurForeign.Text != "" && txtSurNumberCus.Text != "")
             {
-                ruleBUS.UpdateSurchage(txtSurNumberCus.Text, txtSurForeign.Text);
+                var resultDialog = ModernDialog.ShowMessage("Bạn có chắn chắn muốn thay đổi phụ thu", "Xác nhận", MessageBoxButton.OKCancel);
+
+                if (resultDialog == MessageBoxResult.OK)
+                {
+                    ModernDialog.ShowMessage("Bạn đã lưu thành công", "Thành công", MessageBoxButton.OK);
+                    ruleBUS.UpdateSurchage(txtSurNumberCus.Text, txtSurForeign.Text);
+                }
+            }
+            else
+            {
+                ModernDialog.ShowMessage("Mời bạn nhập giá trị, nếu không có phụ thu mời nhập 0", "Thông báo", MessageBoxButton.OK);
             }
         }
 
