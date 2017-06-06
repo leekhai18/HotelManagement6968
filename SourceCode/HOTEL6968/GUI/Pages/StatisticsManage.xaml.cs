@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -99,6 +100,12 @@ namespace HOTEL6968.GUI.Pages
                 //FixedDocumentSequence fixedDocSeq = xpsDocument.GetFixedDocumentSequence();
                 //pDialog.PrintDocument(fixedDocSeq.DocumentPaginator, "Test print job");
             }
+        }
+
+        private void txtYear_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
         }
     }
 }

@@ -57,7 +57,8 @@
                     </StackPanel>
                     <StackPanel>
                         <Label Content="CMND" Target="{Binding ElementName=txtIdentityCard}"/>
-                        <TextBox x:Name="txtIdentityCard" Width="200" Text="{Binding IdentityCard, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                        <TextBox x:Name="txtIdentityCard" Width="200" Text="{Binding IdentityCard, Mode=TwoWay, ValidatesOnDataErrors=True}" 
+                                 PreviewTextInput="txtIdentityCard_PreviewTextInput"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Giới tính" Target="{Binding ElementName=RadioGendeMale}"/>
@@ -81,7 +82,7 @@
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Số điện thoại" Target="{Binding ElementName=txtPhoneNum}"/>
-                        <TextBox x:Name="txtPhoneNum" Width="200"/>
+                        <TextBox x:Name="txtPhoneNum" Width="200" PreviewTextInput="txtPhoneNum_PreviewTextInput"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Email" Target="{Binding ElementName=txtEmail}"/>

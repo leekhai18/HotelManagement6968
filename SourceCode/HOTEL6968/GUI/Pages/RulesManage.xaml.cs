@@ -85,14 +85,15 @@ namespace HOTEL6968.GUI.Pages
             if (txtSurNumberCus.Text.Contains(".") == true)
             {
                 if (e.Text == ".")
+                {
                     e.Handled = true;
+                    return;
+                }
             }
-            else
-            {
-                var regex = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
 
-                e.Handled = !regex.IsMatch(e.Text);
-            }
+            var regex = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
+
+            e.Handled = !regex.IsMatch(e.Text);
         }
 
         private void txtSurForeign_PreviewTextInput(object sender, TextCompositionEventArgs e)

@@ -24,7 +24,6 @@ namespace HOTEL6968.BUS
                 List<Link> listLink = new List<Link>();
                 listLink.Add(new Link() { DisplayName = "Quản lí", Source = new Uri("GUI/Pages/RoomsManage.xaml", UriKind.Relative) });
                 listLink.Add(new Link() { DisplayName = "Đặt", Source = new Uri("GUI/Pages/RoomsBook.xaml", UriKind.Relative) });
-                listLink.Add(new Link() { DisplayName = "Trả", Source = new Uri("GUI/Pages/RoomsPay.xaml", UriKind.Relative) });
                 listLink.Add(new Link() { DisplayName = "Thêm", Source = new Uri("GUI/Pages/RoomsAdd.xaml", UriKind.Relative) });
                 menuGroup.Add(mainWd, "Phòng", listLink.Count, listLink);
 
